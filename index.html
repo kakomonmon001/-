@@ -629,7 +629,8 @@
     YEAR_DATA[y].questions.forEach(function(q, i){ q.id = i + 1; });
   });
 
-  var currentYear = Object.keys(YEAR_DATA)[0];
+  var YEAR_ORDER = ["2026", "2025"];
+  var currentYear = YEAR_ORDER[0];
   var CATS = [];
 
   function getQuestions(){ return YEAR_DATA[currentYear].questions; }
@@ -766,7 +767,7 @@
   function renderYearChips(){
     var wrap = document.getElementById('yearChips');
     wrap.innerHTML = '';
-    Object.keys(YEAR_DATA).forEach(function(y){
+    YEAR_ORDER.forEach(function(y){
       var b = document.createElement('button');
       b.className = 'chip';
       b.type = 'button';

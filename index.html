@@ -1,0 +1,1125 @@
+<title>甲種4類 警戒区域</title>
+<meta name="description" content="消防設備士 甲種4類の過去問45問をスマホでタップして解ける一問一答クイズ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  :root{
+    --bg:#f2ede2;
+    --surface:#fdfbf6;
+    --surface-2:#ece5d5;
+    --ink:#211d19;
+    --muted:#726b5f;
+    --border:#d9d0bd;
+    --accent:#b6392a;
+    --accent-ink:#fdfbf6;
+    --amber:#c98a1f;
+    --ok:#3c7d55;
+    --ok-bg:#e4efe4;
+    --ng:#b6392a;
+    --ng-bg:#f6e6e1;
+    --shadow: 0 1px 0 rgba(33,29,25,.04), 0 8px 20px -12px rgba(33,29,25,.35);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18191a;
+      --surface:#221f1c;
+      --surface-2:#2b2724;
+      --ink:#efe9e0;
+      --muted:#a89f92;
+      --border:#3a352f;
+      --accent:#e2604e;
+      --accent-ink:#1b120f;
+      --amber:#e0a83f;
+      --ok:#5cb37c;
+      --ok-bg:#203025;
+      --ng:#e2604e;
+      --ng-bg:#352220;
+      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18191a;
+    --surface:#221f1c;
+    --surface-2:#2b2724;
+    --ink:#efe9e0;
+    --muted:#a89f92;
+    --border:#3a352f;
+    --accent:#e2604e;
+    --accent-ink:#1b120f;
+    --amber:#e0a83f;
+    --ok:#5cb37c;
+    --ok-bg:#203025;
+    --ng:#e2604e;
+    --ng-bg:#352220;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans JP',system-ui,'Hiragino Sans','Yu Gothic',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:16px;
+    padding-block:20px 40px;
+    display:flex;
+    justify-content:center;
+  }
+  .app{
+    width:100%;
+    max-width:460px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  h1,h2,h3{font-family:'Zen Kaku Gothic New',sans-serif; text-wrap:balance; margin:0;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+
+  /* ---- panel header : 受信機っぽい表示 ---- */
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:16px 18px;
+  }
+  header.panel{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    position:sticky;
+    top:12px;
+    z-index:5;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .led{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--ok);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent);
+    flex:none;
+  }
+  .led.idle{background:var(--muted); box-shadow:0 0 0 3px color-mix(in srgb, var(--muted) 20%, transparent);}
+  .brand-text{display:flex; flex-direction:column; line-height:1.15;}
+  .brand-text .title{font-family:'Zen Kaku Gothic New'; font-weight:900; font-size:14px; letter-spacing:.02em;}
+  .brand-text .sub{font-size:11px; color:var(--muted); letter-spacing:.04em;}
+  .zone-readout{
+    font-family:'JetBrains Mono'; font-weight:700; font-size:13px;
+    background:var(--surface-2); border:1px solid var(--border);
+    border-radius:8px; padding:6px 10px; white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  .zone-readout .slash{color:var(--muted); margin:0 2px;}
+
+  .progress-track{
+    height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .progress-fill{height:100%; background:var(--accent); border-radius:99px; transition:width .3s ease;}
+
+  /* ---- start screen ---- */
+  .hero{
+    padding:22px 20px 20px;
+  }
+  .hero .eyebrow{
+    font-size:11px; letter-spacing:.12em; color:var(--accent); font-weight:700;
+    text-transform:uppercase; margin-bottom:8px;
+  }
+  .hero h1{font-size:23px; font-weight:900; margin-bottom:6px;}
+  .hero p{color:var(--muted); font-size:13.5px; line-height:1.7; margin:0 0 16px;}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:18px;}
+  .stat{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
+    padding:10px 8px; text-align:center;
+  }
+  .stat b{display:block; font-family:'JetBrains Mono'; font-size:18px; font-weight:700;}
+  .stat span{font-size:10.5px; color:var(--muted);}
+
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px;}
+
+  .cat-list{display:flex; flex-direction:column; gap:8px; margin-bottom:18px;}
+  .cat-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink); cursor:pointer; font-family:inherit;
+    text-align:left; transition:border-color .15s, background .15s;
+  }
+  .cat-row[aria-pressed="true"]{
+    border-color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 9%, var(--surface));
+  }
+  .cat-row .name{font-size:13.5px; font-weight:700;}
+  .cat-row .count{
+    font-family:'JetBrains Mono'; font-size:11px; font-weight:500; color:var(--muted);
+    margin-left:6px; font-variant-numeric:tabular-nums;
+  }
+  .cat-row .best{
+    font-family:'JetBrains Mono'; font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums;
+    flex:none;
+  }
+  .cat-row .best.full{color:var(--ok); font-weight:700;}
+  .chip{
+    font-size:12.5px; padding:7px 12px; border-radius:99px; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink); cursor:pointer; font-weight:500;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--accent); border-color:var(--accent); color:var(--accent-ink);
+  }
+
+  button.primary{
+    width:100%; padding:14px; border-radius:12px; border:none;
+    background:var(--accent); color:var(--accent-ink); font-weight:700; font-size:15px;
+    font-family:'Zen Kaku Gothic New'; letter-spacing:.02em; cursor:pointer;
+    box-shadow:0 6px 16px -8px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+  button.primary:active{transform:translateY(1px);}
+  button.ghost{
+    width:100%; padding:12px; border-radius:12px; border:1px solid var(--border);
+    background:transparent; color:var(--ink); font-weight:700; font-size:14px;
+    font-family:'Zen Kaku Gothic New'; cursor:pointer;
+  }
+  button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---- question card ---- */
+  .q-card{padding:20px 18px;}
+  .q-tag{
+    display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--muted);
+    font-weight:700; letter-spacing:.03em; margin-bottom:10px;
+  }
+  .q-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--amber);}
+  .q-text{font-size:16px; line-height:1.75; font-weight:700; margin-bottom:16px; text-wrap:balance;}
+  .weak-toggle{
+    font-size:11.5px; font-weight:700; padding:5px 11px; border-radius:99px; flex:none;
+    border:1px solid var(--border); background:var(--surface); color:var(--muted);
+    cursor:pointer; font-family:inherit; transition:border-color .15s, background .15s, color .15s;
+  }
+  .weak-toggle[aria-pressed="true"]{
+    border-color:var(--amber); color:var(--amber);
+    background:color-mix(in srgb, var(--amber) 16%, var(--surface));
+  }
+  .weak-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%;
+    padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--surface);
+    color:var(--ink); cursor:pointer; font-family:inherit; text-align:left; margin-bottom:18px;
+  }
+  .weak-row[disabled]{opacity:.5; cursor:not-allowed;}
+  .weak-row .name{font-size:13.5px; font-weight:700;}
+  .weak-row .count{font-family:'JetBrains Mono'; font-size:12px; color:var(--muted); flex:none; font-variant-numeric:tabular-nums;}
+
+  .choices{display:flex; flex-direction:column; gap:9px;}
+  .choice{
+    display:flex; align-items:flex-start; gap:10px;
+    text-align:left; width:100%; padding:12px 13px; border-radius:12px;
+    border:1px solid var(--border); background:var(--surface); color:var(--ink);
+    font-size:14px; line-height:1.55; cursor:pointer; font-family:inherit;
+    transition:border-color .15s, background .15s;
+  }
+  .choice .num{
+    font-family:'JetBrains Mono'; font-weight:700; font-size:12px; color:var(--muted);
+    background:var(--surface-2); border-radius:6px; width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px;
+  }
+  .choice:not(:disabled):active{background:var(--surface-2);}
+  .choice:disabled{cursor:default;}
+  .choice.correct{border-color:var(--ok); background:var(--ok-bg);}
+  .choice.correct .num{background:var(--ok); color:var(--accent-ink);}
+  .choice.wrong{border-color:var(--ng); background:var(--ng-bg);}
+  .choice.wrong .num{background:var(--ng); color:var(--accent-ink);}
+
+  .feedback{
+    margin-top:14px; padding:13px 14px; border-radius:12px; border:1px solid var(--border);
+    background:var(--surface-2); font-size:13.5px; line-height:1.75;
+  }
+  .feedback .verdict{
+    display:flex; align-items:center; gap:7px; font-weight:900; font-family:'Zen Kaku Gothic New';
+    margin-bottom:6px; font-size:14px;
+  }
+  .feedback.correct .verdict{color:var(--ok);}
+  .feedback.wrong .verdict{color:var(--ng);}
+  .feedback p{margin:0; color:var(--ink);}
+
+  .nav-row{display:flex; gap:10px; margin-top:16px;}
+  .nav-row button.primary{flex:1;}
+
+  .numeric-row{display:flex; align-items:center; gap:10px;}
+  .numeric-row input{
+    width:88px; padding:12px; border-radius:12px; border:1px solid var(--border);
+    background:var(--surface); color:var(--ink); font-size:18px; font-family:'JetBrains Mono';
+    text-align:center; font-variant-numeric:tabular-nums;
+  }
+  .numeric-row input:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .numeric-row span{font-size:13px; color:var(--muted); font-weight:700;}
+  .numeric-row button{flex:1;}
+
+  .reveal-box{
+    padding:14px 15px; border-radius:12px; border:1px dashed var(--border);
+    background:var(--surface-2); font-size:13.5px; line-height:1.85; color:var(--ink);
+  }
+  .reveal-box b{font-family:'Zen Kaku Gothic New';}
+
+  /* ---- result screen ---- */
+  .score-hero{padding:26px 20px; text-align:center;}
+  .score-hero .big{
+    font-family:'JetBrains Mono'; font-weight:700; font-size:44px; line-height:1;
+    margin:6px 0 4px;
+  }
+  .score-hero .pct{color:var(--muted); font-size:13px;}
+  .verdict-msg{
+    margin-top:14px; padding:12px 14px; border-radius:10px; background:var(--surface-2);
+    font-size:13px; line-height:1.7; text-align:left; color:var(--ink);
+  }
+
+  .cat-bars{display:flex; flex-direction:column; gap:10px;}
+  .cat-bar-row{display:flex; align-items:center; gap:10px;}
+  .cat-bar-row .name{font-size:12px; width:104px; flex:none; color:var(--muted);}
+  .cat-bar-track{flex:1; height:8px; background:var(--surface-2); border-radius:99px; overflow:hidden; border:1px solid var(--border);}
+  .cat-bar-fill{height:100%; background:var(--accent); border-radius:99px;}
+  .cat-bar-row .frac{font-family:'JetBrains Mono'; font-size:11.5px; color:var(--muted); width:34px; text-align:right; flex:none;}
+
+  .miss-list{display:flex; flex-wrap:wrap; gap:6px;}
+  .miss-pill{
+    font-family:'JetBrains Mono'; font-size:12px; font-weight:700; padding:5px 9px;
+    border-radius:8px; background:var(--ng-bg); color:var(--ng); border:1px solid transparent;
+  }
+
+  .result-actions{display:flex; flex-direction:column; gap:9px;}
+
+  footer{text-align:center; font-size:11px; color:var(--muted); padding-top:6px; line-height:1.8;}
+
+  [hidden]{display:none !important;}
+
+  @media (prefers-reduced-motion: reduce){
+    .progress-fill{transition:none;}
+  }
+</style>
+
+<div class="app">
+
+  <header class="panel" id="topbar">
+    <div class="brand">
+      <span class="led idle" id="led"></span>
+      <div class="brand-text">
+        <span class="title">消防設備士 甲種4類</span>
+        <span class="sub">過去問クイズ</span>
+      </div>
+    </div>
+    <div class="zone-readout" id="zoneReadout" aria-hidden="true">--<span class="slash">/</span>--</div>
+  </header>
+
+  <div class="panel" id="progressPanel" hidden style="padding:12px 16px;">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- ============ START SCREEN ============ -->
+  <section class="panel hero" id="screenStart">
+    <div style="margin-bottom:10px; font-size:12px; color:var(--muted); font-weight:700;">年度を選ぶ</div>
+    <div class="chip-row" id="yearChips" style="margin-bottom:18px;"></div>
+
+    <h1 id="heroTitle">2026年度 過去問</h1>
+    <p>消防設備士 甲種4類の過去問<span id="heroCount">45</span>問。1問ずつタップして解答すると、その場で正誤や解説が表示されます。</p>
+
+    <div class="stat-row">
+      <div class="stat"><b class="mono" id="statCount">45</b><span>収録問題数</span></div>
+      <div class="stat"><b class="mono" id="statCats">5</b><span>出題分野</span></div>
+      <div class="stat">
+        <b class="mono" id="bestScore">--</b><span>自己ベスト</span>
+        <button type="button" id="resetBestBtn" style="display:block; margin:4px auto 0; font-size:9.5px; color:var(--muted); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline; font-family:inherit;">リセット</button>
+      </div>
+    </div>
+    <p style="font-size:11px; color:var(--muted); margin:-6px 0 18px; line-height:1.6;">※実際の試験は学科45問+実技7問(鑑別等5問・製図2問)です。実技は1問に複数の設問(A〜Dなど)を含むため、アプリでは解きやすいように16項目に分割して収録しています。</p>
+
+    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+      <span style="font-size:12px; color:var(--muted); font-weight:700;">出題範囲を選ぶ・分野別ベスト</span>
+      <button type="button" id="selectAllCats" style="font-size:11px; color:var(--accent); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline; font-family:inherit;">すべて解除</button>
+    </div>
+    <div class="cat-list" id="categoryChips"></div>
+    <button type="button" id="resetCatBestBtn" style="display:block; margin:6px 0 18px auto; font-size:10.5px; color:var(--muted); background:none; border:none; padding:0; cursor:pointer; text-decoration:underline; font-family:inherit;">分野別ベストをリセット</button>
+
+    <div style="margin-bottom:10px; font-size:12px; color:var(--muted); font-weight:700;">出題順</div>
+    <div class="chip-row" id="orderChips" style="margin-bottom:18px;">
+      <button class="chip" data-order="seq" type="button" aria-pressed="true">問1から順番</button>
+      <button class="chip" data-order="random" type="button" aria-pressed="false">ランダム順</button>
+    </div>
+
+    <button type="button" class="weak-row" id="reviewListBtn" disabled style="margin-bottom:10px;">
+      <span class="name">📖 復習リストを解く</span>
+      <span class="count" id="reviewCount">0問</span>
+    </button>
+    <button type="button" class="weak-row" id="weakListBtn" disabled>
+      <span class="name">⭐ 苦手リストを解く</span>
+      <span class="count" id="weakCount">0問</span>
+    </button>
+
+    <button class="primary" id="startBtn">出題開始</button>
+  </section>
+
+  <!-- ============ QUESTION SCREEN ============ -->
+  <section class="panel q-card" id="screenQuiz" hidden>
+    <button class="ghost" id="backTopBtn" style="width:auto; padding:7px 12px; font-size:12px; margin-bottom:14px;">← トップに戻る</button>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
+      <div class="q-tag" style="margin-bottom:0;"><span class="dot"></span><span id="qCat">法令</span></div>
+      <button type="button" class="weak-toggle" id="weakToggleBtn" aria-pressed="false">☆ 苦手</button>
+    </div>
+    <div class="q-text" id="qText"></div>
+    <img id="qImage" alt="" hidden style="display:block; width:100%; max-height:60vh; object-fit:contain; border-radius:10px; border:1px solid var(--border); margin-bottom:14px; background:#fff;">
+    <div class="choices" id="qChoices"></div>
+    <div id="qBody"></div>
+    <div class="feedback" id="feedback" hidden>
+      <div class="verdict" id="verdictText"></div>
+      <p id="explainText"></p>
+      <button type="button" class="ghost" id="reviewRemoveBtn" hidden style="width:auto; padding:8px 14px; font-size:12px; margin-top:10px;">📖 復習リストから外す</button>
+    </div>
+    <div class="nav-row">
+      <button class="ghost" id="prevBtn" hidden style="flex:none; width:auto; padding:14px 16px;">← 前の問題</button>
+      <button class="primary" id="nextBtn" hidden>次の問題へ</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULT SCREEN ============ -->
+  <section id="screenResult" hidden style="display:flex; flex-direction:column; gap:14px;">
+    <div class="panel score-hero">
+      <div class="eyebrow" style="text-align:center;">演習終了</div>
+      <div class="big mono"><span id="resScore">0</span><span style="font-size:22px;color:var(--muted);">&nbsp;/&nbsp;<span id="resTotal">45</span></span></div>
+      <div class="pct mono" id="resPct">0%</div>
+      <div class="verdict-msg" id="verdictMsg"></div>
+    </div>
+
+    <div class="panel">
+      <h3 style="font-size:13px; margin-bottom:12px; color:var(--muted); letter-spacing:.03em;">分野別 正答率</h3>
+      <div class="cat-bars" id="catBars"></div>
+    </div>
+
+    <div class="panel" id="missPanel">
+      <h3 style="font-size:13px; margin-bottom:12px; color:var(--muted); letter-spacing:.03em;">要復習の問題</h3>
+      <div class="miss-list" id="missList"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="primary" id="retryMissBtn">間違えた問題だけ復習する</button>
+      <button class="ghost" id="restartBtn">最初からやり直す</button>
+    </div>
+  </section>
+
+  <footer>青木マーケ(株)「過去問テスト」甲種4類 2026年度版をもとに作成 / 個人学習用</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var YEAR_DATA = {
+   "2026": {
+    label: "2026年度",
+    questions: [
+    {cat:"法令共通", q:"消防法令に定める「関係者」として、誤っているものは次のうちどれか。", c:["防火対象物の管理者","消防対象物の所有者","防火対象物の防火管理者","消防対象物の占有者"], a:2, ex:"関係者とは防火対象物・消防対象物の「所有者・管理者・占有者」を指す。防火管理者は原則として関係者には含まれない(関係者が防火管理者を兼ねる場合を除く)。"},
+    {cat:"法令共通", q:"消防用設備等に関する記述として消防法令上、正しいものは次のうちどれか。", c:["設置義務は学校・病院・旅館等の不特定多数が出入する防火対象物に限られる","一戸建て住宅も一定規模を超えれば設置義務がある","消防用設備等とは消防の用に供する設備及び消火活動上必要な施設をいう","政令で定める防火対象物の関係者は、政令で定める技術上の基準に従って設置・維持する義務がある"], a:3, ex:"非特定防火対象物にも設置義務はあり(①誤り)、一戸建て住宅に設置義務はなく(②誤り)、消防用設備等は「消防の用に供する設備・消防用水・消火活動上必要な施設」の3つを指す(③誤り)。④が正しい。"},
+    {cat:"法令共通", q:"防火対象物の用途が変更された場合の技術上の基準の適用について、消防法令上、誤っているものは次のうちどれか。", c:["原則そのままでよいが、一定規模以上の増改築時は変更後の基準に適合させる","変更前の設備が基準違反だった場合は変更後の基準に適合させる","変更後が特定防火対象物に該当する場合は変更後の基準に適合させる","変更後に不要となった設備は撤去する等して機能を停止させなければならない"], a:3, ex:"既存遡及(用途変更後も現行基準を適用する)となるのは「元々違反」「一定規模の増改築等」「元々適合」「特定防火対象物」の4パターン。④のような規定はない。"},
+    {cat:"法令共通", q:"工事整備対象設備等着工届出書による届出が必要になる消防用設備等として、正しいものは次のうちどれか。", c:["誘導灯","消防機関へ通報する火災報知設備","非常警報設備","漏電火災警報器"], a:1, ex:"着工届が必要なのは屋内外消火栓・スプリンクラー・水噴霧/泡/不活性ガス/ハロゲン化物/粉末消火設備・自火報・ガス漏れ火災警報設備・消防機関へ通報する火災報知設備・金属製避難はしご(固定式)・救助袋・緩降機など。誘導灯・非常警報設備・漏電火災警報器は対象外。"},
+    {cat:"法令共通", q:"消防用設備等の点検結果を消防長等へ報告する期間として、消防法令上、正しい組合せは次のうちどれか。", c:["映画館(特定防火対象物) ‥3年に1回","ホテル(特定防火対象物) ‥2年に1回","病院(特定防火対象物) ‥1年に1回","百貨店(特定防火対象物) ‥6ヶ月に1回"], a:2, ex:"報告周期は特定防火対象物=1年に1回、非特定防火対象物=3年に1回。映画館・ホテル・百貨店はいずれも特定防火対象物なので1年に1回が正しい。"},
+    {cat:"法令共通", q:"「消防設備士は、【ア】日以後における最初の4月1日から【イ】以内に講習を受けなければならない」。ア・イの正しい組合せはどれか。", c:["従事することとなった／2年","免状の交付を受けた／5年","従事することとなった／5年","免状の交付を受けた／2年"], a:3, ex:"免状交付日以後最初の4月1日から2年以内に初回講習、以後は講習を受けた日以後最初の4月1日から5年以内ごとに受講する。業務に従事していなくても受講義務がある。"},
+    {cat:"法令共通", q:"消防設備士免状の再交付・書換えの申請について、消防法令上、正しいものは次のうちどれか。", c:["書換えは免状を交付・再交付した都道府県知事に限り申請できる","再交付は免状の交付または書換えをした都道府県知事に限り申請できる","免状写真が撮影日から10年経過する前に、消防長等に書換えを申請しなければならない","亡失後に再交付を受けた者は、発見した亡失免状を10日以内に消防長等に提出しなければならない"], a:1, ex:"書換えは「交付した知事」「居住地・勤務地の知事」にも申請可(①は限定しすぎで誤り)。書換え・再交付の申請先はいずれも都道府県知事であり消防長等ではない(③誤り)。④は提出先が「再交付の申請をした都道府県知事」であり、提出するのは発見した元の免状(誤り)。②が正しい。"},
+    {cat:"法令共通", q:"防火管理者を定めなければならないものの組合せとして、正しいものは次のうちどれか(ア:老人短期入所施設10人 イ:飲食店20人 ウ:物品販売店舗30人 エ:事務所40人)。", c:["ア、イ","ウ、エ","ア、ウ","イ、エ"], a:2, ex:"(6)項ロの福祉施設等は収容人員10人以上、特定防火対象物は30人以上、非特定防火対象物は50人以上で選任義務が生じる。アは福祉施設10人で該当、ウは特定防火対象物30人で該当。イは特定防火対象物20人・エは非特定40人でいずれも未満のため非該当。"},
+    {cat:"法令(類別)", q:"次の防火対象物のうち、自動火災報知設備を設置しなければならないものはどれか(いずれも耐火構造・地上2階・無窓階なし)。", c:["延べ200㎡の宿泊有り保育所(6項ハ)","延べ200㎡のナイトクラブ(2項イ)","延べ400㎡の公衆浴場(9項ロ)","延べ400㎡の映画スタジオ(12項ロ)"], a:0, ex:"利用者を入居・宿泊させる(6)項ハは、延べ面積に関わらず自動火災報知設備の設置義務がある。"},
+    {cat:"法令(類別)", q:"「建築物の地階・無窓階または3階以上の階で床面積が【】㎡以上のものは自動火災報知設備を設置すること」。【】に入る数値はどれか。", c:["50","100","150","300"], a:3, ex:"消防法施行令21条1項11号の規定により300㎡以上。"},
+    {cat:"法令(類別)", q:"閉鎖型スプリンクラーヘッド(75℃以下・1種)設置済みの有効範囲でも、自動火災報知設備の設置を省略できない防火対象物の部分はどれか。", c:["図書館の倉庫","事務所の廊下","工場の食堂","倉庫の荷さばき室"], a:1, ex:"省略不可となるのは「特定防火対象物」「煙感知器の設置を要する部分」「地階・無窓階・11階以上」。廊下は煙感知器の設置を要する部分にあたるため省略できない。"},
+    {cat:"法令(類別)", q:"博物館・無窓階の展示室(取付け面高さ4m未満)に設置する感知器として、誤っているものはどれか。", c:["定温式スポット型(2種)","光電式スポット型(3種)","差動式スポット型(1種)","補償式スポット型(1種)"], a:0, ex:"無窓階・地階・11階以上の階では、定温式スポット型は特種または1種(公称作動温度75℃以下)のみ設置可で、2種は設置できない。"},
+    {cat:"法令(類別)", q:"地区音響装置の区分鳴動(延べ面積5,000㎡)で、1階が出火階の場合の正しい警報範囲はどれか。", c:["出火階と直上階のみ","出火階・直上階・地階すべて","出火階と地階の一部のみ","出火階のみ"], a:1, ex:"区分鳴動の基本は「しゅっかちょく(出火階と直上階)」。ただし例外として1階出火時は出火階・直上階に加えて「地階すべて」が警報対象になる(地階出火時は出火階・直上階・その他の地階すべて)。"},
+    {cat:"法令(類別)", q:"ガス漏れ火災警報設備を設置しなければならない防火対象物として、正しいものは次のうちどれか。", c:["複合用途地階1,000㎡(美術館部分600㎡)","映画館の地階で床面積1,000㎡", "地下街で延べ面積800㎡","準地下街で延べ面積900㎡(飲食店部分500㎡)"], a:1, ex:"地下街は延べ面積1,000㎡以上が要件(③は800㎡で対象外)。準地下街も延べ面積1,000㎡以上が要件(④は900㎡で対象外)。特定用途の地階1,000㎡以上が対象だが、①の美術館は非特定防火対象物のため対象外。映画館(特定用途)の地階1,000㎡である②が正しい。"},
+    {cat:"法令(類別)", q:"消防機関へ通報する火災報知設備の設置義務(常時通報できる電話を設置済み)として、正しいものはどれか。", c:["延べ2,500㎡の地下街","延べ2,000㎡の公会堂","延べ1,500㎡の飲食店","延べ1,000㎡の病院"], a:3, ex:"常時通報電話があっても省略できない用途は「病院・診療所」「特別養護老人ホーム等」「ホテル・旅館等」「老人デイサービス等」。病院は省略不可のため設置義務がある。"},
+
+    {cat:"電気基礎", q:"金・銀・銅・アルミニウムの抵抗率(常温20℃)を比較した場合、正しいものはどれか。", c:["金は銀より大きく銅より小さい","銀は金やアルミニウムより小さい","銅は銀やアルミニウムより小さい","アルミニウムは金や銀より小さい"], a:1, ex:"抵抗率は小さい順に「銀＜銅＜金＜アルミニウム」。銀が最小なので②が正しい。"},
+    {cat:"電気基礎", q:"R₁とR₂の抵抗を並列接続した場合、各抵抗に流れる電流の比について正しい説明はどれか。", c:["合成抵抗値からR₁を減じた値の逆数とR₂を減じた値の逆数の比に等しい","合成抵抗値にR₁を加えた値の逆数とR₂を加えた値の逆数の比に等しい","R₁の抵抗値の逆数とR₂の抵抗値の逆数の比に等しい","R₁の抵抗値とR₂の抵抗値の比に等しい"], a:2, ex:"並列回路は各抵抗にかかる電圧が同じ。I=V/Rより、電流比は抵抗値の逆数の比になる。"},
+    {cat:"電気基礎", q:"R₁=10Ω・R₂=10Ωを並列接続し、直列にR₃=5Ωを接続した回路。A-B間に100Vを加えた場合、R₁に流れる電流は次のうちどれか。", c:["5A","6A","8A","10A"], a:0, ex:"並列合成抵抗5Ω+R₃5Ω=合計10Ω。全電流=100V÷10Ω=10A。R₁とR₂は同じ抵抗値なので均等に分流し、R₁には5Aが流れる。"},
+    {cat:"電気基礎", q:"4個の抵抗(3Ω・6Ω・2Ω・4Ω)からなるブリッジ回路のA-C間に直流12Vを加えたとき、B-D間の電圧として正しいものはどれか。", c:["0V","1V","2V","3V"], a:0, ex:"3Ω×4Ω=2Ω×6Ω(=12)でホイートストンブリッジの平衡条件(R₁R₄=R₂R₃)を満たすため、B-D間電圧は0V。"},
+    {cat:"電気基礎", q:"「磁界中の導体に電流を流すと働く力を【ア】といい、その向きは【イ】に従う」。ア・イの正しい組合せはどれか。", c:["起磁力／フレミングの右手の法則","起磁力／フレミングの左手の法則","電磁力／フレミングの右手の法則","電磁力／フレミングの左手の法則"], a:3, ex:"電流と磁界の間に働く力は「電磁力」、その向きは「フレミングの左手の法則」に従う(親指=力、人差指=磁界、中指=電流)。"},
+    {cat:"電気基礎", q:"静電容量C〔F〕のコンデンサに直流電圧V〔V〕を加えたとき、蓄えられるエネルギーW〔J〕の式として正しいものはどれか。", c:["W＝CV","W＝CV²","W＝½CV","W＝½CV²"], a:3, ex:"コンデンサの蓄積エネルギーはW=(電荷)×(平均電圧)=Q・V/2=CV・V/2=½CV²。"},
+    {cat:"電気基礎", q:"「同じ抵抗に対して同じ電力を消費する直流の電圧・電流の大きさに換算した値」を何というか。", c:["最大値","平均値","実効値","瞬時値"], a:2, ex:"直流換算で同等の効果を表す値が実効値。最大値は波の頂点、平均値は1周期平均(正弦波では0)、瞬時値はある瞬間の値。"},
+    {cat:"電気基礎", q:"R〔Ω〕とXL=8Ωの直列回路。A-B間に直流120Vで20A、交流200Vでも20Aが流れた。この回路の力率として正しいものはどれか。", c:["0.6","0.7","0.8","0.85"], a:0, ex:"直流よりR=120V÷20A=6Ω。交流よりZ=200V÷20A=10Ω。力率=R/Z=6/10=0.6。"},
+    {cat:"電気基礎", q:"交流の測定のみに用いられる計器はどれか。", c:["静電形計器","可動コイル形計器","電流力計形計器","誘導形計器"], a:3, ex:"誘導形計器は電磁誘導(渦電流)を利用するため交流専用。可動コイル形は直流のみ、静電形・電流力計形は交流・直流両方測定可能。"},
+    {cat:"電気基礎", q:"変圧器の一次側電圧500V・巻数20回のとき、二次側から100Vを取り出す場合、二次側の巻数として正しいものはどれか(理想変圧器とする)。", c:["4","8","25","100"], a:0, ex:"理想変圧器では電圧比=巻数比。500/100=5。二次巻数=20÷5=4。"},
+
+    {cat:"構造機能(電気)", q:"電路を遮断する機器の説明として、最も不適当なものはどれか。", c:["ヒューズは過負荷電流・短絡電流のいずれにも対応する","ブレーカはヒューズと用途は同じだが遮断後の復帰が容易","過電流継電器は過負荷電流に対して保護能力がない","大電流用遮断器にはアークを消す油遮断器・空気遮断器等がある"], a:2, ex:"過電流継電器(OCR)は過負荷電流・短絡電流の双方を検出して保護する装置であり、「保護能力がない」は誤り。"},
+    {cat:"構造機能(電気)", q:"電線の接続について、誤っているものはどれか。", c:["電線の引張強さを20%以上減少させないようにする","スリーブおよびワイヤーコネクターは使用しないようにする","接続部分は絶縁電線の絶縁物と同等以上の絶縁効力で被覆する","電線の電気抵抗を増加させないようにする"], a:1, ex:"現行の規定では専用の接続器具(スリーブ・コネクター)を用いて接続するのが正しく、「使用しない」とするのは誤り。"},
+    {cat:"構造機能(電気)", q:"金属管に収め耐火構造の壁に埋め込まなくても、耐火配線と同等と認められるものはどれか。", c:["アルミ被ケーブル","CDケーブル","MIケーブル","クロロプレン外装ケーブル"], a:2, ex:"MI(無機絶縁)ケーブルのみ、露出配線でも耐火配線として認められる。"},
+    {cat:"構造機能(電気)", q:"非火災報の原因として、最も不適当なものはどれか。", c:["感知器回路の短絡","受信機の故障","感知器種別の選定の誤り","終端器(終端抵抗)の断線"], a:3, ex:"断線は断線表示が出るだけで、非火災報(誤作動)の直接原因にはならない(短絡が非火災報の主な原因)。"},
+    {cat:"構造機能(電気)", q:"差動式分布型感知器(熱電対式)の構造の説明として、最も適当なものはどれか。", c:["異種金属接合点の熱起電力を発生させ半導体回路ユニットで検出する","熱半導体素子の大きな温度差で熱起電力を発生しメーターリレーを作動させる","2本のピアノ線を可溶絶縁物で絶縁し、溶けて接触すると発報する電線状のもの","空気管内の空気の熱膨張で熱電対の接点を閉じ発報する"], a:0, ex:"熱電対式は異種金属接合点の熱起電力(ゼーベック効果)を利用する。②は熱半導体式、③は定温式感知線型、④は空気管式の説明。"},
+    {cat:"構造機能(電気)", q:"感知器の種別と設置場所の適否について、誤っているものはどれか。", c:["じんあい・微粉多量の場所は煙感知器・熱煙複合式は不適、差動式スポット型は適", "排気ガス多量の場所は煙感知器は不適だが熱煙複合式は適", "火炎露出設備の場所は炎感知器は不適、定温式感知器は適", "水蒸気多量の場所は炎感知器は不適、熱アナログ式スポット型は適"], a:1, ex:"熱煙複合式スポット型感知器は煙感知器の機能を含むため、煙感知器が不適な場所には同様に不適となる。"},
+    {cat:"構造機能(電気)", q:"煙感知器(光電式分離型を除く)を廊下等に設置する場合、「1種・2種は【ア】距離【イ】につき1個以上」。ア・イの正しい組合せはどれか。", c:["水平／20m","歩行／20m","歩行／30m","水平／30m"], a:2, ex:"廊下・通路は歩行距離30m(3種は20m)につき1個以上の設置が必要。"},
+    {cat:"構造機能(電気)", q:"P型1級発信機の設置について、誤っているものはどれか。", c:["表示灯は屋内消火栓用表示灯と兼用できないため別に設けた", "保育所で床面から1.5mの高さに押しボタンを設けた", "接続する受信機をGR型のものとした", "各階で歩行距離50m以下となるよう設けた"], a:0, ex:"発信機の表示灯は屋内消火栓用表示灯と兼用可能。押しボタン高さ0.8~1.5m、接続受信機はP型(GP型)1級またはR型(GR型)、歩行距離50m以下はいずれも正しい規定。"},
+    {cat:"構造機能(電気)", q:"自動火災報知設備の地区音響装置の機能について、正しいものはどれか。", c:["音声警報の公称音圧は90dB以上", "音響警報の公称音圧は87dB以上", "音声切替の感知器作動警報に係る音声は男声", "音声切替の警報鳴動は信号受信時に感知器作動警報を自動的に発すること"], a:3, ex:"音声警報の公称音圧は92dB以上(①誤り)、音響警報は90dB以上(②誤り)、感知器作動警報の音声は女声(③誤り、男声は火災警報の場合)。④が正しい。"},
+    {cat:"構造機能(電気)", q:"自動火災報知設備の有線配線のうち、耐熱保護配線とする必要のない部分はどれか。", c:["受信機からアナログ式感知器までの間", "受信機から地区音響装置までの間", "受信機から発信機上部の表示灯までの間(他設備起動装置と兼用)", "受信機から発信機までの間"], a:3, ex:"感知器回路(受信機~感知器・発信機)は原則として一般配線でよい。地区音響装置回路や兼用の表示灯回路は耐熱保護配線が必要。"},
+    {cat:"構造機能(電気)", q:"ガス漏れ火災警報設備の検知器の検知方式として、最も不適当なものはどれか。", c:["半導体式", "空気管式", "接触燃焼式", "気体熱伝導度式"], a:1, ex:"空気管式は自動火災報知設備の差動式分布型感知器の方式であり、ガス漏れ検知の方式ではない。"},
+    {cat:"構造機能(電気)", q:"感知器が機能不良のときに行う試験として、誤っているものはどれか。", c:["差動式分布型(空気管式)‥火災作動試験", "差動式分布型(熱電対式)‥火災作動試験", "差動式スポット型‥加熱作動試験", "光電式スポット型‥回路導通試験"], a:3, ex:"回路導通試験は「断線の有無」を確認する試験であり、感知器そのものの機能確認ではない。光電式スポット型は加煙試験・感度試験で確認する。"},
+
+    {cat:"規格", q:"P型2級受信機の主音響装置(1m離れた位置)の音圧として、規格省令に定められているものはどれか。", c:["80dB以上", "85dB以上", "90dB以上", "95dB以上"], a:1, ex:"受信機の主音響装置は85dB以上必要(地区音響装置は90dB、音声は92dB、P型3級・ガス漏れ警報装置は70dB)。"},
+    {cat:"規格", q:"受信機の火災表示・ガス漏れ表示について、規格省令に定められていないものはどれか。", c:["GP型3級受信機の火災表示は、GP型3級に限定した保持義務として定められている", "GP型1級受信機は火災表示信号受信時、赤色の火災灯を自動表示する", "GR型受信機はガス漏れ信号受信時、黄色のガス漏れ灯を自動表示する", "GR型受信機の地区表示装置は火災とガス漏れの警戒区域を明確に識別表示する"], a:0, ex:"火災表示の保持義務は受信機一般(二信号式・アナログ式・G型を除く)に共通する規定であり、GP型3級に限定した規定ではない。②③④はいずれも規格省令の規定どおり。"},
+    {cat:"規格", q:"R型受信機(アナログ式を除く)の機能について、誤っているものはどれか。", c:["火災表示試験装置を有すること", "終端器に至る外部配線の断線を検出できる装置を有すること", "受信機から中継器に至る外部配線の短絡を検出できる装置を有すること", "注意表示の作動を容易に確認できる注意表示試験装置を有すること"], a:3, ex:"注意表示試験装置はアナログ式R型受信機に求められる機能であり、アナログ式以外の一般のR型受信機の規格には定められていない。"},
+    {cat:"規格", q:"「一局所の周囲温度が一定範囲内の温度になったとき当該温度に対応する火災情報信号を発するもので、外観が電線状以外のもの」に該当する感知器はどれか。", c:["差動式スポット型感知器", "熱複合式スポット型感知器", "熱アナログ式スポット型感知器", "補償式スポット型感知器"], a:2, ex:"温度に対応する火災情報信号(アナログ的な信号)を発するのが熱アナログ式スポット型感知器の定義。"},
+    {cat:"規格", q:"光電式スポット型感知器の構造・機能について、規格省令に定められていないものはどれか。", c:["基盤面を取付定位置から60°傾斜させても機能に異常を生じないこと", "光源は半導体素子とすること", "目開き1mm以下の網・円孔板等で虫の侵入を防止すること", "気流の方向により機能に著しい変動を生じないこと"], a:0, ex:"規格省令が定めるのは「45°傾斜させても機能異常を生じないこと」であり、60°ではない。"},
+    {cat:"規格", q:"P型2級発信機の外箱の色について、規格省令上、正しいものはどれか。", c:["外箱の色は赤色であること", "外箱の外面の50%以上を赤色仕上げとすること", "外箱の外面の25%以上を赤色仕上げとすること", "外箱の色の指定は特に定められていない"], a:0, ex:"火災報知設備の感知器及び発信機に係る技術上の規格を定める省令第32条第8号「外箱の色は、赤色であること」。"},
+    {cat:"規格", q:"中継器について、規格省令上、正しいものはどれか。", c:["火災が発生した旨の信号を他の防災設備に発信するものである", "各種信号を総合防災盤に発信するものである", "火災信号等またはガス漏れ信号を受信し、他の中継器・受信機または消火設備等に発信するものである", "設備作動信号を受信し、他の中継器・受信機または消火設備等に発信するものである"], a:2, ex:"設備作動信号を受信した場合の発信先は「他の中継器または受信機」のみで「消火設備等」は含まれない(④誤り)。③が正しい定義。"},
+    {cat:"規格", q:"火災通報装置の構造・性能等について、誤っているものはどれか。", c:["手動起動装置は手動操作で作動し、消防機関への通報を自動的に開始する", "手動起動または自火報感知器の作動との連動作動を可視的/可聴的に表示する", "電話回線が使用中であった場合は、手動で再発信できるものであること", "選択信号(119番)は10または20パルス毎秒のダイヤルパルスまたは押しボタンダイヤル信号で送出できること"], a:2, ex:"電話回線が使用中であった場合は「強制的に発信可能の状態にすることができる」ものでなければならない(手動再発信ではない)。"}
+    ]
+   }
+  };
+
+  var WORD_BANK = ["紫外線式スポット型感知器","熱煙複合式スポット型感知器","光電式スポット型感知器","ガス漏れ検知器","差動式スポット型感知器","ガス漏れ中継器","補償式スポット型感知器","定温式スポット型感知器"];
+
+  var PRACTICAL_ITEMS = [
+    {cat:"鑑別・製図", type:"reveal", img:"assets/kb1.jpg",
+      q:"[鑑別 問1] 下の写真A・Bは配線工具である。それぞれの名称と具体的な用途を答えなさい。",
+      reveal:"<b>A: ワイヤーストリッパー</b> — 絶縁電線の被覆をはぎ取ることに用いる。<br><b>B: 圧着ペンチ</b> — 電線を接続する際に、リングスリーブを用いて圧着することに用いる。"},
+    {cat:"鑑別・製図", type:"reveal", img:"assets/kb2.png",
+      q:"[鑑別 問2] 上の写真は「ある機器」と点検用器具(A～D)である。①この機器の点検に用いる器具をA～Dから選び、②その器具の名称と校正時期を答えなさい。",
+      reveal:"①<b>A</b><br>②名称: <b>加ガス試験器</b> ／ 校正時期: <b>3年</b><br>「ある機器」はガス漏れ検知器で、点検には加ガス試験器を使用する。"},
+    {cat:"鑑別・製図", type:"mc", img:"assets/kb3.jpg",
+      q:"[鑑別 問3-A] 下の写真Aの器具の名称を、語群から選びなさい。", choices:WORD_BANK, answer:"定温式スポット型感知器",
+      ex:"丸みのある形状で下部にベント(通気口)があるのが特徴。設置場所の環境に応じて特種・1種・2種を選定する。"},
+    {cat:"鑑別・製図", type:"mc", img:"assets/kb3.jpg",
+      q:"[鑑別 問3-B] 下の写真Bの器具の名称を、語群から選びなさい。", choices:WORD_BANK, answer:"ガス漏れ検知器",
+      ex:"鑑別問2と同じ外観の機器。ガス漏れ火災警報設備のガス検知部にあたる。"},
+    {cat:"鑑別・製図", type:"mc", img:"assets/kb3.jpg",
+      q:"[鑑別 問3-C] 下の写真Cの器具の名称を、語群から選びなさい。", choices:WORD_BANK, answer:"熱煙複合式スポット型感知器",
+      ex:"熱式と煙式、両方の検知機構を1台に備えたタイプ。"},
+    {cat:"鑑別・製図", type:"mc", img:"assets/kb3.jpg",
+      q:"[鑑別 問3-D] 下の写真Dの器具の名称を、語群から選びなさい。", choices:WORD_BANK, answer:"紫外線式スポット型感知器",
+      ex:"炎感知器の一種。中央にUVセンサー用のレンズ状の窓があるのが特徴。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/kb4a.png",
+      q:"[鑑別 問4-A] 下の図Aは防火対象物の平面図である。自動火災報知設備の警戒区域の数は消防法令上いくつ以上必要か。(光電式分離型感知器は設置せず、主要な出入口から内部を見通せないものとする)",
+      answer:2, unit:"以上", ex:"面積は600㎡で上限内だが、最長辺(54m)が50mを超えるため2警戒区域に分割する必要がある。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/kb4b.png",
+      q:"[鑑別 問4-B] 下の図Bについて、警戒区域の数は消防法令上いくつ以上必要か。",
+      answer:2, unit:"以上", ex:"Aと同じ考え方。面積600㎡だが最長辺60mが50mを超えるため2警戒区域が必要。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/kb4c.png",
+      q:"[鑑別 問4-C] 下の図Cについて、警戒区域の数は消防法令上いくつ以上必要か。",
+      answer:4, unit:"以上", ex:"面積1,880㎡のため600㎡×3=1,800㎡では不足し、最低4警戒区域が必要。4分割すれば一辺も50m以下に収まる。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/kb4d.png",
+      q:"[鑑別 問4-D] 下の図Dについて、警戒区域の数は消防法令上いくつ以上必要か。",
+      answer:5, unit:"以上", ex:"面積2,600㎡のため最低5警戒区域が必要。5分割すれば一辺も50m以下に収まる。"},
+    {cat:"鑑別・製図", type:"reveal", img:"assets/kb5.jpg",
+      q:"[鑑別 問5] 下の写真は、電気室高圧配線上部や空調ダクト裏側など点検が容易でない場所の感知器点検に使う器具である。①器具の名称、②対応する感知器の名称を答えなさい。",
+      reveal:"①<b>差動スポット試験器</b><br>②<b>差動式スポット型感知器</b><br>加熱試験器を直接近づけると危険な場所で、空気を送り込んで接点を作動させ点検する。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/sz1.jpg",
+      q:"[製図 問1-1] 18m×10mの部屋(感知器取付け面の高さ3.5m・耐火構造)に光電式スポット型2種を設置する。法令上の最小個数は?",
+      answer:2, unit:"個", ex:"床面積180㎡。高さ4m未満は150㎡ごとに1個 → 180÷150=1.2 → 2個。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/sz1.jpg",
+      q:"[製図 問1-2] 同じ部屋で感知器取付け面の高さが4.2mの場合、最小個数は?",
+      answer:3, unit:"個", ex:"高さ4m以上は75㎡ごとに1個 → 180÷75=2.4 → 3個。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/sz1-3.png",
+      q:"[製図 問1-3] 梁で4分割された部屋(9m+9m×6.5m+6.5m、梁の高さ0.6m以下)、取付け面高さ3.5mの場合の最小個数は?",
+      answer:2, unit:"個", ex:"床面積234㎡。梁の高さが0.6m以下のため感知区域は分割されない。150㎡ごとに1個 → 234÷150=1.56 → 2個。"},
+    {cat:"鑑別・製図", type:"numeric", img:"assets/sz1-4.png",
+      q:"[製図 問1-4] 同じ部屋で取付け面の高さが4.2mの場合の最小個数は?",
+      answer:4, unit:"個", ex:"75㎡ごとに1個 → 234÷75=3.12 → 4個。"},
+    {cat:"鑑別・製図", type:"reveal", img:"assets/sz2.png",
+      q:"[製図 問2] 5階建て・耐火構造の自動火災報知設備の系統図(区分鳴動方式、発信機・表示灯は屋内消火栓と兼用、共通線2本)。①区分鳴動が必要な防火対象物の条件、②図中①～⑨の配線本数を答えなさい。",
+      reveal:"①地階を除く階数が5で延べ面積が<b>3,000㎡を超える</b>防火対象物<br>②①5本 ②4本 ③7本 ④5本 ⑤10本 ⑥6本 ⑦12本 ⑧7本 ⑨2本"}
+  ];
+  YEAR_DATA["2026"].questions = YEAR_DATA["2026"].questions.concat(PRACTICAL_ITEMS);
+
+  Object.keys(YEAR_DATA).forEach(function(y){
+    YEAR_DATA[y].questions.forEach(function(q, i){ q.id = i + 1; });
+  });
+
+  var currentYear = Object.keys(YEAR_DATA)[0];
+  var CATS = [];
+
+  function getQuestions(){ return YEAR_DATA[currentYear].questions; }
+  function computeCats(){
+    CATS = [];
+    getQuestions().forEach(function(q){ if (CATS.indexOf(q.cat) === -1) CATS.push(q.cat); });
+  }
+
+  var state = {
+    order: [],
+    idx: 0,
+    correctCount: 0,
+    answered: {},   // id -> boolean correct
+    selections: {}, // id -> chosen choice index
+    isRetry: false
+  };
+
+  var screenStart = document.getElementById('screenStart');
+  var screenQuiz = document.getElementById('screenQuiz');
+  var screenResult = document.getElementById('screenResult');
+  var progressPanel = document.getElementById('progressPanel');
+  var progressFill = document.getElementById('progressFill');
+  var zoneReadout = document.getElementById('zoneReadout');
+  var led = document.getElementById('led');
+
+  function loadBest(){
+    try{
+      var v = localStorage.getItem('shobo4-best-' + currentYear);
+      return v ? JSON.parse(v) : null;
+    }catch(e){ return null; }
+  }
+  function saveBest(score,total){
+    try{
+      var cur = loadBest();
+      if(!cur || score/total > cur.score/cur.total){
+        localStorage.setItem('shobo4-best-' + currentYear, JSON.stringify({score:score,total:total}));
+      }
+    }catch(e){}
+  }
+
+  function loadCatBest(){
+    try{
+      var v = localStorage.getItem('shobo4-catbest-' + currentYear);
+      return v ? JSON.parse(v) : {};
+    }catch(e){ return {}; }
+  }
+  function saveCatBest(catStats){
+    try{
+      var cur = loadCatBest();
+      Object.keys(catStats).forEach(function(cat){
+        var s = catStats[cat];
+        var prev = cur[cat];
+        if(!prev || (s.correct/s.total) > (prev.score/prev.total)){
+          cur[cat] = {score:s.correct, total:s.total};
+        }
+      });
+      localStorage.setItem('shobo4-catbest-' + currentYear, JSON.stringify(cur));
+    }catch(e){}
+  }
+
+  function loadWeak(){
+    try{
+      var v = localStorage.getItem('shobo4-weak-' + currentYear);
+      return v ? JSON.parse(v) : [];
+    }catch(e){ return []; }
+  }
+  function isWeak(id){ return loadWeak().indexOf(id) !== -1; }
+  function toggleWeak(id){
+    var arr = loadWeak();
+    var i = arr.indexOf(id);
+    if(i === -1){ arr.push(id); } else { arr.splice(i, 1); }
+    try{ localStorage.setItem('shobo4-weak-' + currentYear, JSON.stringify(arr)); }catch(e){}
+    return arr.indexOf(id) !== -1;
+  }
+  function renderWeakUI(){
+    var arr = loadWeak();
+    var btn = document.getElementById('weakListBtn');
+    document.getElementById('weakCount').textContent = arr.length + '問';
+    btn.disabled = arr.length === 0;
+  }
+
+  function loadReview(){
+    try{
+      var v = localStorage.getItem('shobo4-review-' + currentYear);
+      return v ? JSON.parse(v) : [];
+    }catch(e){ return []; }
+  }
+  function updateReviewList(id, isCorrect){
+    try{
+      var arr = loadReview();
+      var i = arr.indexOf(id);
+      if(!isCorrect && i === -1){ arr.push(id); }
+      localStorage.setItem('shobo4-review-' + currentYear, JSON.stringify(arr));
+    }catch(e){}
+  }
+  function removeFromReview(id){
+    try{
+      var arr = loadReview();
+      var i = arr.indexOf(id);
+      if(i !== -1){ arr.splice(i, 1); }
+      localStorage.setItem('shobo4-review-' + currentYear, JSON.stringify(arr));
+    }catch(e){}
+  }
+  function renderReviewUI(){
+    var arr = loadReview();
+    var btn = document.getElementById('reviewListBtn');
+    document.getElementById('reviewCount').textContent = arr.length + '問';
+    btn.disabled = arr.length === 0;
+  }
+
+  function renderChips(){
+    var wrap = document.getElementById('categoryChips');
+    wrap.innerHTML = '';
+    var catBest = loadCatBest();
+    var counts = {};
+    getQuestions().forEach(function(q){ counts[q.cat] = (counts[q.cat] || 0) + 1; });
+    CATS.forEach(function(cat){
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'cat-row';
+      row.dataset.cat = cat;
+      row.setAttribute('aria-pressed', 'true');
+      var best = catBest[cat];
+      var isFull = best && best.score === best.total;
+      var bestLabel = best ? (best.score + '/' + best.total) : '未挑戦';
+      row.innerHTML = '<span class="name">'+cat+'<span class="count">'+counts[cat]+'問</span></span><span class="best'+(isFull ? ' full':'')+'">'+bestLabel+'</span>';
+      wrap.appendChild(row);
+    });
+    var selectAllBtn = document.getElementById('selectAllCats');
+    if(selectAllBtn) selectAllBtn.textContent = 'すべて解除';
+  }
+
+  function renderYearChips(){
+    var wrap = document.getElementById('yearChips');
+    wrap.innerHTML = '';
+    Object.keys(YEAR_DATA).forEach(function(y){
+      var b = document.createElement('button');
+      b.className = 'chip';
+      b.type = 'button';
+      b.dataset.year = y;
+      b.textContent = YEAR_DATA[y].label;
+      b.setAttribute('aria-pressed', y === currentYear ? 'true' : 'false');
+      wrap.appendChild(b);
+    });
+  }
+
+  function updateHeroForYear(){
+    var data = YEAR_DATA[currentYear];
+    document.getElementById('heroTitle').textContent = data.label + ' 過去問';
+    document.getElementById('heroCount').textContent = data.questions.length;
+    document.getElementById('statCount').textContent = data.questions.length;
+    document.getElementById('statCats').textContent = CATS.length;
+    updateBestScoreLabel();
+    resetBestBtnState();
+    resetCatBestBtnState();
+    renderWeakUI();
+    renderReviewUI();
+  }
+
+  var resetBestBtn = document.getElementById('resetBestBtn');
+  var resetConfirmTimer = null;
+  function resetBestBtnState(){
+    clearTimeout(resetConfirmTimer);
+    resetBestBtn.dataset.confirm = '';
+    resetBestBtn.textContent = 'リセット';
+  }
+  resetBestBtn.addEventListener('click', function(){
+    if(resetBestBtn.dataset.confirm === '1'){
+      try{ localStorage.removeItem('shobo4-best-' + currentYear); }catch(err){}
+      resetBestBtnState();
+      updateBestScoreLabel();
+    } else {
+      resetBestBtn.dataset.confirm = '1';
+      resetBestBtn.textContent = 'もう一度タップで消去';
+      clearTimeout(resetConfirmTimer);
+      resetConfirmTimer = setTimeout(resetBestBtnState, 3000);
+    }
+  });
+
+  var resetCatBestBtn = document.getElementById('resetCatBestBtn');
+  var resetCatConfirmTimer = null;
+  function resetCatBestBtnState(){
+    clearTimeout(resetCatConfirmTimer);
+    resetCatBestBtn.dataset.confirm = '';
+    resetCatBestBtn.textContent = '分野別ベストをリセット';
+  }
+  resetCatBestBtn.addEventListener('click', function(){
+    if(resetCatBestBtn.dataset.confirm === '1'){
+      try{ localStorage.removeItem('shobo4-catbest-' + currentYear); }catch(err){}
+      resetCatBestBtnState();
+      renderChips();
+    } else {
+      resetCatBestBtn.dataset.confirm = '1';
+      resetCatBestBtn.textContent = 'もう一度タップで消去';
+      clearTimeout(resetCatConfirmTimer);
+      resetCatConfirmTimer = setTimeout(resetCatBestBtnState, 3000);
+    }
+  });
+  function getActiveCats(){
+    var wrap = document.getElementById('categoryChips');
+    var active = CATS.filter(function(cat){
+      return wrap.querySelector('[data-cat="'+CSS.escape(cat)+'"]').getAttribute('aria-pressed') === 'true';
+    });
+    return active.length ? active : CATS.slice();
+  }
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var t=a[i]; a[i]=a[j]; a[j]=t;
+    }
+    return a;
+  }
+
+  function startQuiz(list, isRetry){
+    state.order = list;
+    state.idx = 0;
+    state.correctCount = 0;
+    state.answered = {};
+    state.selections = {};
+    state.isRetry = !!isRetry;
+    screenStart.hidden = true;
+    screenResult.hidden = true;
+    screenQuiz.hidden = false;
+    progressPanel.hidden = false;
+    led.classList.remove('idle');
+    renderQuestion();
+  }
+
+  var orderChips = document.getElementById('orderChips');
+  orderChips.addEventListener('click', function(e){
+    var chip = e.target.closest('.chip');
+    if(!chip) return;
+    orderChips.querySelectorAll('.chip').forEach(function(c){
+      c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+    });
+  });
+
+  document.getElementById('startBtn').addEventListener('click', function(){
+    var cats = getActiveCats();
+    var pool = getQuestions().filter(function(q){ return cats.indexOf(q.cat) !== -1; });
+    var isRandom = orderChips.querySelector('[data-order="random"]').getAttribute('aria-pressed') === 'true';
+    startQuiz(isRandom ? shuffle(pool) : pool, false);
+  });
+
+  document.getElementById('weakListBtn').addEventListener('click', function(){
+    var weakIds = loadWeak();
+    if(!weakIds.length) return;
+    var pool = getQuestions().filter(function(q){ return weakIds.indexOf(q.id) !== -1; });
+    startQuiz(pool, true);
+  });
+
+  document.getElementById('reviewListBtn').addEventListener('click', function(){
+    var reviewIds = loadReview();
+    if(!reviewIds.length) return;
+    var pool = getQuestions().filter(function(q){ return reviewIds.indexOf(q.id) !== -1; });
+    startQuiz(pool, true);
+  });
+
+  function renderQuestion(){
+    var q = state.order[state.idx];
+    var type = q.type || 'choice';
+    document.getElementById('qCat').textContent = q.cat;
+    document.getElementById('qText').textContent = (type === 'choice') ? ('問'+q.id+'　'+q.q) : q.q;
+    var weakBtn = document.getElementById('weakToggleBtn');
+    var isW = isWeak(q.id);
+    weakBtn.setAttribute('aria-pressed', isW ? 'true' : 'false');
+    weakBtn.textContent = isW ? '★ 苦手' : '☆ 苦手';
+
+    var choicesWrap = document.getElementById('qChoices');
+    var qBody = document.getElementById('qBody');
+    var qImage = document.getElementById('qImage');
+    choicesWrap.innerHTML = '';
+    qBody.innerHTML = '';
+    choicesWrap.hidden = (type === 'numeric' || type === 'reveal');
+    qImage.hidden = !q.img;
+    if(q.img){ qImage.src = q.img; qImage.alt = q.cat; }
+
+    var prev = state.selections[q.id];
+
+    if(type === 'choice'){
+      q.c.forEach(function(text, i){
+        var btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.type = 'button';
+        btn.innerHTML = '<span class="num">'+(i+1)+'</span><span>'+text+'</span>';
+        if(prev !== undefined){
+          btn.disabled = true;
+          if(i === q.a) btn.classList.add('correct');
+          if(i === prev && i !== q.a) btn.classList.add('wrong');
+        } else {
+          btn.addEventListener('click', function(){ selectChoice(i); });
+        }
+        choicesWrap.appendChild(btn);
+      });
+      if(prev !== undefined) showQuestionFeedback(prev === q.a, q.ex, false); else hideQuestionFeedback();
+    } else if(type === 'mc'){
+      q.choices.forEach(function(c){
+        var btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.type = 'button';
+        btn.textContent = c;
+        if(prev !== undefined){
+          btn.disabled = true;
+          if(c === q.answer) btn.classList.add('correct');
+          if(c === prev && c !== q.answer) btn.classList.add('wrong');
+        } else {
+          btn.addEventListener('click', function(){ checkMcAnswer(c); });
+        }
+        choicesWrap.appendChild(btn);
+      });
+      if(prev !== undefined) showQuestionFeedback(prev === q.answer, q.ex, false); else hideQuestionFeedback();
+    } else if(type === 'numeric'){
+      var row = document.createElement('div');
+      row.className = 'numeric-row';
+      row.innerHTML = '<input type="number" inputmode="numeric" id="qNumInput"><span>'+q.unit+'</span><button class="primary" type="button" id="qNumCheck">確認する</button>';
+      qBody.appendChild(row);
+      if(prev !== undefined){
+        var input = document.getElementById('qNumInput');
+        input.value = prev;
+        input.disabled = true;
+        document.getElementById('qNumCheck').disabled = true;
+        var isCorrect = prev === q.answer;
+        var html = q.ex + (isCorrect ? '' : '<br><b>正解: '+q.answer+q.unit+'</b>');
+        showQuestionFeedback(isCorrect, html, false);
+      } else {
+        document.getElementById('qNumCheck').addEventListener('click', checkNumericAnswer);
+        hideQuestionFeedback();
+      }
+    } else { // reveal
+      var box = document.createElement('div');
+      box.className = 'reveal-box';
+      box.id = 'qRevealBox';
+      if(prev){
+        box.innerHTML = q.reveal;
+        box.style.cursor = 'default';
+      } else {
+        box.textContent = 'タップして答えを見る';
+        box.style.textAlign = 'center';
+        box.style.cursor = 'pointer';
+        box.addEventListener('click', revealAnswer);
+      }
+      qBody.appendChild(box);
+      if(prev) showQuestionFeedback(true, '暗記カードのため採点対象外です。', true); else hideQuestionFeedback();
+    }
+
+    document.getElementById('prevBtn').hidden = (state.idx === 0);
+    zoneReadout.textContent = String(state.idx+1).padStart(2,'0') + ' / ' + String(state.order.length).padStart(2,'0');
+    progressFill.style.width = (state.idx / state.order.length * 100) + '%';
+  }
+
+  function hideQuestionFeedback(){
+    document.getElementById('feedback').hidden = true;
+    document.getElementById('nextBtn').hidden = true;
+    led.classList.add('idle');
+  }
+
+  function showQuestionFeedback(isCorrect, explainHtml, neutral){
+    var fb = document.getElementById('feedback');
+    fb.hidden = false;
+    fb.className = 'feedback ' + (neutral ? '' : (isCorrect ? 'correct' : 'wrong'));
+    document.getElementById('verdictText').textContent = neutral ? '解説' : (isCorrect ? '正解' : '不正解');
+    document.getElementById('explainText').innerHTML = explainHtml;
+
+    led.classList.remove('idle');
+    if(!neutral) led.style.background = isCorrect ? 'var(--ok)' : 'var(--ng)';
+
+    document.getElementById('nextBtn').hidden = false;
+    document.getElementById('nextBtn').textContent = (state.idx === state.order.length - 1) ? '結果を見る' : '次の問題へ';
+
+    var qid = state.order[state.idx].id;
+    var removeBtn = document.getElementById('reviewRemoveBtn');
+    removeBtn.hidden = loadReview().indexOf(qid) === -1;
+  }
+
+  function selectChoice(i){
+    var q = state.order[state.idx];
+    var buttons = document.querySelectorAll('#qChoices .choice');
+    buttons.forEach(function(b,idx){
+      b.disabled = true;
+      if(idx === q.a) b.classList.add('correct');
+      if(idx === i && i !== q.a) b.classList.add('wrong');
+    });
+    var isCorrect = (i === q.a);
+    if(isCorrect){ state.correctCount++; }
+    state.answered[q.id] = isCorrect;
+    state.selections[q.id] = i;
+    updateReviewList(q.id, isCorrect);
+
+    showQuestionFeedback(isCorrect, q.ex, false);
+  }
+
+  function checkMcAnswer(chosen){
+    var q = state.order[state.idx];
+    var isCorrect = chosen === q.answer;
+    document.querySelectorAll('#qChoices .choice').forEach(function(b){
+      b.disabled = true;
+      if(b.textContent === q.answer) b.classList.add('correct');
+      if(b.textContent === chosen && !isCorrect) b.classList.add('wrong');
+    });
+    if(isCorrect){ state.correctCount++; }
+    state.answered[q.id] = isCorrect;
+    state.selections[q.id] = chosen;
+    updateReviewList(q.id, isCorrect);
+    showQuestionFeedback(isCorrect, q.ex, false);
+  }
+
+  function checkNumericAnswer(){
+    var q = state.order[state.idx];
+    var input = document.getElementById('qNumInput');
+    var val = parseInt(input.value, 10);
+    var isCorrect = (val === q.answer);
+    input.disabled = true;
+    document.getElementById('qNumCheck').disabled = true;
+    if(isCorrect){ state.correctCount++; }
+    state.answered[q.id] = isCorrect;
+    state.selections[q.id] = val;
+    updateReviewList(q.id, isCorrect);
+    var html = q.ex + (isCorrect ? '' : '<br><b>正解: '+q.answer+q.unit+'</b>');
+    showQuestionFeedback(isCorrect, html, false);
+  }
+
+  function revealAnswer(){
+    var q = state.order[state.idx];
+    var box = document.getElementById('qRevealBox');
+    box.innerHTML = q.reveal;
+    box.style.textAlign = 'left';
+    box.style.cursor = 'default';
+    box.removeEventListener('click', revealAnswer);
+    state.selections[q.id] = true;
+    showQuestionFeedback(true, '暗記カードのため採点対象外です。', true);
+  }
+
+  document.getElementById('weakToggleBtn').addEventListener('click', function(){
+    var q = state.order[state.idx];
+    var isW = toggleWeak(q.id);
+    this.setAttribute('aria-pressed', isW ? 'true' : 'false');
+    this.textContent = isW ? '★ 苦手' : '☆ 苦手';
+  });
+
+  document.getElementById('reviewRemoveBtn').addEventListener('click', function(){
+    var q = state.order[state.idx];
+    removeFromReview(q.id);
+    this.hidden = true;
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', function(){
+    led.style.background = '';
+    if(state.idx > 0){
+      state.idx--;
+      renderQuestion();
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function(){
+    led.style.background = '';
+    if(state.idx < state.order.length - 1){
+      state.idx++;
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  });
+
+  function showResult(){
+    screenQuiz.hidden = true;
+    progressPanel.hidden = true;
+    screenResult.hidden = false;
+    led.classList.add('idle');
+    zoneReadout.textContent = '--/--';
+
+    var scorable = state.order.filter(function(q){ return (q.type || 'choice') !== 'reveal'; });
+    var total = scorable.length;
+    var score = state.correctCount;
+    document.getElementById('resScore').textContent = score;
+    document.getElementById('resTotal').textContent = total;
+    var pct = total ? Math.round(score/total*100) : 0;
+    document.getElementById('resPct').textContent = '正答率 ' + pct + '%';
+
+    var msg;
+    if(pct >= 80){ msg = '合格圏内の正答率です。この調子で他の類の過去問にも挑戦して地力を鍛えましょう。'; }
+    else if(pct >= 60){ msg = 'もう一歩です。間違えた分野を中心に、テキストへ戻って基礎を固めましょう。'; }
+    else{ msg = 'まずは法令・電気基礎の頻出範囲からテキストで復習し、もう一度演習してみましょう。'; }
+    document.getElementById('verdictMsg').textContent = msg;
+
+    var catStats = {};
+    scorable.forEach(function(q){
+      if(!catStats[q.cat]) catStats[q.cat] = {correct:0,total:0};
+      catStats[q.cat].total++;
+      if(state.answered[q.id]) catStats[q.cat].correct++;
+    });
+
+    if(!state.isRetry){
+      saveBest(score, total);
+      saveCatBest(catStats);
+    }
+    updateBestScoreLabel();
+
+    var catBars = document.getElementById('catBars');
+    catBars.innerHTML = '';
+    Object.keys(catStats).forEach(function(cat){
+      var s = catStats[cat];
+      var row = document.createElement('div');
+      row.className = 'cat-bar-row';
+      row.innerHTML =
+        '<span class="name">'+cat+'</span>'+
+        '<span class="cat-bar-track"><span class="cat-bar-fill" style="width:'+(s.correct/s.total*100)+'%"></span></span>'+
+        '<span class="frac mono">'+s.correct+'/'+s.total+'</span>';
+      catBars.appendChild(row);
+    });
+
+    var missed = state.order.filter(function(q){ return state.answered[q.id] === false; });
+    var missPanel = document.getElementById('missPanel');
+    var missList = document.getElementById('missList');
+    missList.innerHTML = '';
+    if(missed.length === 0){
+      missPanel.hidden = true;
+      document.getElementById('retryMissBtn').hidden = true;
+    } else {
+      missPanel.hidden = false;
+      document.getElementById('retryMissBtn').hidden = false;
+      missed.forEach(function(q){
+        var pill = document.createElement('span');
+        pill.className = 'miss-pill';
+        pill.textContent = '問'+q.id;
+        missList.appendChild(pill);
+      });
+    }
+    state._missed = missed;
+  }
+
+  function updateBestScoreLabel(){
+    var b = loadBest();
+    document.getElementById('bestScore').textContent = b ? Math.round(b.score/b.total*100)+'%' : '--';
+  }
+
+  document.getElementById('retryMissBtn').addEventListener('click', function(){
+    if(state._missed && state._missed.length){
+      var ordered = state._missed.slice().sort(function(a,b){ return a.id - b.id; });
+      startQuiz(ordered, true);
+    }
+  });
+
+  function resetToStart(){
+    screenQuiz.hidden = true;
+    screenResult.hidden = true;
+    progressPanel.hidden = true;
+    screenStart.hidden = false;
+    led.classList.add('idle');
+    zoneReadout.textContent = '--/--';
+    renderChips();
+    renderWeakUI();
+    renderReviewUI();
+  }
+
+  document.getElementById('restartBtn').addEventListener('click', resetToStart);
+  document.getElementById('backTopBtn').addEventListener('click', resetToStart);
+
+  var categoryChipsWrap = document.getElementById('categoryChips');
+  categoryChipsWrap.addEventListener('click', function(e){
+    var row = e.target.closest('.cat-row');
+    if(!row) return;
+    var isOn = row.getAttribute('aria-pressed') === 'true';
+    row.setAttribute('aria-pressed', isOn ? 'false' : 'true');
+    var selectAllBtn = document.getElementById('selectAllCats');
+    var allOn = CATS.every(function(cat){
+      return categoryChipsWrap.querySelector('[data-cat="'+CSS.escape(cat)+'"]').getAttribute('aria-pressed') === 'true';
+    });
+    selectAllBtn.textContent = allOn ? 'すべて解除' : 'すべて選択';
+  });
+
+  document.getElementById('selectAllCats').addEventListener('click', function(){
+    var btn = this;
+    var rows = categoryChipsWrap.querySelectorAll('.cat-row');
+    var allOn = Array.prototype.every.call(rows, function(r){ return r.getAttribute('aria-pressed') === 'true'; });
+    var next = !allOn;
+    rows.forEach(function(r){ r.setAttribute('aria-pressed', next ? 'true' : 'false'); });
+    btn.textContent = next ? 'すべて解除' : 'すべて選択';
+  });
+
+  var yearChipsWrap = document.getElementById('yearChips');
+  yearChipsWrap.addEventListener('click', function(e){
+    var chip = e.target.closest('.chip');
+    if(!chip || !chip.dataset.year) return;
+    currentYear = chip.dataset.year;
+    renderYearChips();
+    computeCats();
+    renderChips();
+    updateHeroForYear();
+  });
+
+  computeCats();
+  renderYearChips();
+  renderChips();
+  updateHeroForYear();
+
+})();
+</script>

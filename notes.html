@@ -49,7 +49,6 @@
   }
   .wrap{ width:100%; max-width:620px; display:flex; flex-direction:column; gap:16px; }
   h1,h2,h3{font-family:'Zen Kaku Gothic New',sans-serif; text-wrap:balance; margin:0;}
-  .mono{font-family:'JetBrains Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums;}
 
   header.panel{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
@@ -71,73 +70,24 @@
   }
   .intro b{ color:var(--ink); }
 
-  .chapter-head{
-    margin-top:6px;
-    padding:10px 4px 2px;
-  }
+  .chapter-head{ margin-top:6px; padding:10px 4px 2px; }
   .chapter-head .eyebrow{ font-size:11px; color:var(--amber); font-weight:700; letter-spacing:.04em; }
   .chapter-head h1{ font-size:20px; margin-top:4px; }
 
-  .section-head{
-    display:flex; align-items:center; gap:10px;
-    margin:18px 4px 2px;
+  .section-sub{
+    font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.03em;
+    margin:4px 4px -4px;
   }
-  .section-head .num{
-    flex:none; width:28px; height:28px; border-radius:50%;
-    background:var(--accent); color:var(--accent-ink);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
-  }
-  .section-head h2{ font-size:16px; }
-
-  .term-card{
-    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:16px 18px; display:flex; flex-direction:column; gap:10px;
-  }
-  .term-card h3{
-    font-size:16px; color:var(--accent);
-    display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
-  }
-  .term-card h3 .yomi{ font-size:11px; color:var(--muted); font-weight:500; font-family:'Noto Sans JP',sans-serif; }
-
-  .tag{
-    display:inline-block; font-size:11px; font-weight:700; color:var(--accent-ink);
-    background:var(--amber); border-radius:999px; padding:2px 10px; width:fit-content;
-  }
-  .plain{ font-size:14.5px; line-height:1.85; }
-  .plain b{ background:linear-gradient(transparent 60%, var(--ok-bg) 60%); }
-
-  .detail{ font-size:13.5px; line-height:1.85; color:var(--ink); }
-  .detail p{ margin:0 0 8px; }
-  .detail p:last-child{ margin-bottom:0; }
 
   .note-box{
     background:var(--surface-2); border-radius:10px; padding:10px 12px;
-    font-size:12.5px; line-height:1.7; color:var(--ink);
+    font-size:12.5px; line-height:1.7; color:var(--ink); margin:2px 0;
   }
   .note-box b{ color:var(--amber); }
-
-  table.simple{ width:100%; border-collapse:collapse; font-size:12.5px; }
-  table.simple th, table.simple td{
-    border:1px solid var(--border); padding:6px 8px; text-align:left; vertical-align:top;
-  }
-  table.simple th{ background:var(--surface-2); font-weight:700; white-space:nowrap; }
 
   .ref{
     font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace;
     border-top:1px dashed var(--border); padding-top:8px; margin-top:2px;
-  }
-
-  .calc-box{
-    background:var(--surface-2); border-radius:10px; padding:12px 14px;
-    font-size:13px; line-height:2;
-  }
-  .calc-box .step{ display:block; }
-  .calc-box .arrow{ color:var(--accent); font-weight:700; margin-right:4px; }
-
-  .diagram-caption{
-    display:flex; justify-content:space-between; align-items:center;
-    font-size:11px; color:var(--muted); margin:2px 2px 0;
   }
 
   footer{
@@ -145,24 +95,13 @@
   }
   footer a{ color:var(--accent); }
 
-  @media (max-width:420px){
-    .term-card{ padding:14px 14px; }
-  }
-
-  /* ---- practice problems ---- */
-  .quiz-divider{
-    display:flex; align-items:center; gap:8px;
-    margin:22px 2px 2px; padding:10px 14px;
-    background:var(--surface-2); border:1px dashed var(--border); border-radius:10px;
-    font-size:12px; font-weight:700; color:var(--amber);
-  }
+  /* ---- practice problem ---- */
   .quiz-card{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
     box-shadow:var(--shadow); padding:16px 18px; display:flex; flex-direction:column; gap:10px;
   }
   .quiz-card .q-no{ font-size:11px; color:var(--muted); font-weight:700; font-family:'JetBrains Mono',monospace; }
   .quiz-card .q-text{ font-size:14.5px; line-height:1.8; font-weight:500; }
-  .quiz-card .q-hint{ font-size:11px; color:var(--amber); font-weight:700; }
   .opt-btn{
     display:flex; align-items:flex-start; gap:10px; width:100%; text-align:left;
     background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
@@ -179,21 +118,15 @@
   .opt-btn.wrong{ background:var(--ng-bg); border-color:var(--ng); }
   .opt-btn.wrong .n{ background:var(--ng); color:#fff; border-color:var(--ng); }
   .opt-btn[data-picked]{ cursor:default; }
-  .opt-btn.multi.picked .n{ background:var(--amber); color:#1b120f; border-color:var(--amber); }
-  .check-btn{
-    align-self:flex-start; background:var(--accent); color:var(--accent-ink);
-    border:none; border-radius:999px; padding:9px 18px; font-size:12.5px; font-weight:700;
-    cursor:pointer; font-family:inherit;
-  }
-  .check-btn:disabled{ opacity:.45; cursor:default; }
   .q-feedback{
-    display:none; background:var(--surface-2); border-radius:10px; padding:11px 13px;
-    font-size:13px; line-height:1.8;
+    display:none; background:var(--surface-2); border-radius:10px; padding:13px 14px;
+    font-size:13.5px; line-height:1.85;
   }
-  .q-feedback.show{ display:block; }
-  .q-feedback .verdict{ font-weight:700; margin-bottom:4px; }
+  .q-feedback.show{ display:flex; flex-direction:column; gap:8px; }
+  .q-feedback .verdict{ font-weight:700; font-size:14px; }
   .q-feedback .verdict.ok{ color:var(--ok); }
   .q-feedback .verdict.ng{ color:var(--accent); }
+  .q-feedback .note-box{ background:var(--surface); }
 </style>
 </head>
 <body>
@@ -208,191 +141,17 @@
   </header>
 
   <div class="intro">
-    手持ちの参考書(文字がぎっしりで読みにくいやつ)を、<b>中学生・高校生でも分かるレベル</b>までかみくだいて要約していくノートです。まずは第1章の「1. 消防法令上の定義」「2. 消防法の基本」だけ試しに作ってみました。この調子でよければ、続きの章もこの形式で増やしていきます。<br><br>各節の解説の直後に、その節の過去問(参考書のまま・タップで答え合わせ)を置いています。
+    参考書(文字がぎっしりで読みにくいやつ)の内容を、<b>過去問を解きながら</b>中学生・高校生でも分かるレベルで覚えていくノートです。先に過去問を解いて、タップして答え合わせすると、その場で詳しい解説が出てきます。<br><br>
+    今は試しに<b>1問だけ</b>作りました。この形式で良さそうか見てもらって、良ければブラッシュアップしながら増やしていきます。
   </div>
 
   <div class="chapter-head">
-    <div class="eyebrow">CHAPTER 1</div>
-    <h1>消防関係法令(全類共通)</h1>
+    <div class="eyebrow">CHAPTER 1 ・ 1節</div>
+    <h1>消防法令上の定義</h1>
   </div>
+  <div class="section-sub">📝 過去問 1節【1】</div>
 
-  <!-- ============ SECTION 1 ============ -->
-  <div class="section-head">
-    <div class="num">1</div>
-    <h2>消防法令上の定義</h2>
-  </div>
-
-  <div class="term-card">
-    <h3>防火対象物 <span class="yomi">ぼうかたいしょうぶつ</span></h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">山、船、建物など「<b>火事に気をつけなきゃいけないもの全部</b>」のこと。</p>
-    <div class="detail">
-      <p>山林や、船を作ったり直したりする施設(ドック)に係留されている船、建物、橋やトンネルなどの人工物、そしてそれらにくっついている設備なども全部まとめて「防火対象物」と呼びます。</p>
-    </div>
-    <div class="note-box"><b>つまずきポイント:</b> このあと出てくる「消防対象物」ととても似ているので混同注意。防火対象物の方が範囲がせまく、消防対象物の方が広い言葉です。</div>
-    <div class="ref">法第2条2項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>消防対象物 <span class="yomi">しょうぼうたいしょうぶつ</span></h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">防火対象物よりも<b>もうひとまわり範囲が広い</b>言葉。</p>
-    <div class="detail">
-      <p>山林・舟車・船きょ(ドック)・繋留された船舶・建築物・工作物、<b>「または物件」</b>まで含みます。「物件」とは、それまでに挙げたもの以外のあらゆる物のことです。</p>
-    </div>
-    <div class="note-box"><b>覚え方:</b> 防火対象物は消防対象物の内側に含まれるイメージ(消防対象物 ⊃ 防火対象物)。「物件」の一言が付いているかどうかで見分けられます。</div>
-    <div class="ref">法第2条3項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>関係者</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">その建物の「<b>持ち主</b>」「<b>管理している人</b>」「<b>使っている人</b>」のこと。</p>
-    <div class="detail">
-      <p>防火対象物・消防対象物の「所有者」「管理者」「占有者」の3種類をまとめてこう呼びます。</p>
-    </div>
-    <div class="note-box"><b>ひっかけ注意:</b> 「防火管理者」は関係者には<b>含まれません</b>。防火管理者は、関係者(所有者など)に選ばれて防火管理の実務を行う人のことで、別の役割です。「関係者として誤っているものはどれか」という問題で、選択肢に「防火管理者」がまぎれて出てくるのが定番パターン。</div>
-    <div class="ref">法第2条4項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>関係のある場所</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">防火対象物・消防対象物が<b>建っている(存在する)場所</b>そのもの。</p>
-    <div class="ref">法第2条5項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>舟車 <span class="yomi">しゅうしゃ</span></h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain"><b>船と車をまとめて</b>呼ぶ言葉。</p>
-    <div class="detail">
-      <p>船舶安全法の対象外になる小型の船(端舟・はしけ・引っ張られる船など)と、自動車などの<b>車両</b>をまとめたものです。</p>
-    </div>
-    <div class="note-box"><b>ひっかけ注意:</b> 定義文の最後の「<b>及び車両</b>」を省いた誤答が定番です。「端舟、はしけ、被曳船その他の舟をいう」で文を終わらせて車両を含めない選択肢は誤り。舟車は「舟」+「車」であることを名前の通り思い出しましょう。</div>
-    <div class="ref">法第2条6項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>危険物</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">消防法で「<b>これは危ない</b>」と決められている物質。</p>
-    <div class="detail">
-      <p>消防法の別表第1に載っている物品で、性質によって第1類〜第6類に分けられています。</p>
-    </div>
-    <table class="simple">
-      <tr><th>類別</th><th>性質</th><th>代表的な品名</th></tr>
-      <tr><td>第1類</td><td>酸化性固体</td><td>塩素酸塩類 など</td></tr>
-      <tr><td>第2類</td><td>可燃性固体</td><td>硫化リン、赤リン など</td></tr>
-      <tr><td>第3類</td><td>自然発火性・禁水性</td><td>カリウム、ナトリウム など</td></tr>
-      <tr><td>第4類</td><td>引火性液体</td><td><b>ガソリンなど</b>(試験で頻出)</td></tr>
-      <tr><td>第5類</td><td>自己反応性物質</td><td>有機過酸化物 など</td></tr>
-      <tr><td>第6類</td><td>酸化性液体</td><td>過塩素酸、過酸化水素 など</td></tr>
-    </table>
-    <div class="ref">法第2条7項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>消防用設備等</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">消防が使う<b>①設備・②消防用水・③消火活動に必要な施設</b>の3点セットをまとめた呼び方。</p>
-    <div class="note-box"><b>ひっかけ注意:</b> この3つのうち<b>「消防用水」が抜けている</b>誤答がよく出ます。「消防用設備等とは、消防の用に供する設備及び消火活動上必要な施設をいう」のように2つだけ挙げている文は、消防用水が抜けているので誤り。3点セットで丸ごと覚えておきましょう。</div>
-    <div class="ref">法第17条1項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>特定防火対象物</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain"><b>不特定多数の人が出入りする</b>建物(劇場、病院、飲食店、百貨店、旅館、地下街など)。</p>
-    <div class="note-box"><b>なぜ大事?:</b> 不特定多数の人がいると逃げ遅れが起きやすいので、設備のルールが特に厳しくなります。試験でも狙われやすいポイントです。</div>
-    <div class="ref">法第17条の2の5 2項4号</div>
-  </div>
-
-  <div class="term-card">
-    <h3>複合用途防火対象物</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">1つの建物の中に<b>2つ以上の用途が混ざっている</b>もの。</p>
-    <div class="detail"><p>例: 1階が飲食店、2階より上が住居、のようなビル全体のこと。</p></div>
-    <div class="ref">法第8条1項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>住宅用防災機器</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">ふつうの<b>住宅向け</b>の、火事を防ぐための機械・設備。</p>
-    <div class="detail"><p>いわゆる住宅用の火災警報器などがこれにあたります。</p></div>
-    <div class="ref">法第9条の2 1項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>無窓階 <span class="yomi">むそうかい</span></h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">「窓がない階」という名前だけど、<b>本当に窓が0個という意味じゃない</b>。逃げるため・消火活動のために十分使える開口部(窓など)が足りていない階、のこと。</p>
-    <div class="note-box"><b>試験で狙われる正確な言い回し:</b> 法令上の無窓階は「<b>避難上又は消火活動上</b>有効な<b>開口部</b>を有しない階」です。問題文では、この「避難上」「消火活動上」という言葉を似た言葉にすり替えた誤答がよく出ます。<br>→ ✕「採光上又は排煙上」「排煙上又は消火活動上」のように片方だけ別の言葉に差し替えられている<br>→ ✕「開口部」を「窓」に言い換えている(本来は開口部という広い言葉が正しい)<br>この言い回しをそのまま覚えておくと、ひっかけ選択肢を見抜きやすくなります。</div>
-    <div class="note-box"><b>なぜ大事?:</b> 逃げにくく、消防隊も入りにくいので、その階に設置する消防用設備の基準が厳しくなります。</div>
-    <div class="detail">
-      <p><b>判定のイメージ(ざっくり):</b></p>
-      <p>・11階以上の階 → 直径50cm以上の円が入る開口部の合計面積が、床面積の1/30を超えていないと無窓階になる</p>
-      <p>・10階以下の階 → 直径1m以上の円が入る開口部、または「幅75cm以上・高さ1.2m以上」の大型開口部を2つ以上持っていないと無窓階になる</p>
-    </div>
-    <div class="calc-box">
-      <span class="step"><b>例題:</b> 床面積150㎡(15m×10m)の部屋。75cm×1.2mの窓は何個あれば無窓階にならない?</span>
-      <span class="step"><span class="arrow">①</span>必要な開口部面積 = 150㎡ ÷ 30 = <b>5㎡</b></span>
-      <span class="step"><span class="arrow">②</span>窓1個あたりの面積 = 0.75m × 1.2m × 2(引き違い窓) = <b>1.8㎡</b></span>
-      <span class="step"><span class="arrow">③</span>5㎡ ÷ 1.8㎡ = 2.7… → <b>3個以上</b>必要(2個だと無窓階になってしまう)</span>
-    </div>
-    <div class="ref">令第10条1項5号、規則第5条の5 1項</div>
-  </div>
-
-  <div class="term-card">
-    <h3>地階 <span class="yomi">ちかい</span></h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">床が地面より下にある階。いわゆる<b>地下室</b>のこと。</p>
-    <div class="detail"><p>正確には、床面から地盤面までの高さが、その階の天井の高さの1/3以上埋まっている階、と定義されています。</p></div>
-    <div class="ref">建築基準法施行令第1条1項2号</div>
-  </div>
-
-  <!-- ---- 1節の過去問 ---- -->
-  <div class="quiz-divider">
-    <span>📝</span>
-    <span>ここまでの内容で過去問を解いてみよう(1節分・3問)</span>
-  </div>
   <div id="quizArea1"></div>
-
-  <!-- ============ SECTION 2 ============ -->
-  <div class="section-head">
-    <div class="num">2</div>
-    <h2>消防法の基本</h2>
-  </div>
-
-  <div class="term-card">
-    <h3>消防用設備等の設置・維持義務</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">学校・病院・工場・百貨店・旅館・飲食店・地下街などの「関係者」(持ち主・管理者・使う人)は、法律で決まったルールに沿って<b>消防用設備等を設置して、ちゃんと使える状態を保たなきゃいけない</b>、というルール。</p>
-    <div class="detail">
-      <p><b>3つのポイントで整理すると:</b></p>
-      <p>① 政令で決められた防火対象物の関係者が</p>
-      <p>② 政令で決められた技術上の基準にしたがって</p>
-      <p>③ 政令で決められた消防用設備等を設置し、維持する</p>
-    </div>
-    <div class="note-box"><b>注意:</b> 一戸建てのふつうの住宅は、<b>規模(床面積など)に関わらず</b>このルールの対象外(消防用設備等は不要)です。「一定の規模を超えたら設置義務が生じる」という文は誤り。ただし「住宅用防災機器」(火災警報器など)は別のルールで設置義務があります。</div>
-    <div class="note-box"><b>ひっかけ注意:</b> 「設置義務があるのは、病院・旅館など<b>不特定多数の人が出入りする建物に限られる</b>」という文は<b>誤り</b>です。対象は特定防火対象物だけでなく、学校・工場・事務所・倉庫なども含む「令別表第1」に載っている建物ぜんぶ(詳しくは今後のノートで解説)。限られているのは「一戸建ての一般住宅が除外されている」という1点だけで、「特定防火対象物だけが対象」ではありません。</div>
-    <div class="ref">法第17条1項、令第6条</div>
-  </div>
-
-  <div class="term-card">
-    <h3>住宅用防災機器の設置・維持義務</h3>
-    <span class="tag">ざっくり言うと</span>
-    <p class="plain">ふつうの住宅に住んでいる人は、法律の基準にそって<b>住宅用防災機器(住宅用火災警報器など)を設置・維持</b>しなければならない、というルール。</p>
-    <div class="ref">法第9条の2 1項</div>
-  </div>
-
-  <!-- ---- 2節の過去問 ---- -->
-  <div class="quiz-divider">
-    <span>📝</span>
-    <span>ここまでの内容で過去問を解いてみよう(2節分・2問)</span>
-  </div>
-  <div id="quizArea2"></div>
 
   <footer>
     このノートは参考書の内容を自分なりの言葉でかみくだいた要約です。正式な条文・基準は必ず原本や公式資料で確認してください。<br>
@@ -409,65 +168,10 @@
       q: "消防法令に定める「関係者」として、誤っているものは次のうちどれか。",
       opts: ["防火対象物の管理者","消防対象物の所有者","防火対象物の防火管理者","消防対象物の占有者"],
       answer: 2,
-      ex: "「関係者」は所有者・管理者・占有者の3つ。防火管理者はこの3つに含まれないため誤り(上のノートの「ひっかけ注意」参照)。"
-    },
-    {
-      no: "1節 【2】", type: "single",
-      q: "無窓階の説明として、消防法令上、正しいものは次のうちどれか。",
-      opts: [
-        "建築物の外壁に窓を有しない階",
-        "採光上又は排煙上有効な開口部を有しない階",
-        "排煙上又は消火活動上有効な窓が一定基準に達しない階",
-        "消火活動上有効な窓が一定基準に達しない階",
-        "消火活動上有効な窓を有しない階",
-        "避難上又は排煙上有効な開口部が一定基準に達しない階",
-        "窓を有しない階",
-        "避難上又は消火活動上有効な開口部を有しない階"
-      ],
-      answer: 7,
-      ex: "正しい言い回しは「避難上又は消火活動上有効な開口部を有しない階」。他の選択肢は「採光上」「排煙上」など似た言葉にすり替えられたひっかけ。"
-    },
-    {
-      no: "1節 【3】(3つ選択)", type: "multi",
-      q: "消防法令に定められている用語の定義として、誤っているものを3つ選びなさい。",
-      opts: [
-        "防火対象物とは、山林または舟車、船きょ若しくはふ頭に繋留された船舶、建築物その他の工作物又は物件をいう。",
-        "消防対象物とは、山林または舟車、船きょ若しくはふ頭に繋留された船舶、建築物その他の工作物若しくはこれらに属する物をいう。",
-        "関係者とは、防火対象物又は消防対象物の所有者、管理者又は占有者をいう。",
-        "関係のある場所とは、防火対象物又は消防対象物のある場所をいう。",
-        "危険物とは、消防法別表第一の品名に掲げる物品で、同表に定める区分に応じ同表の性質欄に掲げる性状を有するものをいう。",
-        "舟車とは、船舶安全法第2条1項の規定を適用しない船舶、端舟、はしけ、被曳船その他の舟をいう。",
-        "複合用途防火対象物とは、防火対象物で政令で定める2以上の用途に供されるものをいう。"
-      ],
-      answer: [0,1,5],
-      ex: "①は実は「消防対象物」の定義、②は実は「防火対象物」の定義(2つが入れ替わっている)。⑥は「車両」が抜けている。③④⑤⑦はすべて正しい定義。"
-    }
-  ];
-
-  var PROBLEMS_2 = [
-    {
-      no: "2節 【1】", type: "single",
-      q: "次の記述のうち、消防法令上、誤っているものは次のうちどれか。",
-      opts: [
-        "消防用設備等とは、消防の用に供する設備、消防用水及び消火活動上必要な施設をいう。",
-        "防火対象物の関係者とは、防火対象物の所有者、管理者又は占有者をいう。",
-        "消防用設備等を設置することが義務付けられている防火対象物は、病院、旅館等不特定多数の者が出入りする防火対象物に限られる。",
-        "戸建て一般住宅については、消防用設備等の設置義務はない。"
-      ],
-      answer: 2,
-      ex: "設置義務がある防火対象物は「令別表第1」に掲げる用途の建物全般(学校・工場なども含む)で、病院・旅館等に限られているわけではない。"
-    },
-    {
-      no: "2節 【2】", type: "single",
-      q: "消防用設備等に関する記述として、消防法令上、正しいものは次のうちどれか。",
-      opts: [
-        "消防用設備等を設置することが義務付けられている防火対象物は、学校、病院及び旅館等の不特定多数の者が出入りする防火対象物に限られている。",
-        "戸建て一般住宅についても、一定の規模を超える場合、消防用設備等を設置しなければならない。",
-        "消防用設備等とは、消防の用に供する設備及び消火活動上必要な施設をいう。",
-        "政令で定める防火対象物の関係者は、政令で定める技術上の基準に従って消防用設備等を設置し、及び維持する義務がある。"
-      ],
-      answer: 3,
-      ex: "①は対象が限定されすぎ(令別表第1全般が対象)。②戸建て一般住宅は規模に関わらず消防用設備等の設置義務はない(住宅用防災機器は別途必要)。③「消防用水」が抜けている。正しいのは④。"
+      ex: "<b>正解は③「防火対象物の防火管理者」。</b>"
+        + "<p style='margin:6px 0 0'>「関係者」は法律上、<b>所有者・管理者・占有者</b>の3種類だけを指す言葉です。</p>"
+        + "<div class='note-box'><b>ひっかけ注意:</b> 「防火管理者」は関係者には含まれません。防火管理者は、関係者(所有者など)の中から選ばれて実際の防火管理の実務を行う人のことで、別の役割です。「関係者として誤っているものはどれか」という問題で、選択肢に紛れ込んでくる定番パターンです。</div>"
+        + "<div class='ref'>法第2条4項</div>"
     }
   ];
 
@@ -483,67 +187,32 @@
     noEl.textContent = '過去問 ' + p.no;
     card.appendChild(noEl);
 
-    if(p.type === 'multi'){
-      var hint = document.createElement('div');
-      hint.className = 'q-hint';
-      hint.textContent = '※複数選択(3つ)';
-      card.appendChild(hint);
-    }
-
     var qEl = document.createElement('div');
     qEl.className = 'q-text';
     qEl.textContent = p.q;
     card.appendChild(qEl);
 
-    var picked = p.type === 'multi' ? [] : null;
     var answered = false;
     var btns = [];
 
     p.opts.forEach(function(optText, i){
       var btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'opt-btn' + (p.type === 'multi' ? ' multi' : '');
+      btn.className = 'opt-btn';
       btn.innerHTML = '<span class="n">'+(i+1)+'</span><span>'+optText+'</span>';
       btn.addEventListener('click', function(){
         if(answered) return;
-        if(p.type === 'single'){
-          answered = true;
-          btns.forEach(function(b, bi){
-            b.setAttribute('data-picked','1');
-            if(bi === p.answer) b.classList.add('correct');
-            if(bi === i && i !== p.answer) b.classList.add('wrong');
-          });
-          showFeedback(i === p.answer);
-        } else {
-          var idx = picked.indexOf(i);
-          if(idx === -1){ picked.push(i); btn.classList.add('picked'); }
-          else { picked.splice(idx,1); btn.classList.remove('picked'); }
-        }
+        answered = true;
+        btns.forEach(function(b, bi){
+          b.setAttribute('data-picked','1');
+          if(bi === p.answer) b.classList.add('correct');
+          if(bi === i && i !== p.answer) b.classList.add('wrong');
+        });
+        showFeedback(i === p.answer);
       });
       btns.push(btn);
       card.appendChild(btn);
     });
-
-    if(p.type === 'multi'){
-      var checkBtn = document.createElement('button');
-      checkBtn.type = 'button';
-      checkBtn.className = 'check-btn';
-      checkBtn.textContent = '答え合わせ';
-      checkBtn.addEventListener('click', function(){
-        if(answered) return;
-        answered = true;
-        checkBtn.disabled = true;
-        var correctSet = p.answer.slice().sort().join(',');
-        var pickedSet = picked.slice().sort().join(',');
-        btns.forEach(function(b, bi){
-          b.setAttribute('data-picked','1');
-          if(p.answer.indexOf(bi) !== -1) b.classList.add('correct');
-          else if(picked.indexOf(bi) !== -1) b.classList.add('wrong');
-        });
-        showFeedback(correctSet === pickedSet);
-      });
-      card.appendChild(checkBtn);
-    }
 
     var fb = document.createElement('div');
     fb.className = 'q-feedback';
@@ -555,7 +224,7 @@
       verdict.className = 'verdict ' + (isCorrect ? 'ok' : 'ng');
       verdict.textContent = isCorrect ? '○ 正解' : '✕ 不正解';
       var ex = document.createElement('div');
-      ex.textContent = p.ex;
+      ex.innerHTML = p.ex;
       fb.innerHTML = '';
       fb.appendChild(verdict);
       fb.appendChild(ex);
@@ -566,7 +235,6 @@
   }
 
   renderQuiz(PROBLEMS_1, 'quizArea1');
-  renderQuiz(PROBLEMS_2, 'quizArea2');
 })();
 </script>
 </body>

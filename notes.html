@@ -150,6 +150,12 @@
   }
 
   /* ---- practice problems ---- */
+  .quiz-divider{
+    display:flex; align-items:center; gap:8px;
+    margin:22px 2px 2px; padding:10px 14px;
+    background:var(--surface-2); border:1px dashed var(--border); border-radius:10px;
+    font-size:12px; font-weight:700; color:var(--amber);
+  }
   .quiz-card{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
     box-shadow:var(--shadow); padding:16px 18px; display:flex; flex-direction:column; gap:10px;
@@ -202,7 +208,7 @@
   </header>
 
   <div class="intro">
-    手持ちの参考書(文字がぎっしりで読みにくいやつ)を、<b>中学生・高校生でも分かるレベル</b>までかみくだいて要約していくノートです。まずは第1章の「1. 消防法令上の定義」「2. 消防法の基本」だけ試しに作ってみました。この調子でよければ、続きの章もこの形式で増やしていきます。
+    手持ちの参考書(文字がぎっしりで読みにくいやつ)を、<b>中学生・高校生でも分かるレベル</b>までかみくだいて要約していくノートです。まずは第1章の「1. 消防法令上の定義」「2. 消防法の基本」だけ試しに作ってみました。この調子でよければ、続きの章もこの形式で増やしていきます。<br><br>各節の解説の直後に、その節の過去問(参考書のまま・タップで答え合わせ)を置いています。
   </div>
 
   <div class="chapter-head">
@@ -261,8 +267,9 @@
     <span class="tag">ざっくり言うと</span>
     <p class="plain"><b>船と車をまとめて</b>呼ぶ言葉。</p>
     <div class="detail">
-      <p>船舶安全法の対象外になる小型の船(端舟・はしけ・引っ張られる船など)と、自動車などの車両をまとめたものです。</p>
+      <p>船舶安全法の対象外になる小型の船(端舟・はしけ・引っ張られる船など)と、自動車などの<b>車両</b>をまとめたものです。</p>
     </div>
+    <div class="note-box"><b>ひっかけ注意:</b> 定義文の最後の「<b>及び車両</b>」を省いた誤答が定番です。「端舟、はしけ、被曳船その他の舟をいう」で文を終わらせて車両を含めない選択肢は誤り。舟車は「舟」+「車」であることを名前の通り思い出しましょう。</div>
     <div class="ref">法第2条6項</div>
   </div>
 
@@ -345,6 +352,13 @@
     <div class="ref">建築基準法施行令第1条1項2号</div>
   </div>
 
+  <!-- ---- 1節の過去問 ---- -->
+  <div class="quiz-divider">
+    <span>📝</span>
+    <span>ここまでの内容で過去問を解いてみよう(1節分・3問)</span>
+  </div>
+  <div id="quizArea1"></div>
+
   <!-- ============ SECTION 2 ============ -->
   <div class="section-head">
     <div class="num">2</div>
@@ -361,7 +375,7 @@
       <p>② 政令で決められた技術上の基準にしたがって</p>
       <p>③ 政令で決められた消防用設備等を設置し、維持する</p>
     </div>
-    <div class="note-box"><b>注意:</b> 一戸建てのふつうの住宅はこのルールの対象外(消防用設備等は不要)です。ただし「住宅用防災機器」(火災警報器など)は別のルールで設置義務があります。</div>
+    <div class="note-box"><b>注意:</b> 一戸建てのふつうの住宅は、<b>規模(床面積など)に関わらず</b>このルールの対象外(消防用設備等は不要)です。「一定の規模を超えたら設置義務が生じる」という文は誤り。ただし「住宅用防災機器」(火災警報器など)は別のルールで設置義務があります。</div>
     <div class="note-box"><b>ひっかけ注意:</b> 「設置義務があるのは、病院・旅館など<b>不特定多数の人が出入りする建物に限られる</b>」という文は<b>誤り</b>です。対象は特定防火対象物だけでなく、学校・工場・事務所・倉庫なども含む「令別表第1」に載っている建物ぜんぶ(詳しくは今後のノートで解説)。限られているのは「一戸建ての一般住宅が除外されている」という1点だけで、「特定防火対象物だけが対象」ではありません。</div>
     <div class="ref">法第17条1項、令第6条</div>
   </div>
@@ -373,14 +387,12 @@
     <div class="ref">法第9条の2 1項</div>
   </div>
 
-  <!-- ============ PRACTICE PROBLEMS ============ -->
-  <div class="section-head">
-    <div class="num">📝</div>
-    <h2>過去問にチャレンジ</h2>
+  <!-- ---- 2節の過去問 ---- -->
+  <div class="quiz-divider">
+    <span>📝</span>
+    <span>ここまでの内容で過去問を解いてみよう(2節分・2問)</span>
   </div>
-  <div class="intro" style="font-size:12px;">ここから先は参考書に載っている過去問そのまま(文章は変えていません)。上の解説ノートを読んでから挑戦してみてください。タップして答えを選ぶと、その場で正誤と解説が出ます。</div>
-
-  <div id="quizArea"></div>
+  <div id="quizArea2"></div>
 
   <footer>
     このノートは参考書の内容を自分なりの言葉でかみくだいた要約です。正式な条文・基準は必ず原本や公式資料で確認してください。<br>
@@ -391,7 +403,7 @@
 
 <script>
 (function(){
-  var PROBLEMS = [
+  var PROBLEMS_1 = [
     {
       no: "1節 【1】", type: "single",
       q: "消防法令に定める「関係者」として、誤っているものは次のうちどれか。",
@@ -429,7 +441,10 @@
       ],
       answer: [0,1,5],
       ex: "①は実は「消防対象物」の定義、②は実は「防火対象物」の定義(2つが入れ替わっている)。⑥は「車両」が抜けている。③④⑤⑦はすべて正しい定義。"
-    },
+    }
+  ];
+
+  var PROBLEMS_2 = [
     {
       no: "2節 【1】", type: "single",
       q: "次の記述のうち、消防法令上、誤っているものは次のうちどれか。",
@@ -456,9 +471,10 @@
     }
   ];
 
-  var area = document.getElementById('quizArea');
+  function renderQuiz(problems, containerId){
+  var area = document.getElementById(containerId);
 
-  PROBLEMS.forEach(function(p, pIdx){
+  problems.forEach(function(p, pIdx){
     var card = document.createElement('div');
     card.className = 'quiz-card';
 
@@ -547,6 +563,10 @@
 
     area.appendChild(card);
   });
+  }
+
+  renderQuiz(PROBLEMS_1, 'quizArea1');
+  renderQuiz(PROBLEMS_2, 'quizArea2');
 })();
 </script>
 </body>

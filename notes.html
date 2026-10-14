@@ -181,6 +181,14 @@
   .sec-row.ready .state{color:var(--ok); font-weight:700;}
   .sec-row.disabled{opacity:.55; cursor:default;}
   .sec-row:not(.disabled):active{transform:translateY(1px);}
+
+  .sec-content{display:flex; flex-direction:column; gap:14px;}
+  .back-to-list{
+    align-self:flex-start; font-size:12px; font-weight:700; color:var(--accent);
+    background:var(--surface-2); border:1px solid var(--border); border-radius:999px;
+    padding:7px 13px; cursor:pointer; font-family:inherit;
+  }
+  .back-to-list:active{transform:translateY(1px);}
 </style>
 </head>
 <body>
@@ -203,12 +211,15 @@
   <div class="chapter-panel" data-chapter="1">
     <div class="sec-list" id="secList-1"></div>
 
-    <div class="chapter-head" id="ch1-sec1">
-      <div class="eyebrow">CHAPTER 1 ・ 1節</div>
-      <h1>消防法令上の定義</h1>
+    <div class="sec-content" id="secContent-1-1" hidden>
+      <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 1 ・ 1節</div>
+        <h1>消防法令上の定義</h1>
+      </div>
+      <div class="section-sub">📝 過去問 1節【1】〜【3】</div>
+      <div id="quizArea-ch1-1"></div>
     </div>
-    <div class="section-sub">📝 過去問 1節【1】〜【3】</div>
-    <div id="quizArea-ch1-1"></div>
   </div>
   <div class="chapter-panel" data-chapter="2" hidden>
     <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
@@ -243,10 +254,11 @@
 
   function renderSecList(sections, chapterNo, containerId){
     var area = document.getElementById(containerId);
+    var listWrap = document.getElementById('secList-' + chapterNo);
     sections.forEach(function(title, i){
       var secNo = i + 1;
-      var anchorId = 'ch' + chapterNo + '-sec' + secNo;
-      var exists = !!document.getElementById(anchorId);
+      var contentId = 'secContent-' + chapterNo + '-' + secNo;
+      var exists = !!document.getElementById(contentId);
 
       var row = document.createElement('button');
       row.type = 'button';
@@ -269,7 +281,8 @@
 
       if(exists){
         row.addEventListener('click', function(){
-          document.getElementById(anchorId).scrollIntoView({behavior:'smooth', block:'start'});
+          listWrap.hidden = true;
+          document.getElementById(contentId).hidden = false;
         });
       }else{
         row.disabled = true;
@@ -278,6 +291,14 @@
       area.appendChild(row);
     });
   }
+
+  document.querySelectorAll('.back-to-list').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var chapterNo = btn.getAttribute('data-chapter');
+      btn.closest('.sec-content').hidden = true;
+      document.getElementById('secList-' + chapterNo).hidden = false;
+    });
+  });
 
   function renderQuiz(problems, containerId){
   var area = document.getElementById(containerId);

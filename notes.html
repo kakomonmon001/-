@@ -143,6 +143,33 @@
     border:1px solid var(--border); padding:7px 9px; text-align:left; vertical-align:top; line-height:1.6;
   }
   table.simple th{ background:var(--surface-2); font-weight:700; }
+
+  .chapter-tabs{display:flex; gap:8px; flex-wrap:wrap;}
+  .chapter-tab{
+    flex:1; min-width:88px; padding:11px 8px; border-radius:999px; border:1px solid var(--border);
+    background:var(--surface); color:var(--muted); font-weight:700; font-size:12.5px; cursor:pointer;
+    font-family:'Zen Kaku Gothic New',sans-serif;
+  }
+  .chapter-tab.active{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .chapter-tab:active{transform:translateY(1px);}
+
+  .sec-list{display:flex; flex-direction:column; gap:7px;}
+  .sec-row{
+    display:flex; align-items:center; gap:10px; width:100%; padding:11px 13px; border-radius:12px;
+    border:1px solid var(--border); background:var(--surface); color:var(--ink); cursor:pointer;
+    text-align:left; font-family:inherit; font-size:13px;
+  }
+  .sec-row .num{
+    flex:none; width:24px; height:24px; border-radius:50%; background:var(--surface-2);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  }
+  .sec-row .label{flex:1; font-weight:500; line-height:1.4;}
+  .sec-row .state{flex:none; font-size:10.5px; color:var(--muted); white-space:nowrap;}
+  .sec-row.ready .num{background:var(--accent); color:var(--accent-ink); border-color:var(--accent);}
+  .sec-row.ready .state{color:var(--ok); font-weight:700;}
+  .sec-row.disabled{opacity:.55; cursor:default;}
+  .sec-row:not(.disabled):active{transform:translateY(1px);}
 </style>
 </head>
 <body>
@@ -156,8 +183,20 @@
     <a class="back-link" href="index.html">トップページに戻る</a>
   </header>
 
-  <div class="mini-note" style="text-align:center; color:var(--muted);">
-    ただいま準備中です。少しずつ章を追加していきます。
+  <div class="chapter-tabs" id="chapterTabs">
+    <button type="button" class="chapter-tab active" data-chapter="1">1章 共通法令</button>
+    <button type="button" class="chapter-tab" data-chapter="2">2章</button>
+    <button type="button" class="chapter-tab" data-chapter="3">3章</button>
+  </div>
+
+  <div class="chapter-panel" data-chapter="1">
+    <div class="sec-list" id="secList-1"></div>
+  </div>
+  <div class="chapter-panel" data-chapter="2" hidden>
+    <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
+  </div>
+  <div class="chapter-panel" data-chapter="3" hidden>
+    <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
   </div>
 
   <footer>
@@ -171,6 +210,69 @@
 (function(){
   // 章ごとの過去問データはここに PROBLEMS_X 配列として追加し、
   // renderQuiz(PROBLEMS_X, 'quizAreaX') を呼び出す形式で再利用する。
+  // 節の本文を追加するときは、その節の見出しブロックに id="ch1-sec{N}" を付けること。
+  // (下の一覧が自動的にタップ可能になる)
+
+  var CH1_SECTIONS = [
+    "消防法令上の定義", "消防法の基本", "防火対象物の区分", "防火対象物の適用",
+    "消防用設備等の種類", "既存防火対象物に対する適用除外", "既存防火対象物の用途変更の特例",
+    "定期点検及び報告", "防火対象物点検資格者", "消防用設備等の届出及び検査",
+    "工事整備対象設備等の着工届", "消防用設備等の設置命令と維持命令",
+    "消防設備士でなければ行ってはならない工事又は整備", "消防用設備等の技術上の基準と異なる規定",
+    "基準の特例", "消防設備士の免状", "消防設備士免状の取り扱い", "消防設備士の講習",
+    "消防設備士の義務", "防火管理者", "検定制度"
+  ];
+
+  function renderSecList(sections, chapterNo, containerId){
+    var area = document.getElementById(containerId);
+    sections.forEach(function(title, i){
+      var secNo = i + 1;
+      var anchorId = 'ch' + chapterNo + '-sec' + secNo;
+      var exists = !!document.getElementById(anchorId);
+
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'sec-row' + (exists ? ' ready' : ' disabled');
+
+      var num = document.createElement('span');
+      num.className = 'num';
+      num.textContent = secNo;
+      row.appendChild(num);
+
+      var label = document.createElement('span');
+      label.className = 'label';
+      label.textContent = title;
+      row.appendChild(label);
+
+      var state = document.createElement('span');
+      state.className = 'state';
+      state.textContent = exists ? '解説あり' : '準備中';
+      row.appendChild(state);
+
+      if(exists){
+        row.addEventListener('click', function(){
+          document.getElementById(anchorId).scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      }else{
+        row.disabled = true;
+      }
+
+      area.appendChild(row);
+    });
+  }
+
+  renderSecList(CH1_SECTIONS, 1, 'secList-1');
+
+  var chapterTabs = document.querySelectorAll('.chapter-tab');
+  var chapterPanels = document.querySelectorAll('.chapter-panel');
+  chapterTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var target = tab.getAttribute('data-chapter');
+      chapterTabs.forEach(function(t){ t.classList.toggle('active', t === tab); });
+      chapterPanels.forEach(function(p){ p.hidden = (p.getAttribute('data-chapter') !== target); });
+    });
+  });
+
   function renderQuiz(problems, containerId){
   var area = document.getElementById(containerId);
 

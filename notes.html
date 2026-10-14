@@ -149,6 +149,20 @@
     border:1px solid var(--border); padding:7px 9px; text-align:left; vertical-align:top; line-height:1.6;
   }
   table.simple th{ background:var(--surface-2); font-weight:700; }
+
+  .top-tabs{display:flex; gap:8px;}
+  .tab-item{
+    flex:1; display:flex; flex-direction:row; align-items:center; justify-content:center; gap:7px;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:13px 10px;
+    text-decoration:none; color:var(--muted); font-weight:700; font-size:12.5px;
+    font-family:'Zen Kaku Gothic New'; cursor:pointer; text-align:center;
+  }
+  .tab-item:active{transform:translateY(1px);}
+  .tab-item .ic{font-size:17px; line-height:1;}
+  .tab-item.active{
+    background:var(--accent); border-color:var(--accent); color:var(--accent-ink); cursor:default;
+  }
 </style>
 </head>
 <body>
@@ -159,8 +173,12 @@
       <span class="title">📙 公論出版 甲種4類</span>
       <span class="sub">参考書をやさしくかみくだき中</span>
     </div>
-    <a class="back-link" href="index.html">← クイズへ</a>
   </header>
+
+  <div class="top-tabs">
+    <a href="index.html" class="tab-item"><span class="ic">📝</span><span>過去問</span></a>
+    <div class="tab-item active" aria-current="page"><span class="ic">📙</span><span>公論出版 甲種4類</span></div>
+  </div>
 
   <div class="intro">
     参考書(文字がぎっしりで読みにくいやつ)の内容を、<b>過去問を解きながら</b>中学生・高校生でも分かるレベルで覚えていくノートです。先に過去問を解いて、タップして答え合わせすると、その場で詳しい解説が出てきます。<br><br>

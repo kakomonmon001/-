@@ -1487,6 +1487,12 @@
     screenResult.hidden = true;
     progressPanel.hidden = true;
     screenStart.hidden = false;
+    var pastBtn = document.getElementById('goPastExamBtn');
+    if(pastBtn){
+      pastBtn.setAttribute('aria-expanded', 'true');
+      var chev = pastBtn.querySelector('.chev');
+      if(chev) chev.textContent = '⌄';
+    }
     led.classList.add('idle');
     zoneReadout.textContent = '--/--';
     renderChips();
@@ -1497,9 +1503,15 @@
   document.getElementById('restartBtn').addEventListener('click', resetToStart);
   document.getElementById('backTopBtn').addEventListener('click', resetToStart);
 
-  document.getElementById('goPastExamBtn').addEventListener('click', function(){
-    screenStart.hidden = false;
-    screenStart.scrollIntoView({behavior:'smooth', block:'start'});
+  var goPastExamBtn = document.getElementById('goPastExamBtn');
+  var goPastExamChev = goPastExamBtn.querySelector('.chev');
+  goPastExamBtn.addEventListener('click', function(){
+    screenStart.hidden = !screenStart.hidden;
+    goPastExamBtn.setAttribute('aria-expanded', String(!screenStart.hidden));
+    goPastExamChev.textContent = screenStart.hidden ? '›' : '⌄';
+    if(!screenStart.hidden){
+      screenStart.scrollIntoView({behavior:'smooth', block:'start'});
+    }
   });
 
   var categoryChipsWrap = document.getElementById('categoryChips');
@@ -1542,6 +1554,8 @@
 
   if(location.hash === '#quiz'){
     screenStart.hidden = false;
+    document.getElementById('goPastExamBtn').setAttribute('aria-expanded', 'true');
+    document.getElementById('goPastExamBtn').querySelector('.chev').textContent = '⌄';
   }
 
 })();

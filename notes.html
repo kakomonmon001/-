@@ -265,8 +265,9 @@
 (function(){
   // 章ごとの過去問データはここに PROBLEMS_X 配列として追加し、
   // renderQuiz(PROBLEMS_X, 'quizAreaX') を呼び出す形式で再利用する。
-  // 節の本文を追加するときは、その節の見出しブロックに id="ch1-sec{N}" を付けること。
-  // (下の一覧が自動的にタップ可能になる)
+  // 新しい節を追加するときは、その節のHTMLブロック全体を
+  // <div class="sec-content" id="secContent-{章番号}-{節番号}" hidden>…</div>
+  // として作ること(下の一覧が exists 判定で自動的にタップ可能になる)。
 
   var CH1_SECTIONS = [
     "消防法令上の定義", "消防法の基本", "防火対象物の区分", "防火対象物の適用",
@@ -363,6 +364,13 @@
       var picked = [];
       var btns = [];
 
+      var submitBtn;
+      var hint;
+      function updateHint(){
+        hint.textContent = picked.length + ' / ' + p.answer.length + ' 選択中';
+        submitBtn.disabled = (picked.length !== p.answer.length);
+      }
+
       p.opts.forEach(function(optText, i){
         var btn = document.createElement('button');
         btn.type = 'button';
@@ -373,6 +381,7 @@
           var idx = picked.indexOf(i);
           if(idx === -1){ picked.push(i); btn.classList.add('picked'); }
           else{ picked.splice(idx,1); btn.classList.remove('picked'); }
+          updateHint();
         });
         btns.push(btn);
         card.appendChild(btn);
@@ -380,19 +389,19 @@
 
       var submitRow = document.createElement('div');
       submitRow.className = 'submit-row';
-      var hint = document.createElement('div');
+      hint = document.createElement('div');
       hint.className = 'picked-count';
-      hint.textContent = p.answer.length + 'つ選んで答え合わせ';
       submitRow.appendChild(hint);
-      var submitBtn = document.createElement('button');
+      submitBtn = document.createElement('button');
       submitBtn.type = 'button';
       submitBtn.className = 'submit-btn';
       submitBtn.textContent = '答え合わせ';
       submitBtn.addEventListener('click', function(){
-        if(answered || picked.length === 0) return;
+        if(answered || picked.length !== p.answer.length) return;
         answered = true;
-        var answerSet = p.answer.slice().sort();
-        var pickedSet = picked.slice().sort();
+        var numSort = function(a,b){ return a - b; };
+        var answerSet = p.answer.slice().sort(numSort);
+        var pickedSet = picked.slice().sort(numSort);
         var isCorrect = JSON.stringify(answerSet) === JSON.stringify(pickedSet);
         btns.forEach(function(b, i){
           var inAnswer = p.answer.indexOf(i) !== -1;
@@ -408,6 +417,7 @@
       });
       submitRow.appendChild(submitBtn);
       card.appendChild(submitRow);
+      updateHint();
 
     }else{
       var answered2 = false;

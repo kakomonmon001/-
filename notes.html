@@ -166,6 +166,7 @@
   .chapter-tab:active{transform:translateY(1px);}
 
   .sec-list{display:flex; flex-direction:column; gap:7px;}
+  .sec-list[hidden]{display:none;}
   .sec-row{
     display:flex; align-items:center; gap:10px; width:100%; padding:11px 13px; border-radius:12px;
     border:1px solid var(--border); background:var(--surface); color:var(--ink); cursor:pointer;
@@ -184,6 +185,7 @@
   .sec-row:not(.disabled):active{transform:translateY(1px);}
 
   .sec-content{display:flex; flex-direction:column; gap:14px;}
+  .sec-content[hidden]{display:none;}
   .back-to-list{
     align-self:flex-start; font-size:12px; font-weight:700; color:var(--accent);
     background:var(--surface-2); border:1px solid var(--border); border-radius:999px;

@@ -150,19 +150,18 @@
   }
   table.simple th{ background:var(--surface-2); font-weight:700; }
 
-  .top-tabs{display:flex; gap:8px;}
-  .tab-item{
-    flex:1; display:flex; flex-direction:row; align-items:center; justify-content:center; gap:7px;
+  .nav-banner{
+    display:flex; align-items:center; gap:12px;
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:13px 10px;
-    text-decoration:none; color:var(--muted); font-weight:700; font-size:12.5px;
-    font-family:'Zen Kaku Gothic New'; cursor:pointer; text-align:center;
+    box-shadow:var(--shadow); padding:14px 16px;
+    text-decoration:none; color:var(--ink); cursor:pointer;
   }
-  .tab-item:active{transform:translateY(1px);}
-  .tab-item .ic{font-size:17px; line-height:1;}
-  .tab-item.active{
-    background:var(--accent); border-color:var(--accent); color:var(--accent-ink); cursor:default;
-  }
+  .nav-banner:active{transform:translateY(1px);}
+  .nav-banner .icon{font-size:26px; flex:none; line-height:1;}
+  .nav-banner .copy{display:flex; flex-direction:column; gap:2px; flex:1; min-width:0;}
+  .nav-banner .t{font-family:'Zen Kaku Gothic New'; font-weight:900; font-size:15px;}
+  .nav-banner .s{font-size:11.5px; color:var(--muted);}
+  .nav-banner .chev{font-size:22px; color:var(--accent); flex:none; font-weight:700;}
 </style>
 </head>
 <body>
@@ -175,10 +174,22 @@
     </div>
   </header>
 
-  <div class="top-tabs">
-    <a href="index.html" class="tab-item"><span class="ic">📝</span><span>過去問5年分</span></a>
-    <div class="tab-item active" aria-current="page"><span class="ic">📙</span><span>公論出版 甲種4類</span></div>
-  </div>
+  <a href="notes.html" class="nav-banner">
+    <span class="icon">📙</span>
+    <span class="copy">
+      <span class="t">公論出版 甲種4類</span>
+      <span class="s">参考書をやさしく解説ノートに</span>
+    </span>
+    <span class="chev">›</span>
+  </a>
+  <a href="index.html" class="nav-banner">
+    <span class="icon">📝</span>
+    <span class="copy">
+      <span class="t">過去問5年分</span>
+      <span class="s">2022〜2026年度の過去問を解く</span>
+    </span>
+    <span class="chev">›</span>
+  </a>
 
   <div class="intro">
     参考書(文字がぎっしりで読みにくいやつ)の内容を、<b>過去問を解きながら</b>中学生・高校生でも分かるレベルで覚えていくノートです。先に過去問を解いて、タップして答え合わせすると、その場で詳しい解説が出てきます。<br><br>

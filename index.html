@@ -317,16 +317,7 @@
 
 <div class="app">
 
-  <header class="panel" id="topbar">
-    <div class="brand">
-      <span class="led idle" id="led"></span>
-      <div class="brand-text">
-        <span class="title">消防設備士 甲種4類</span>
-        <span class="sub">過去問クイズ</span>
-      </div>
-    </div>
-    <div class="zone-readout" id="zoneReadout" aria-hidden="true">--<span class="slash">/</span>--</div>
-  </header>
+  <span class="led idle" id="led" hidden></span>
 
   <a href="notes.html" class="konron-tab">
     <span class="icon">📙</span>
@@ -386,7 +377,10 @@
 
   <!-- ============ QUESTION SCREEN ============ -->
   <section class="panel q-card" id="screenQuiz" hidden>
-    <button class="ghost" id="backTopBtn" style="width:auto; padding:7px 12px; font-size:12px; margin-bottom:14px;">← トップに戻る</button>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;">
+      <button class="ghost" id="backTopBtn" style="width:auto; padding:7px 12px; font-size:12px; margin:0;">← トップに戻る</button>
+      <div class="zone-readout" id="zoneReadout" aria-hidden="true">--<span class="slash">/</span>--</div>
+    </div>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
       <div class="q-tag" style="margin-bottom:0;"><span class="dot"></span><span id="qCat">法令</span></div>
       <button type="button" class="weak-toggle" id="weakToggleBtn" aria-pressed="false">☆ 苦手</button>

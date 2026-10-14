@@ -246,6 +246,24 @@
       <div class="section-sub">📝 過去問 2節【1】〜【2】</div>
       <div id="quizArea-ch1-2" class="quiz-list"></div>
     </div>
+
+    <div class="sec-content" id="secContent-1-3" hidden>
+      <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 1 ・ 3節</div>
+        <h1>防火対象物の区分</h1>
+      </div>
+      <div class="mini-note">
+        防火対象物は、政令別表第1という表で(1)〜(20)の用途に分類されています。このうち、劇場・病院・飲食店・百貨店など「<b>不特定多数の人が出入りする</b>」「<b>自力で逃げるのが大変な人がいる</b>」用途は「<b>特定防火対象物</b>」として、特に厳しいルールが適用されます。学校・共同住宅・事務所・倉庫などは特定防火対象物では<b>ありません</b>。この区別がこの先ずっと試験のベースになります。
+      </div>
+      <table class="simple">
+        <tr><th>特定防火対象物<br><span style="font-weight:400;font-size:11px;">(厳しいルール適用)</span></th><th>特定防火対象物ではない<br><span style="font-weight:400;font-size:11px;">(通常のルール)</span></th></tr>
+        <tr><td>劇場・映画館・公会堂<br>ナイトクラブ・ダンスホール<br>飲食店<br>百貨店・物品販売店舗<br>旅館<br>病院・保育所・幼稚園<br>蒸気浴場・熱気浴場等の公衆浴場</td>
+            <td>共同住宅<br>小・中・高等学校など<br>図書館・博物館・美術館<br>工場・作業場(冷凍倉庫含む)<br>映画スタジオ・テレビスタジオ<br>倉庫<br>事務所・事務所からなる高層ビル</td></tr>
+      </table>
+      <div class="section-sub">📝 過去問 3節【1】〜【5】</div>
+      <div id="quizArea-ch1-3" class="quiz-list"></div>
+    </div>
   </div>
   <div class="chapter-panel" data-chapter="2" hidden>
     <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
@@ -533,6 +551,58 @@
     }
   ];
   renderQuiz(PROBLEMS_CH1_2, 'quizArea-ch1-2');
+
+  var PROBLEMS_CH1_3 = [
+    {
+      no: "3節 【1】", type: "single",
+      q: "消防法令上、特定防火対象物に該当しないものは、次のうちどれか。",
+      opts: ["小学校","物品販売店舗","旅館","公衆浴場のうち、蒸気浴場、熱気浴場その他これらに類するもの"],
+      answer: 0,
+      ex: "<b class='ans'>正解は①小学校。</b>学校(小・中・高等学校など)は<span class='hl'>特定防火対象物ではありません</span>。"
+        + "<p style='margin:6px 0 0'>物品販売店舗(百貨店等)・旅館・蒸気浴場等の公衆浴場は、いずれも特定防火対象物です。</p>"
+        + "<div class='note-box'><b>覚え方のコツ:</b> <span class='hl'>逃げ遅れやすい・自力避難が難しい人が多い用途</span>(病院、旅館、飲食店、百貨店など不特定多数が出入りする場所)が特定防火対象物。学校や共同住宅、事務所、倉庫は「出入りする人が決まっていて、体力もあり自力避難しやすい」ので特定防火対象物ではない、とイメージすると覚えやすいです。</div>"
+        + "<div class='ref'>令別表第1</div>"
+    },
+    {
+      no: "3節 【2】", type: "single",
+      q: "消防法令上、特定防火対象物に該当するものは、次のうちどれか。",
+      opts: ["小学校","共同住宅","百貨店","図書館"],
+      answer: 2,
+      ex: "<b class='ans'>正解は③百貨店。</b>小学校・共同住宅・図書館は<span class='hl'>いずれも特定防火対象物ではありません</span>。"
+        + "<div class='note-box'><b>覚え方のコツ:</b> 百貨店・旅館・病院のように<span class='hl'>不特定多数の人が出入りする/自力避難が難しい人がいる</span>用途が特定防火対象物。共同住宅・学校・図書館のように<span class='hl'>利用者が決まっている・自力で動ける人中心</span>の用途は特定防火対象物ではありません。選択肢が変わっても、このポイントだけで判断できます。</div>"
+        + "<div class='ref'>令別表第1</div>"
+    },
+    {
+      no: "3節 【3】", type: "single",
+      q: "消防法令上、特定防火対象物に該当しないものは、次のうちどれか。",
+      opts: ["飲食店","映画館","テレビスタジオ","幼稚園"],
+      answer: 2,
+      ex: "<b class='ans'>正解は③テレビスタジオ。</b>飲食店・映画館・幼稚園は特定防火対象物ですが、<span class='hl'>テレビスタジオ(映画スタジオも同様)は特定防火対象物ではありません</span>。"
+        + "<div class='note-box warn'><b>⚠ ひっかけ注意:</b> 「スタジオ」は映画館と紛らわしいですが、映画館(人に見せる側・不特定多数が出入りする)は特定防火対象物、<span class='hl'>スタジオ(撮影する側・関係者しか出入りしない)は特定防火対象物ではない</span>、という違いがあります。</div>"
+        + "<div class='ref'>令別表第1</div>"
+    },
+    {
+      no: "3節 【4】", type: "single",
+      q: "特定防火対象物の組合せとして、消防法令上、正しいものは次のうちどれか。",
+      opts: ["劇場、小学校及び幼稚園","公会堂、飲食店及び図書館","百貨店、ナイトクラブ及び工場","旅館、病院及びダンスホール"],
+      answer: 3,
+      ex: "<b class='ans'>正解は④旅館・病院・ダンスホール</b>(すべて特定防火対象物)。"
+        + "<p style='margin:6px 0 0'>①は小学校が、②は図書館が、③は工場が、それぞれ特定防火対象物ではないため、<span class='hl'>1つでも混ざっている時点で誤りです</span>。</p>"
+        + "<div class='note-box warn'><b>⚠ 組合せ問題のコツ:</b> <span class='hl'>1つでも特定防火対象物でないものが混ざっていたら不正解</span>。選択肢の中身を全部チェックする必要があります。</div>"
+        + "<div class='ref'>令別表第1</div>"
+    },
+    {
+      no: "3節 【5】", type: "single",
+      q: "消防法令上、特定防火対象物に該当するものは、次のうちどれか。",
+      opts: ["図書館と事務所からなる高層ビル","蒸気浴場、熱気浴場その他これらに類する公衆浴場","テレビスタジオが併設された映画スタジオ","冷凍倉庫を含む作業場"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②。</b>蒸気浴場・熱気浴場等の公衆浴場は<span class='hl'>特定防火対象物です</span>。"
+        + "<div class='note-box warn'><b>⚠ ①が誤りの理由:</b> 図書館+事務所の組合せは2以上の用途があるので複合用途防火対象物にはなりますが、図書館も事務所もどちらも特定用途ではないため、特定防火対象物にはなりません。<span class='hl'>「複合用途防火対象物になるかどうか」と「特定防火対象物になるかどうか」は別の話</span>、という点がひっかけやすいポイントです。</div>"
+        + "<div class='note-box warn'><b>⚠ ③④が誤りの理由:</b> ③テレビスタジオ・映画スタジオはどちらも特定防火対象物ではありません(3節【3】のひっかけと同じパターン)。④「冷凍倉庫を含む作業場」も通常の工場・作業場と同じ扱いで、特定防火対象物ではありません。</div>"
+        + "<div class='ref'>令別表第1</div>"
+    }
+  ];
+  renderQuiz(PROBLEMS_CH1_3, 'quizArea-ch1-3');
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
 

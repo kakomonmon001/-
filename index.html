@@ -320,22 +320,24 @@
 
   <span class="led idle" id="led" hidden></span>
 
-  <a href="notes.html" class="nav-banner">
-    <span class="icon">📙</span>
-    <span class="copy">
-      <span class="t">公論出版 甲種4類</span>
-      <span class="s">参考書をやさしく解説ノートに</span>
-    </span>
-    <span class="chev">›</span>
-  </a>
-  <button type="button" id="goPastExamBtn" class="nav-banner">
-    <span class="icon">📝</span>
-    <span class="copy">
-      <span class="t">過去問5年分</span>
-      <span class="s">2022〜2026年度の過去問を解く</span>
-    </span>
-    <span class="chev">›</span>
-  </button>
+  <div id="navBanners" style="display:flex; flex-direction:column; gap:14px;">
+    <a href="notes.html" class="nav-banner">
+      <span class="icon">📙</span>
+      <span class="copy">
+        <span class="t">公論出版 甲種4類</span>
+        <span class="s">参考書をやさしく解説ノートに</span>
+      </span>
+      <span class="chev">›</span>
+    </a>
+    <button type="button" id="goPastExamBtn" class="nav-banner">
+      <span class="icon">📝</span>
+      <span class="copy">
+        <span class="t">過去問5年分</span>
+        <span class="s">2022〜2026年度の過去問を解く</span>
+      </span>
+      <span class="chev">›</span>
+    </button>
+  </div>
 
   <div class="panel" id="progressPanel" hidden style="padding:12px 16px;">
     <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -957,6 +959,7 @@
   var screenStart = document.getElementById('screenStart');
   var screenQuiz = document.getElementById('screenQuiz');
   var screenResult = document.getElementById('screenResult');
+  var navBanners = document.getElementById('navBanners');
   var progressPanel = document.getElementById('progressPanel');
   var progressFill = document.getElementById('progressFill');
   var zoneReadout = document.getElementById('zoneReadout');
@@ -1164,6 +1167,7 @@
     screenResult.hidden = true;
     screenQuiz.hidden = false;
     progressPanel.hidden = false;
+    navBanners.hidden = true;
     led.classList.remove('idle');
     renderQuestion();
   }
@@ -1488,6 +1492,7 @@
     screenResult.hidden = true;
     progressPanel.hidden = true;
     screenStart.hidden = false;
+    navBanners.hidden = false;
     led.classList.add('idle');
     zoneReadout.textContent = '--/--';
     renderChips();

@@ -230,6 +230,22 @@
       <div class="section-sub">📝 過去問 1節【1】〜【3】</div>
       <div id="quizArea-ch1-1" class="quiz-list"></div>
     </div>
+
+    <div class="sec-content" id="secContent-1-2" hidden>
+      <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 1 ・ 2節</div>
+        <h1>消防法の基本</h1>
+      </div>
+      <div class="mini-note">
+        この節の問題を解くために、先に押さえておきたい基本用語です。<br><br>
+        <b>消防用設備等</b> = 「消防の用に供する設備」「消防用水」「消火活動上必要な施設」の<b>3点セット</b>(消防用水が抜けがちなので要注意)。<br>
+        設置・維持義務のある防火対象物は<b>令別表第1に掲げる用途の防火対象物</b>で、病院・旅館など不特定多数が出入りする建物<b>だけに限られるわけではありません</b>(共同住宅や工場なども含まれます)。<br>
+        <b>戸建て一般住宅</b>は、規模に関わらず「消防用設備等」の設置義務は<b>ない</b>。ただし「住宅用防災機器」(火災警報器など)の設置義務は<b>ある</b>。
+      </div>
+      <div class="section-sub">📝 過去問 2節【1】〜【2】</div>
+      <div id="quizArea-ch1-2" class="quiz-list"></div>
+    </div>
   </div>
   <div class="chapter-panel" data-chapter="2" hidden>
     <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
@@ -472,6 +488,41 @@
     }
   ];
   renderQuiz(PROBLEMS_CH1_1, 'quizArea-ch1-1');
+
+  var PROBLEMS_CH1_2 = [
+    {
+      no: "2節 【1】", type: "single",
+      q: "次の記述のうち、消防法令上、誤っているものは次のうちどれか。",
+      opts: [
+        "消防用設備等とは、消防の用に供する設備、消防用水及び消火活動上必要な施設をいう。",
+        "防火対象物の関係者とは、防火対象物の所有者、管理者又は占有者をいう。",
+        "消防用設備等を設置することが義務付けられている防火対象物は、病院、旅館等不特定多数の者が出入りする防火対象物に限られる。",
+        "戸建て一般住宅については、消防用設備等の設置義務はない。"
+      ],
+      answer: 2,
+      ex: "<b class='ans'>正解は③。</b>"
+        + "<p style='margin:6px 0 0'>設置義務のある防火対象物は<span class='hl'>令別表第1に掲げる用途の防火対象物</span>であり、病院・旅館等の不特定多数が出入りする建物に限られているわけではありません(共同住宅・工場・事務所なども対象です)。</p>"
+        + "<div class='note-box warn'><b>⚠ ひっかけ注意:</b> <span class='hl'>「〜に限られる」のような範囲を狭める言い回し</span>は、消防法令の問題では誤りであることが多いパターンです。断定的・限定的な表現を見たら一度疑ってみましょう。</div>"
+        + "<div class='ref'>法第17条1項、令別表第1</div>"
+    },
+    {
+      no: "2節 【2】", type: "single",
+      q: "消防用設備等に関する記述として、消防法令上、正しいものは次のうちどれか。",
+      opts: [
+        "消防用設備等を設置することが義務付けられている防火対象物は、学校、病院及び旅館等の不特定多数の者が出入りする防火対象物に限られている。",
+        "戸建て一般住宅についても、一定の規模を超える場合、消防用設備等を設置しなければならない。",
+        "消防用設備等とは、消防の用に供する設備及び消火活動上必要な施設をいう。",
+        "政令で定める防火対象物の関係者は、政令で定める技術上の基準に従って消防用設備等を設置し、及び維持する義務がある。"
+      ],
+      answer: 3,
+      ex: "<b class='ans'>正解は④。</b>法第17条1項の骨子そのままです。"
+        + "<div class='note-box warn'><b>⚠ ①が誤りの理由:</b> ①も2節【1】と同じ「〜に限られている」という狭めすぎのひっかけです。</div>"
+        + "<div class='note-box warn'><b>⚠ ②が誤りの理由:</b> <span class='hl'>戸建て一般住宅は、規模に関わらず「消防用設備等」の設置義務はありません</span>。義務があるのは「住宅用防災機器」の方です。</div>"
+        + "<div class='note-box warn'><b>⚠ ③が誤りの理由:</b> 消防用設備等の定義は「消防の用に供する設備」「<span class='hl'>消防用水</span>」「消火活動上必要な施設」の3点セット。③は<span class='hl'>「消防用水」が抜けています</span>。</div>"
+        + "<div class='ref'>法第17条1項</div>"
+    }
+  ];
+  renderQuiz(PROBLEMS_CH1_2, 'quizArea-ch1-2');
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
 

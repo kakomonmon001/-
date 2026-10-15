@@ -56,6 +56,10 @@
     display:flex; align-items:center; justify-content:flex-end; gap:8px;
     position:sticky; top:12px; z-index:5;
   }
+  header .where{
+    flex:1; min-width:0; font-size:12.5px; font-weight:700; color:var(--ink);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
   .header-actions{ display:flex; align-items:center; gap:6px; flex:none; }
   button.back-link{ font-family:inherit; cursor:pointer; }
   .back-link[hidden]{ display:none; }
@@ -233,9 +237,10 @@
 <div class="wrap">
 
   <header class="panel">
+    <span class="where" id="headerWhere"></span>
     <div class="header-actions">
       <button type="button" class="back-link" id="headerSecListBtn" hidden>節一覧へ</button>
-      <a class="back-link" href="index.html">トップページに戻る</a>
+      <a class="back-link" href="index.html">トップへ</a>
     </div>
   </header>
 
@@ -1013,9 +1018,23 @@
     }
     return null;
   }
+  var headerWhere = document.getElementById('headerWhere');
   function syncHeaderBtn(){
-    var want = !findOpenSection();
+    var cur = findOpenSection();
+    var want = !cur;
     if(headerSecListBtn.hidden !== want) headerSecListBtn.hidden = want;
+    var label = '';
+    if(cur){
+      var chapterNo = cur.closest('.chapter-panel').getAttribute('data-chapter');
+      var m = cur.id.match(/^secContent-\d+-(\d+)$/);
+      var h1 = cur.querySelector('.chapter-head h1');
+      var title = h1 ? h1.textContent.replace(/^★\s*/, '') : '';
+      label = chapterNo + '章 ' + (m ? m[1] + '節 ' : '') + title;
+    }else{
+      var tab = document.querySelector('.chapter-tab.active');
+      label = tab ? tab.textContent : '';
+    }
+    if(headerWhere.textContent !== label) headerWhere.textContent = label;
   }
   new MutationObserver(syncHeaderBtn).observe(document.querySelector('.wrap'), {
     subtree: true, attributes: true, attributeFilter: ['hidden']

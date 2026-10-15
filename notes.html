@@ -58,6 +58,9 @@
   }
   header .title{ display:block; font-weight:700; font-size:15px; }
   header .sub{ display:block; font-size:11px; color:var(--muted); margin-top:1px; }
+  .header-actions{ display:flex; align-items:center; gap:6px; flex:none; }
+  button.back-link{ font-family:inherit; cursor:pointer; }
+  .back-link[hidden]{ display:none; }
   .back-link{
     font-size:12px; color:var(--accent); text-decoration:none; font-weight:700;
     border:1px solid var(--border); border-radius:999px; padding:7px 13px;
@@ -236,7 +239,10 @@
       <span class="title">📙 公論出版 甲種4類</span>
       <span class="sub">参考書をやさしくかみくだき中</span>
     </div>
-    <a class="back-link" href="index.html">トップページに戻る</a>
+    <div class="header-actions">
+      <button type="button" class="back-link" id="headerSecListBtn" hidden>節一覧へ</button>
+      <a class="back-link" href="index.html">トップページに戻る</a>
+    </div>
   </header>
 
   <div class="chapter-tabs" id="chapterTabs">
@@ -1003,6 +1009,32 @@
   }
   document.addEventListener('touchend', finishSwipe, { passive: true });
   document.addEventListener('touchcancel', finishSwipe, { passive: true });
+
+  // ヘッダーの「節一覧へ」: 節(または頻出まとめ)を開いている間だけ表示
+  var headerSecListBtn = document.getElementById('headerSecListBtn');
+  function findOpenSection(){
+    var all = document.querySelectorAll('.sec-content:not([hidden])');
+    for(var i = 0; i < all.length; i++){
+      if(!all[i].closest('.chapter-panel[hidden]')) return all[i];
+    }
+    return null;
+  }
+  function syncHeaderBtn(){
+    var want = !findOpenSection();
+    if(headerSecListBtn.hidden !== want) headerSecListBtn.hidden = want;
+  }
+  new MutationObserver(syncHeaderBtn).observe(document.querySelector('.wrap'), {
+    subtree: true, attributes: true, attributeFilter: ['hidden']
+  });
+  headerSecListBtn.addEventListener('click', function(){
+    var cur = findOpenSection();
+    if(!cur) return;
+    var panel = cur.closest('.chapter-panel');
+    cur.hidden = true;
+    document.getElementById('secList-' + panel.getAttribute('data-chapter')).hidden = false;
+    window.scrollTo(0, 0);
+  });
+  syncHeaderBtn();
 
   var chapterTabs = document.querySelectorAll('.chapter-tab');
   var chapterPanels = document.querySelectorAll('.chapter-panel');

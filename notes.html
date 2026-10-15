@@ -365,17 +365,20 @@
       label.textContent = title;
       row.appendChild(label);
 
-      if(exists && document.getElementById(contentId).querySelector('.freq-badge')){
-        var star = document.createElement('span');
-        star.className = 'freq-badge';
-        star.textContent = '★';
-        row.appendChild(star);
+      if(exists){
+        var freqCount = document.getElementById(contentId).querySelectorAll('.freq-badge').length;
+        if(freqCount > 0){
+          var star = document.createElement('span');
+          star.className = 'freq-badge';
+          star.textContent = '★ ' + freqCount;
+          row.appendChild(star);
+        }
+      }else{
+        var state = document.createElement('span');
+        state.className = 'state';
+        state.textContent = '準備中';
+        row.appendChild(state);
       }
-
-      var state = document.createElement('span');
-      state.className = 'state';
-      state.textContent = exists ? '解説あり' : '準備中';
-      row.appendChild(state);
 
       if(exists){
         row.addEventListener('click', function(){

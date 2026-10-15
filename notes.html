@@ -998,7 +998,7 @@
     var dy = ey - swipeStart.y;
     var dt = Date.now() - swipeStart.t;
     swipeStart = null;
-    if(dt > 800 || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    if(dt > 1000 || Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.3) return;
     moveSection(dx < 0 ? 1 : -1);
   }
   document.addEventListener('touchend', finishSwipe, { passive: true });

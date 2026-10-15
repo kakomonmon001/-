@@ -202,6 +202,28 @@
     padding:7px 13px; cursor:pointer; font-family:inherit;
   }
   .back-to-list:active{transform:translateY(1px);}
+
+  .freq-banner{
+    display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; margin-bottom:5px;
+    border:none; border-radius:var(--radius); background:var(--accent); color:var(--accent-ink);
+    font-family:'Zen Kaku Gothic New',sans-serif; text-align:left; cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  .freq-banner[hidden]{display:none;}
+  .freq-banner:active{transform:translateY(1px);}
+  .freq-banner .star{ font-size:22px; line-height:1; }
+  .freq-banner .copy{ display:flex; flex-direction:column; gap:2px; flex:1; }
+  .freq-banner .t{ font-size:15px; font-weight:900; }
+  .freq-banner .s{ font-size:11.5px; font-weight:500; opacity:.9; }
+  .freq-banner .chev{ font-size:20px; opacity:.8; }
+
+  .freq-toggle{
+    align-self:flex-start; font-size:12px; font-weight:700; color:var(--accent);
+    background:var(--surface); border:1px solid var(--accent); border-radius:999px;
+    padding:7px 14px; cursor:pointer; font-family:inherit;
+  }
+  .freq-toggle[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
+  .quiz-list.freq-only .quiz-card:not(.is-freq){ display:none; }
 </style>
 </head>
 <body>
@@ -222,7 +244,29 @@
   </div>
 
   <div class="chapter-panel" data-chapter="1">
-    <div class="sec-list" id="secList-1"></div>
+    <div class="sec-list" id="secList-1">
+      <button type="button" class="freq-banner" id="freqBanner-1" hidden>
+        <span class="star">★</span>
+        <span class="copy">
+          <span class="t">頻出問題だけ解く</span>
+          <span class="s" id="freqBannerSub-1"></span>
+        </span>
+        <span class="chev">›</span>
+      </button>
+    </div>
+
+    <div class="sec-content" id="freqContent-1" hidden>
+      <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 1 ・ 頻出問題まとめ</div>
+        <h1>★ 頻出問題だけ解く</h1>
+      </div>
+      <div class="mini-note">
+        参考書で★マークが付いている「よく出る問題」だけを節をまたいで集めたものです。カードの番号は「何節の何問目か」を表しています。解説の理由と覚え方のコツまで押さえて、確実に点を取りましょう。
+      </div>
+      <div class="section-sub" id="freqSectionSub-1">📝 頻出問題</div>
+      <div id="quizArea-freq-1" class="quiz-list"></div>
+    </div>
 
     <div class="sec-content" id="secContent-1-1" hidden>
       <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
@@ -406,7 +450,7 @@
 
   problems.forEach(function(p){
     var card = document.createElement('div');
-    card.className = 'quiz-card';
+    card.className = 'quiz-card' + (p.freq ? ' is-freq' : '');
 
     var noRow = document.createElement('div');
     noRow.className = 'q-no-row';
@@ -861,6 +905,42 @@
     }
   ];
   renderQuiz(PROBLEMS_CH1_5, 'quizArea-ch1-5');
+
+  // 案A: 全節の頻出問題をまとめた画面
+  var FREQ_PROBLEMS_CH1 = [].concat(
+    PROBLEMS_CH1_1, PROBLEMS_CH1_2, PROBLEMS_CH1_3, PROBLEMS_CH1_4, PROBLEMS_CH1_5
+  ).filter(function(p){ return p.freq; });
+  renderQuiz(FREQ_PROBLEMS_CH1, 'quizArea-freq-1');
+  document.getElementById('freqSectionSub-1').textContent = '📝 頻出問題 全' + FREQ_PROBLEMS_CH1.length + '問';
+
+  var freqBanner = document.getElementById('freqBanner-1');
+  if(FREQ_PROBLEMS_CH1.length > 0){
+    document.getElementById('freqBannerSub-1').textContent = '1章の頻出問題を全' + FREQ_PROBLEMS_CH1.length + '問まとめて解く';
+    freqBanner.hidden = false;
+    freqBanner.addEventListener('click', function(){
+      document.getElementById('secList-1').hidden = true;
+      document.getElementById('freqContent-1').hidden = false;
+    });
+  }
+
+  // 案B: 各節の中で頻出問題だけに絞り込むスイッチ
+  document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
+    var cards = sec.querySelectorAll('.quiz-card.is-freq');
+    var list = sec.querySelector('.quiz-list');
+    if(!cards.length || !list) return;
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'freq-toggle';
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.textContent = '★ 頻出問題だけ表示(' + cards.length + '問)';
+    toggle.addEventListener('click', function(){
+      var on = toggle.getAttribute('aria-pressed') !== 'true';
+      toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      toggle.textContent = on ? '★ 頻出のみ表示中(タップで全問に戻す)' : '★ 頻出問題だけ表示(' + cards.length + '問)';
+      list.classList.toggle('freq-only', on);
+    });
+    list.parentNode.insertBefore(toggle, list);
+  });
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
 

@@ -209,6 +209,7 @@
     font-family:'Zen Kaku Gothic New',sans-serif; text-align:left; cursor:pointer;
     box-shadow:var(--shadow);
   }
+  .swipe-hint{ font-size:11px; color:var(--muted); margin:-6px 4px 0; }
   .freq-banner[hidden]{display:none;}
   .freq-banner:active{transform:translateY(1px);}
   .freq-banner .star{ font-size:22px; line-height:1; }
@@ -943,6 +944,53 @@
   });
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
+
+  // スワイプで前後の節へ移動(右スワイプ=次の節、左スワイプ=前の節)
+  document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
+    var hint = document.createElement('div');
+    hint.className = 'swipe-hint';
+    hint.textContent = '👉 画面を右にスワイプで次の節、左にスワイプで前の節へ';
+    sec.insertBefore(hint, sec.children[1] || null);
+  });
+
+  function moveSection(step){
+    var cur = document.querySelector('.sec-content[id^="secContent-"]:not([hidden])');
+    if(!cur) return;
+    var m = cur.id.match(/^secContent-(\d+)-(\d+)$/);
+    if(!m) return;
+    var chapterNo = m[1];
+    var n = parseInt(m[2], 10) + step;
+    while(n >= 1 && n <= 99){
+      var next = document.getElementById('secContent-' + chapterNo + '-' + n);
+      if(next){
+        cur.hidden = true;
+        next.hidden = false;
+        window.scrollTo(0, 0);
+        return;
+      }
+      n += step;
+    }
+  }
+
+  var swipeStart = null;
+  document.addEventListener('touchstart', function(e){
+    if(e.touches.length !== 1){ swipeStart = null; return; }
+    var t = e.touches[0];
+    var edge = 30;
+    if(t.clientX < edge || t.clientX > window.innerWidth - edge){ swipeStart = null; return; }
+    if(e.target.closest && e.target.closest('table')){ swipeStart = null; return; }
+    swipeStart = { x: t.clientX, y: t.clientY, t: Date.now() };
+  }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if(!swipeStart) return;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - swipeStart.x;
+    var dy = t.clientY - swipeStart.y;
+    var dt = Date.now() - swipeStart.t;
+    swipeStart = null;
+    if(dt > 800 || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    moveSection(dx > 0 ? 1 : -1);
+  }, { passive: true });
 
   var chapterTabs = document.querySelectorAll('.chapter-tab');
   var chapterPanels = document.querySelectorAll('.chapter-panel');

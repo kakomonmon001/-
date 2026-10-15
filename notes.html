@@ -111,7 +111,13 @@
     box-shadow:var(--shadow); padding:16px 18px; display:flex; flex-direction:column; gap:10px;
   }
   .quiz-list{ display:flex; flex-direction:column; gap:20px; }
+  .quiz-card .q-no-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .quiz-card .q-no{ font-size:14px; color:var(--accent); font-weight:700; font-family:'JetBrains Mono',monospace; letter-spacing:.02em; }
+  .freq-badge{
+    display:inline-flex; align-items:center; gap:3px; font-size:10.5px; font-weight:700;
+    color:var(--accent-ink); background:var(--accent); border-radius:999px; padding:3px 9px 3px 8px;
+    font-family:'Zen Kaku Gothic New',sans-serif; letter-spacing:.02em; white-space:nowrap;
+  }
   .quiz-card .q-text{ font-size:14.5px; line-height:1.8; font-weight:500; }
   .opt-btn{
     display:flex; align-items:flex-start; gap:10px; width:100%; text-align:left;
@@ -359,6 +365,13 @@
       label.textContent = title;
       row.appendChild(label);
 
+      if(exists && document.getElementById(contentId).querySelector('.freq-badge')){
+        var star = document.createElement('span');
+        star.className = 'freq-badge';
+        star.textContent = '★';
+        row.appendChild(star);
+      }
+
       var state = document.createElement('span');
       state.className = 'state';
       state.textContent = exists ? '解説あり' : '準備中';
@@ -392,10 +405,19 @@
     var card = document.createElement('div');
     card.className = 'quiz-card';
 
-    var noEl = document.createElement('div');
+    var noRow = document.createElement('div');
+    noRow.className = 'q-no-row';
+    var noEl = document.createElement('span');
     noEl.className = 'q-no';
     noEl.textContent = '過去問 ' + p.no;
-    card.appendChild(noEl);
+    noRow.appendChild(noEl);
+    if(p.freq){
+      var badge = document.createElement('span');
+      badge.className = 'freq-badge';
+      badge.textContent = '★ 頻出';
+      noRow.appendChild(badge);
+    }
+    card.appendChild(noRow);
 
     var qEl = document.createElement('div');
     qEl.className = 'q-text';
@@ -559,7 +581,7 @@
 
   var PROBLEMS_CH1_2 = [
     {
-      no: "2節 【1】", type: "single",
+      no: "2節 【1】", type: "single", freq: true,
       q: "次の記述のうち、消防法令上、誤っているものは次のうちどれか。",
       opts: [
         "消防用設備等とは、消防の用に供する設備、消防用水及び消火活動上必要な施設をいう。",
@@ -574,7 +596,7 @@
         + "<div class='ref'>法第17条1項、令別表第1</div>"
     },
     {
-      no: "2節 【2】", type: "single",
+      no: "2節 【2】", type: "single", freq: true,
       q: "消防用設備等に関する記述として、消防法令上、正しいものは次のうちどれか。",
       opts: [
         "消防用設備等を設置することが義務付けられている防火対象物は、学校、病院及び旅館等の不特定多数の者が出入りする防火対象物に限られている。",
@@ -594,7 +616,7 @@
 
   var PROBLEMS_CH1_3 = [
     {
-      no: "3節 【1】", type: "single",
+      no: "3節 【1】", type: "single", freq: true,
       q: "消防法令上、特定防火対象物に該当しないものは、次のうちどれか。",
       opts: ["小学校","物品販売店舗","旅館","公衆浴場のうち、蒸気浴場、熱気浴場その他これらに類するもの"],
       answer: 0,
@@ -646,7 +668,7 @@
 
   var PROBLEMS_CH1_4 = [
     {
-      no: "4節 【1】", type: "single",
+      no: "4節 【1】", type: "single", freq: true,
       q: "消防用設備等を設置する場合の防火対象物の基準について、消防法令上、正しいものは次のうちどれか。",
       opts: [
         "防火対象物が開口部のない耐火構造の床又は壁で区画されているときは、それぞれ別の防火対象物とみなされる。",
@@ -773,8 +795,8 @@
         + "<div class='ref'>法第17条、令第1条の2</div>"
     },
     {
-      no: "5節 【3】", type: "multi",
-      q: "消防法令に定められている用語の定義又は説明として、誤っているものを2つ答えなさい。[★][編]",
+      no: "5節 【3】", type: "multi", freq: true,
+      q: "消防法令に定められている用語の定義又は説明として、誤っているものを2つ答えなさい。[編]",
       opts: [
         "消防の用に供する設備……消火設備、警報設備及び避難設備をいう。",
         "消防の用に供する設備……消火設備、警報設備及び消火水槽をいう。",
@@ -791,8 +813,8 @@
         + "<div class='ref'>令第7条</div>"
     },
     {
-      no: "5節 【4】", type: "single",
-      q: "消防用設備等の種類について、消防法令上、誤っているものは次のうちどれか。[★]",
+      no: "5節 【4】", type: "single", freq: true,
+      q: "消防用設備等の種類について、消防法令上、誤っているものは次のうちどれか。",
       opts: [
         "動力消防ポンプ設備は、スプリンクラー設備と同じく、消火設備に含まれる。",
         "自動火災報知設備は、非常警報設備と同じく、警報設備に含まれる。",
@@ -820,8 +842,8 @@
         + "<div class='ref'>令第7条</div>"
     },
     {
-      no: "5節 【6】", type: "single",
-      q: "消防法令上、「警報設備」に含まれないものは、次のうちどれか。[★]",
+      no: "5節 【6】", type: "single", freq: true,
+      q: "消防法令上、「警報設備」に含まれないものは、次のうちどれか。",
       opts: [
         "消防機関へ通報する火災報知設備",
         "手動式サイレン",

@@ -209,6 +209,7 @@
     font-family:'Zen Kaku Gothic New',sans-serif; text-align:left; cursor:pointer;
     box-shadow:var(--shadow);
   }
+  .sec-content{ touch-action:pan-y; }
   .swipe-hint{ font-size:11px; color:var(--muted); margin:-6px 4px 0; }
   .freq-banner[hidden]{display:none;}
   .freq-banner:active{transform:translateY(1px);}
@@ -949,7 +950,7 @@
   document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
     var hint = document.createElement('div');
     hint.className = 'swipe-hint';
-    hint.textContent = '👉 画面を右にスワイプで次の節、左にスワイプで前の節へ';
+    hint.textContent = '👈 画面を右から左へスワイプで次の節、左から右へスワイプで前の節へ';
     sec.insertBefore(hint, sec.children[1] || null);
   });
 
@@ -981,16 +982,27 @@
     if(e.target.closest && e.target.closest('table')){ swipeStart = null; return; }
     swipeStart = { x: t.clientX, y: t.clientY, t: Date.now() };
   }, { passive: true });
-  document.addEventListener('touchend', function(e){
+  document.addEventListener('touchmove', function(e){
+    if(swipeStart && e.touches.length === 1){
+      swipeStart.lx = e.touches[0].clientX;
+      swipeStart.ly = e.touches[0].clientY;
+    }
+  }, { passive: true });
+  function finishSwipe(e){
     if(!swipeStart) return;
-    var t = e.changedTouches[0];
-    var dx = t.clientX - swipeStart.x;
-    var dy = t.clientY - swipeStart.y;
+    var t = e.changedTouches && e.changedTouches[0];
+    var ex = t ? t.clientX : swipeStart.lx;
+    var ey = t ? t.clientY : swipeStart.ly;
+    if(ex === undefined || ey === undefined){ swipeStart = null; return; }
+    var dx = ex - swipeStart.x;
+    var dy = ey - swipeStart.y;
     var dt = Date.now() - swipeStart.t;
     swipeStart = null;
     if(dt > 800 || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-    moveSection(dx > 0 ? 1 : -1);
-  }, { passive: true });
+    moveSection(dx < 0 ? 1 : -1);
+  }
+  document.addEventListener('touchend', finishSwipe, { passive: true });
+  document.addEventListener('touchcancel', finishSwipe, { passive: true });
 
   var chapterTabs = document.querySelectorAll('.chapter-tab');
   var chapterPanels = document.querySelectorAll('.chapter-panel');

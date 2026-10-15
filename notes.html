@@ -53,10 +53,9 @@
   header.panel{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
     box-shadow:var(--shadow); padding:10px 14px;
-    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    display:flex; align-items:center; justify-content:flex-end; gap:8px;
     position:sticky; top:12px; z-index:5;
   }
-  header .title{ display:block; font-weight:700; font-size:13.5px; white-space:nowrap; }
   .header-actions{ display:flex; align-items:center; gap:6px; flex:none; }
   button.back-link{ font-family:inherit; cursor:pointer; }
   .back-link[hidden]{ display:none; }
@@ -234,12 +233,9 @@
 <div class="wrap">
 
   <header class="panel">
-    <div>
-      <span class="title">📙 公論出版 甲種4類</span>
-    </div>
     <div class="header-actions">
       <button type="button" class="back-link" id="headerSecListBtn" hidden>節一覧へ</button>
-      <a class="back-link" href="index.html">トップページへ</a>
+      <a class="back-link" href="index.html">トップページに戻る</a>
     </div>
   </header>
 

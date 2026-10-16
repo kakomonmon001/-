@@ -1115,7 +1115,7 @@
   document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
     var hint = document.createElement('div');
     hint.className = 'swipe-hint';
-    hint.textContent = '👈 画面を右から左へスワイプで次の節、左から右へスワイプで前の節へ';
+    hint.textContent = '👈 画面を右から左へスワイプで次の節、左から右へスワイプで前の節へ(画面のいちばん端から始めたスワイプは反応しません)';
     sec.insertBefore(hint, sec.children[1] || null);
   });
 

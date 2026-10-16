@@ -231,6 +231,15 @@
   }
   .freq-toggle[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
   .quiz-list.freq-only .quiz-card:not(.is-freq){ display:none; }
+
+  .reveal-toggle{
+    align-self:stretch; font-size:14.5px; font-weight:700; color:var(--ok);
+    background:var(--surface); border:1.5px solid var(--ok); border-radius:999px;
+    padding:12px 18px; cursor:pointer; font-family:inherit; text-align:center;
+  }
+  .reveal-toggle[aria-pressed="true"]{ background:var(--ok); color:#fff; }
+  .opt-btn.reveal-correct{ background:var(--ok-bg); border-color:var(--ok); }
+  .opt-btn.reveal-correct .n{ background:var(--ok); color:#fff; border-color:var(--ok); }
 </style>
 </head>
 <body>
@@ -497,8 +506,26 @@
 
     var fb = document.createElement('div');
     fb.className = 'q-feedback';
+    var rv = document.createElement('div');
+    rv.className = 'q-feedback';
+
+    card._reveal = function(on){
+      var correctIdx = (p.type === 'multi') ? p.answer : [p.answer];
+      card.querySelectorAll('.opt-btn').forEach(function(b, i){
+        b.classList.toggle('reveal-correct', on && correctIdx.indexOf(i) !== -1);
+      });
+      if(on && !fb.classList.contains('show')){
+        rv.innerHTML = '<div class="verdict ok">📖 正解と解説</div><div>' + p.ex + '</div>';
+        rv.classList.add('show');
+      }else{
+        rv.classList.remove('show');
+        rv.innerHTML = '';
+      }
+    };
 
     function showFeedback(isCorrect){
+      rv.classList.remove('show');
+      rv.innerHTML = '';
       fb.classList.add('show');
       var verdict = document.createElement('div');
       verdict.className = 'verdict ' + (isCorrect ? 'ok' : 'ng');
@@ -594,6 +621,7 @@
     }
 
     card.appendChild(fb);
+    card.appendChild(rv);
     area.appendChild(card);
   });
   }
@@ -1111,7 +1139,26 @@
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
 
-  // スワイプで前後の節へ移動(右スワイプ=次の節、左スワイプ=前の節)
+  // 全問の正解と解説をまとめて表示するスイッチ(各節・頻出まとめ)
+  document.querySelectorAll('.quiz-list').forEach(function(list){
+    var cards = list.querySelectorAll('.quiz-card');
+    if(!cards.length) return;
+    var label = '📖 全問の正解と解説を表示(' + cards.length + '問)';
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'reveal-toggle';
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.textContent = label;
+    toggle.addEventListener('click', function(){
+      var on = toggle.getAttribute('aria-pressed') !== 'true';
+      toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      toggle.textContent = on ? '📖 正解と解説を表示中(タップで閉じる)' : label;
+      cards.forEach(function(c){ c._reveal(on); });
+    });
+    list.parentNode.insertBefore(toggle, list);
+  });
+
+  // スワイプで前後の節へ移動(右から左=次の節、左から右=前の節)
   document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
     var hint = document.createElement('div');
     hint.className = 'swipe-hint';

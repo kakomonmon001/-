@@ -71,16 +71,16 @@
 
   .chapter-head{ margin-top:6px; padding:10px 4px 2px; }
   .chapter-head .eyebrow{ font-size:11px; color:var(--amber); font-weight:700; letter-spacing:.04em; }
-  .chapter-head h1{ font-size:20px; margin-top:4px; }
+  .chapter-head h1{ font-size:21px; margin-top:4px; }
 
   .section-sub{
-    font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.03em;
+    font-size:12.5px; font-weight:700; color:var(--muted); letter-spacing:.03em;
     margin:4px 4px -4px;
   }
 
   .note-box{
     background:var(--surface-2); border-radius:10px; padding:10px 12px 10px 13px;
-    font-size:12.5px; line-height:1.7; color:var(--ink); margin:2px 0;
+    font-size:14.5px; line-height:1.75; color:var(--ink); margin:2px 0;
     border-left:3px solid var(--amber);
   }
   .note-box b{ color:var(--amber); }
@@ -101,7 +101,7 @@
   .wrong-term{ color:var(--accent); font-weight:700; }
 
   .ref{
-    font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace;
+    font-size:12px; color:var(--muted); font-family:'JetBrains Mono',monospace;
     border-top:1px dashed var(--border); padding-top:8px; margin-top:2px;
   }
 
@@ -123,11 +123,11 @@
     color:var(--accent-ink); background:var(--accent); border-radius:999px; padding:3px 9px 3px 8px;
     font-family:'Zen Kaku Gothic New',sans-serif; letter-spacing:.02em; white-space:nowrap;
   }
-  .quiz-card .q-text{ font-size:14.5px; line-height:1.8; font-weight:500; white-space:pre-line; }
+  .quiz-card .q-text{ font-size:16px; line-height:1.8; font-weight:500; white-space:pre-line; }
   .opt-btn{
     display:flex; align-items:flex-start; gap:10px; width:100%; text-align:left;
     background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
-    padding:11px 13px; font-size:13.5px; line-height:1.6; color:var(--ink);
+    padding:11px 13px; font-size:15px; line-height:1.6; color:var(--ink);
     font-family:inherit; cursor:pointer;
   }
   .opt-btn .n{
@@ -153,19 +153,19 @@
   .submit-btn:disabled{ opacity:.4; cursor:default; }
   .q-feedback{
     display:none; background:var(--surface-2); border-radius:10px; padding:13px 14px;
-    font-size:13.5px; line-height:1.85;
+    font-size:15px; line-height:1.85;
   }
   .q-feedback.show{ display:flex; flex-direction:column; gap:8px; }
-  .q-feedback .verdict{ font-weight:700; font-size:14px; }
+  .q-feedback .verdict{ font-weight:700; font-size:15.5px; }
   .q-feedback .verdict.ok{ color:var(--ok); }
   .q-feedback .verdict.ng{ color:var(--accent); }
   .q-feedback .note-box{ background:var(--surface); }
 
   .mini-note{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:14px 16px; font-size:13px; line-height:1.85;
+    box-shadow:var(--shadow); padding:14px 16px; font-size:14.5px; line-height:1.85;
   }
-  table.simple{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  table.simple{ width:100%; border-collapse:collapse; font-size:14px; }
   table.simple th, table.simple td{
     border:1px solid var(--border); padding:7px 9px; text-align:left; vertical-align:top; line-height:1.6;
   }
@@ -185,7 +185,7 @@
   .sec-row{
     display:flex; align-items:center; gap:10px; width:100%; padding:11px 13px; border-radius:12px;
     border:1px solid var(--border); background:var(--surface); color:var(--ink); cursor:pointer;
-    text-align:left; font-family:inherit; font-size:13px;
+    text-align:left; font-family:inherit; font-size:15px;
   }
   .sec-row .num{
     flex:none; width:24px; height:24px; border-radius:50%; background:var(--surface-2);
@@ -193,7 +193,7 @@
     font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
   }
   .sec-row .label{flex:1; font-weight:500; line-height:1.4;}
-  .sec-row .state{flex:none; font-size:10.5px; color:var(--muted); white-space:nowrap;}
+  .sec-row .state{flex:none; font-size:11.5px; color:var(--muted); white-space:nowrap;}
   .sec-row.ready .num{background:var(--accent); color:var(--accent-ink); border-color:var(--accent);}
   .sec-row.ready .state{color:var(--ok); font-weight:700;}
   .sec-row.disabled{opacity:.55; cursor:default;}
@@ -215,13 +215,13 @@
     box-shadow:var(--shadow);
   }
   .sec-content{ touch-action:pan-y; }
-  .swipe-hint{ font-size:11px; color:var(--muted); margin:-6px 4px 0; }
+  .swipe-hint{ font-size:12px; color:var(--muted); margin:-6px 4px 0; }
   .freq-banner[hidden]{display:none;}
   .freq-banner:active{transform:translateY(1px);}
   .freq-banner .star{ font-size:22px; line-height:1; }
   .freq-banner .copy{ display:flex; flex-direction:column; gap:2px; flex:1; }
   .freq-banner .t{ font-size:15px; font-weight:900; }
-  .freq-banner .s{ font-size:11.5px; font-weight:500; opacity:.9; }
+  .freq-banner .s{ font-size:12.5px; font-weight:500; opacity:.9; }
   .freq-banner .chev{ font-size:20px; opacity:.8; }
 
   .freq-toggle{

@@ -185,6 +185,11 @@
     background:linear-gradient(var(--accent), var(--accent)) left bottom / 34px 3px no-repeat, linear-gradient(var(--border), var(--border)) left bottom / 100% 1px no-repeat;
   }
   .def-body{ font-size:15px; line-height:1.9; }
+  /* faint rule under every line of running text (unobtrusive notebook feel) */
+  .polish .overview p, .polish .def-body:not(:has(.def-list)){
+    line-height:30px;
+    background-image:repeating-linear-gradient(to bottom, transparent 0, transparent 29px, color-mix(in srgb, var(--ink) 11%, transparent) 29px, color-mix(in srgb, var(--ink) 11%, transparent) 30px);
+  }
   .def-list{ list-style:none; margin:8px 0 2px; padding:0; border-top:1px solid var(--border); }
   .def-list li{ display:flex; align-items:baseline; gap:12px; padding:7px 2px 8px; border-bottom:1px solid var(--border); font-size:15.5px; line-height:1.65; }
   .def-list li:last-child{ border-bottom:none; padding-bottom:2px; }

@@ -24,6 +24,7 @@
     --ng-bg:#f6e6e1;
     --shadow: 0 1px 0 rgba(33,29,25,.04), 0 8px 20px -12px rgba(33,29,25,.35);
     --radius: 14px;
+    --card:#ffffff; --card-line:#c9bfa6; --opt-bg:#fffdf8; --tint-warn:#fcebe8; --tint-tip:#fff5d9; --tint-ok:#e7f2e8;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -31,6 +32,7 @@
       --muted:#a89f92; --border:#3a352f; --accent:#e2604e; --accent-ink:#1b120f;
       --amber:#e0a83f; --ok:#5cb37c; --ok-bg:#203025; --ng:#e2604e; --ng-bg:#352220;
       --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+      --card:#2a2622; --card-line:#4d463d; --opt-bg:#2f2a26; --tint-warn:#3a2523; --tint-tip:#383220; --tint-ok:#1f3024;
     }
   }
   :root[data-theme="dark"]{
@@ -38,6 +40,7 @@
     --muted:#a89f92; --border:#3a352f; --accent:#e2604e; --accent-ink:#1b120f;
     --amber:#e0a83f; --ok:#5cb37c; --ok-bg:#203025; --ng:#e2604e; --ng-bg:#352220;
     --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+    --card:#2a2622; --card-line:#4d463d; --opt-bg:#2f2a26; --tint-warn:#3a2523; --tint-tip:#383220; --tint-ok:#1f3024;
   }
   *{box-sizing:border-box;}
   body{
@@ -135,6 +138,8 @@
     border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
     font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
   }
+  .polish .opt-btn{ background:var(--opt-bg); border:1.5px solid var(--card-line); }
+  .polish .opt-btn .n{ background:var(--surface-2); border-color:var(--card-line); color:var(--ink); width:24px; height:24px; font-size:12px; }
   .opt-btn.correct{ background:var(--ok-bg); border-color:var(--ok); }
   .opt-btn.correct .n{ background:var(--ok); color:#fff; border-color:var(--ok); }
   .opt-btn.wrong{ background:var(--ng-bg); border-color:var(--ng); }
@@ -160,6 +165,23 @@
   .q-feedback .verdict.ok{ color:var(--ok); }
   .q-feedback .verdict.ng{ color:var(--accent); }
   .q-feedback .note-box{ background:var(--surface); }
+
+  /* ---- 1節 polish trial: clear white cards, tinted boxes by meaning, scannable overview/definitions ---- */
+  .polish .quiz-card{ background:var(--card); border:1.5px solid var(--card-line); }
+  .polish .q-feedback{ background:var(--card); border:1.5px solid var(--card-line); border-top:5px solid var(--card-line); }
+  .polish .q-feedback:has(.verdict.ok){ border-top-color:var(--ok); }
+  .polish .q-feedback:has(.verdict.ng){ border-top-color:var(--ng); }
+  .polish .q-feedback .note-box{ background:var(--tint-tip); border-left:4px solid var(--amber); }
+  .polish .q-feedback .note-box.warn{ background:var(--tint-warn); border-left:4px solid var(--accent); }
+  .polish .overview{ background:var(--card); border:1.5px solid var(--card-line); gap:12px; }
+  .ov-row{ display:flex; flex-direction:column; align-items:flex-start; gap:3px; }
+  .ov-k{ font-size:12.5px; font-weight:700; padding:0 11px; border-radius:999px; line-height:1.7; color:var(--accent-ink); background:var(--accent); }
+  .ov-row:nth-of-type(3) .ov-k{ background:var(--amber); }
+  .ov-row:nth-of-type(4) .ov-k{ background:var(--ok); }
+  .defs{ display:flex; flex-direction:column; gap:10px; }
+  .def{ background:var(--card); border:1.5px solid var(--card-line); border-radius:12px; padding:11px 14px 12px; display:flex; flex-direction:column; gap:3px; }
+  .def-name{ align-self:flex-start; font-weight:700; font-size:14.5px; color:var(--accent); border-bottom:2px solid var(--accent); line-height:1.5; }
+  .def-body{ font-size:15px; line-height:1.9; }
 
   .overview{
     background:var(--surface-2); border:1px dashed var(--amber); border-radius:var(--radius);
@@ -293,7 +315,7 @@
       <div id="quizArea-freq-1" class="quiz-list"></div>
     </div>
 
-    <div class="sec-content" id="secContent-1-1" hidden>
+    <div class="sec-content polish" id="secContent-1-1" hidden>
       <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
       <div class="chapter-head">
         <div class="eyebrow">CHAPTER 1 ・ 1節</div>
@@ -301,15 +323,16 @@
       </div>
       <div class="overview">
         <div class="ov-label">💬 まずはざっくり</div>
-        <p>この節は、消防法で使う<b>言葉の意味をそろえる</b>ところだよ。「関係者」とか「無窓階」とか、ふだん使う意味とはちょっとちがう、法律だけの決まった意味がある言葉が出てくるんだ。ここが分からないと、このあとの問題の文章が読めなくなっちゃうから、いちばん最初の土台だね。</p>
-        <p>試験では「この説明は正しい?誤り?」って形で、<span class='hl'>定義の文をほんの少しだけ書きかえた選択肢</span>が出るよ。たとえば「関係者」に防火管理者をまぜたり、「舟車」から「及び車両」を抜いたりね。</p>
-        <p>だから、意味を<span class='hl'>ざっくり分かったうえで、大事な言葉は一字一句そのまま</span>覚えるのがコツ。まずは、<b>関係者</b>(誰が入る?)、<b>防火対象物と消防対象物のちがい</b>、<b>無窓階</b>、<b>舟車</b>の4つからいこう。</p>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><p>消防法で使う<b>言葉の意味をそろえる</b>ところだよ。「関係者」や「無窓階」みたいに、ふだんの意味とはちがう、法律だけの決まった意味がある言葉が出てくるよ。ここが分からないと、このあとの問題文が読めなくなるから、いちばん最初の土台。</p></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><p><span class='hl'>定義の文をほんの少しだけ書きかえた選択肢</span>が出るよ。たとえば「関係者」に防火管理者をまぜたり、「舟車」から「及び車両」を抜いたり。</p></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><p>意味をざっくり分かったうえで、大事な言葉は<span class='hl'>一字一句そのまま</span>覚えよう。まずは下の4つ(<b>関係者</b>、<b>防火対象物と消防対象物</b>、<b>無窓階</b>、<b>舟車</b>)から。</p></div>
       </div>
-      <div class="mini-note">
-        <b>関係者</b> = 所有者・管理者・占有者の3種類だけ(<span class="hl-warn">防火管理者は含まれません</span>)。<br>
-        <b>防火対象物</b>と<b>消防対象物</b>は別の言葉。消防対象物の定義は文末が「…又は<span class="hl">物件</span>をいう」、防火対象物の定義は文末が「…<span class="hl">これらに属する物</span>をいう」で見分けます。<br>
-        <b>無窓階</b> = 「<span class="hl">避難上又は消火活動上有効な開口部を有しない階</span>」(令第10条1項5号の正式な言い回し)。<br>
-        <b>舟車</b> = 船舶・端舟・はしけ・被曳船<span class="hl-warn">及び車両</span>(「車両」を忘れずに)。
+      <div class="section-sub">📌 まず覚える4つの言葉</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">関係者</div><div class="def-body">所有者・管理者・占有者の<b>3種類だけ</b>。<span class="hl-warn">防火管理者は含まれません</span>。</div></div>
+        <div class="def"><div class="def-name">防火対象物 と 消防対象物</div><div class="def-body">別の言葉。<b>文の終わり</b>で見分けます。<br>消防対象物 → 「…又は<span class="hl">物件</span>をいう」<br>防火対象物 → 「…<span class="hl">これらに属する物</span>をいう」</div></div>
+        <div class="def"><div class="def-name">無窓階</div><div class="def-body">「<span class="hl">避難上又は消火活動上有効な開口部を有しない階</span>」<br><span style="color:var(--muted);font-size:13.5px;">(令第10条1項5号の正式な言い回し)</span></div></div>
+        <div class="def"><div class="def-name">舟車</div><div class="def-body">船舶・端舟・はしけ・被曳船<span class="hl-warn">及び車両</span>(「車両」を忘れずに)。</div></div>
       </div>
       <div class="section-sub">📝 過去問 1節【1】〜【3】</div>
       <div id="quizArea-ch1-1" class="quiz-list"></div>

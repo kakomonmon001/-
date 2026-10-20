@@ -182,9 +182,10 @@
   .def{ background:var(--card); border:1.5px solid var(--card-line); border-radius:12px; padding:11px 14px 12px; display:flex; flex-direction:column; gap:3px; }
   .def-name{ align-self:flex-start; font-weight:700; font-size:14.5px; color:var(--accent); border-bottom:2px solid var(--accent); line-height:1.5; }
   .def-body{ font-size:15px; line-height:1.9; }
-  .def-list{ list-style:none; margin:6px 0 2px; padding:0; display:flex; flex-direction:column; gap:7px; }
-  .def-list li{ display:flex; align-items:flex-start; gap:10px; background:var(--tint-tip); border:1px solid var(--card-line); border-radius:10px; padding:7px 11px; font-size:15.5px; line-height:1.7; }
-  .def-list .li-n{ flex:none; width:24px; height:24px; margin-top:2px; border-radius:50%; background:var(--accent); color:var(--accent-ink); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .def-list{ list-style:none; margin:8px 0 2px; padding:0; border-top:1px solid var(--border); }
+  .def-list li{ display:flex; align-items:baseline; gap:12px; padding:7px 2px 8px; border-bottom:1px solid var(--border); font-size:15.5px; line-height:1.65; }
+  .def-list li:last-child{ border-bottom:none; padding-bottom:2px; }
+  .def-list .li-n{ flex:none; width:1.5em; text-align:right; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:var(--accent); }
   .def-list .li-t{ flex:1; min-width:0; }
   .def-list .li-t small{ display:block; font-size:13px; color:var(--muted); line-height:1.6; }
   .polish table.simple{ background:var(--card); }

@@ -185,8 +185,23 @@
     background:linear-gradient(var(--accent), var(--accent)) left bottom / 34px 3px no-repeat, linear-gradient(var(--border), var(--border)) left bottom / 100% 1px no-repeat;
   }
   .def-body{ font-size:15px; line-height:1.9; }
+  /* statute quotation card */
+  .law{ background:var(--card); border:1.5px solid var(--card-line); border-radius:12px; padding:12px 14px 14px; }
+  .law-head{ font-size:13.5px; font-weight:700; color:var(--muted); letter-spacing:.04em; margin-bottom:4px; }
+  .law-text{ font-size:15.5px; line-height:2.1; margin:0; }
+  .lw-i{ background:var(--tint-tip); border:1px solid var(--card-line); border-radius:6px; padding:0 5px; }
+  .lw-key{ background:var(--tint-warn); border-color:var(--accent); font-weight:700; }
+  .law-src{ margin-top:8px; font-size:12.5px; color:var(--muted); }
+  .cmp{ display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+  .cmp-row{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
+  .cmp-k{ font-size:12.5px; font-weight:700; border-radius:999px; padding:0 11px; line-height:1.7; color:#fff; }
+  .cmp-row.ok .cmp-k{ background:var(--ok); }
+  .cmp-row.ng .cmp-k{ background:var(--accent); color:var(--accent-ink); }
+  .cmp-row p{ margin:0; font-size:15.5px; line-height:2; }
+  .cmp-row .lw-i{ white-space:nowrap; }
+  .lw-gap{ border:1.5px dashed var(--accent); border-radius:6px; padding:0 6px; color:var(--accent); font-weight:700; font-size:13.5px; white-space:nowrap; }
   /* faint rule under every line of running text (unobtrusive notebook feel) */
-  .polish .overview p, .polish .def-body:not(:has(.def-list)){
+  .polish .overview p, .polish .def-body:not(:has(.def-list)):not(:has(.cmp)){
     line-height:30px;
     background-image:repeating-linear-gradient(to bottom, transparent 0, transparent 29px, color-mix(in srgb, var(--ink) 11%, transparent) 29px, color-mix(in srgb, var(--ink) 11%, transparent) 30px);
   }
@@ -369,6 +384,16 @@
         <div class="ov-row"><span class="ov-k">どんな話?</span><p>「消防法って、そもそも誰に何をさせてるの?」っていう<b>土台の話</b>だよ。ビルやお店には、消火器やスプリンクラーみたいな「<b>消防用設備等</b>」をつけてね、って決まってるんだ。何が入るのか、どんな建物が対象なのか、ふつうの家はどうなのか、を確認するよ。</p></div>
         <div class="ov-row"><span class="ov-k">試験では?</span><p>問題は2問だけど、どっちも<span class='hl'>よく出る問題(★)</span>。ひっかけは2種類。「消防用設備等の中身から<span class='hl-warn'>消防用水が抜けている</span>文」と、「対象は病院や旅館みたいな建物<span class='hl-warn'>だけ</span>って言い切る文」だよ。</p></div>
         <div class="ov-row"><span class="ov-k">コツは?</span><p>下の3つを覚えよう。</p><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>消防用設備等は3点セット</b></span></li><li><span class="li-n">2</span><span class="li-t"><b>対象は令別表第1の建物</b></span></li><li><span class="li-n">3</span><span class="li-t"><b>ふつうの一戸建ては、消防用設備等は不要。でも住宅用防災機器(火災警報器など)はいる</b></span></li></ol></div>
+      </div>
+      <div class="section-sub">📖 原文を読む(法第17条 第1項)</div>
+      <div class="law">
+        <div class="law-head">消防法 第17条 第1項</div>
+        <p class="law-text">学校、病院、工場、事業場、興行場、百貨店、旅館、飲食店、地下街、複合用途防火対象物その他の防火対象物で政令で定めるものの<b>関係者</b>は、政令で定める<span class="lw-i">消防の用に供する設備</span>、<span class="lw-i lw-key">消防用水</span>及び<span class="lw-i">消火活動上必要な施設</span>(以下「消防用設備等」という。)について消火、避難その他の消防の活動のために必要とされる性能を有するように、政令で定める技術上の基準に従つて、設置し、及び維持しなければならない。</p>
+        <div class="law-src">出典:e-Gov法令検索(現行の条文)。「従つて」は原文の書き方です(従って)。</div>
+      </div>
+      <div class="defs">
+        <div class="def"><div class="def-name">この1文の組み立て</div><div class="def-body">まず、骨組みだけ取り出すと「<b>関係者は、消防用設備等を、設置し、及び維持しなければならない</b>」です。そこに、次の4つの説明が付いています。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>誰が</b><small>学校・病院・工場など、<span class="hl">政令で定める</span>防火対象物の<b>関係者</b>(=2節【1】の「病院・旅館に限られない」のもとの部分)</small></span></li><li><span class="li-n">2</span><span class="li-t"><b>何を</b><small>政令で定める<b>消防の用に供する設備、消防用水及び消火活動上必要な施設</b> = これをまとめて「消防用設備等」と呼ぶ</small></span></li><li><span class="li-n">3</span><span class="li-t"><b>どんな性能で</b><small>消火、避難その他の消防の活動のために必要とされる性能を有するように</small></span></li><li><span class="li-n">4</span><span class="li-t"><b>どうやって</b><small>政令で定める技術上の基準に従つて(=基準どおりに)</small></span></li></ol></div></div>
+        <div class="def"><div class="def-name">「消防用水が抜ける」とは</div><div class="def-body">原文の「何を」の部分は、<b>3つが並んだ形</b>です。最初の切れ目は「、」で、最後の2つの間だけ「<b>及び</b>」でつながります(<b>A、B及びC</b>)。ひっかけの選択肢は、この真ん中の<span class="hl-warn">B(消防用水)をごっそり抜いて</span>、<b>A及びC</b>の2つにしてきます。<div class="cmp"><div class="cmp-row ok"><span class="cmp-k">正しい(3つ)</span><p><span class="lw-i">消防の用に供する設備</span>、<span class="lw-i lw-key">消防用水</span>及び<span class="lw-i">消火活動上必要な施設</span></p></div><div class="cmp-row ng"><span class="cmp-k">誤り(2つ)</span><p><span class="lw-i">消防の用に供する設備</span>及び<span class="lw-i">消火活動上必要な施設</span> <span class="lw-gap">消防用水がない</span></p></div></div><span style="color:var(--muted);font-size:13.5px">見分け方は、「及び」の前に「、」で区切られたものがあるかを見ること。「A及びC」と、AとCが直接つながっていたら、間が抜けています。</span></div></div>
       </div>
       <div class="section-sub">📌 まず覚える3つ</div>
       <div class="defs">
@@ -1203,7 +1228,7 @@
       ex: "<b class='ans'>正解は④。</b>法第17条1項の骨子そのままです。"
         + "<div class='note-box warn'><b>⚠ ①が誤りの理由:</b> ①も2節【1】と同じ「〜に限られている」という狭めすぎのひっかけです。</div>"
         + "<div class='note-box warn'><b>⚠ ②が誤りの理由:</b> <span class='hl'>戸建て一般住宅は、規模に関わらず「消防用設備等」の設置義務はありません</span>。義務があるのは「住宅用防災機器」の方です。</div>"
-        + "<div class='note-box warn'><b>⚠ ③が誤りの理由:</b> 消防用設備等の定義は「消防の用に供する設備」「<span class='hl'>消防用水</span>」「消火活動上必要な施設」の3点セット。③は<span class='hl'>「消防用水」が抜けています</span>。</div>"
+        + "<div class='note-box warn'><b>⚠ ③が誤りの理由:</b> 消防用設備等の定義は「消防の用に供する設備」「<span class='hl'>消防用水</span>」「消火活動上必要な施設」の3点セット。③は<span class='hl'>「消防用水」が抜けています</span>。原文は「消防の用に供する設備<b>、</b>消防用水<b>及び</b>消火活動上必要な施設」と3つが並んでいますが、③は「設備<b>及び</b>施設」の2つだけです(上の原文を参照)。</div>"
         + "<div class='ref'>法第17条1項</div>"
     }
   ];

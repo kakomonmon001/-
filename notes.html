@@ -24,6 +24,7 @@
     --ng-bg:#f6e6e1;
     --shadow: 0 1px 0 rgba(33,29,25,.04), 0 8px 20px -12px rgba(33,29,25,.35);
     --radius: 14px;
+    --wall:#7a4a2a; --c-shop:#f6d9b0; --c-office:#c7dcf0;
     --card:#ffffff; --card-line:#c9bfa6; --opt-bg:#fffdf8; --tint-warn:#fcebe8; --tint-tip:#fff5d9; --tint-ok:#e7f2e8;
   }
   @media (prefers-color-scheme: dark){
@@ -32,6 +33,7 @@
       --muted:#a89f92; --border:#3a352f; --accent:#e2604e; --accent-ink:#1b120f;
       --amber:#e0a83f; --ok:#5cb37c; --ok-bg:#203025; --ng:#e2604e; --ng-bg:#352220;
       --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+      --wall:#c88a55; --c-shop:#6b4a22; --c-office:#2c4a66;
       --card:#2a2622; --card-line:#4d463d; --opt-bg:#2f2a26; --tint-warn:#3a2523; --tint-tip:#383220; --tint-ok:#1f3024;
     }
   }
@@ -40,6 +42,7 @@
     --muted:#a89f92; --border:#3a352f; --accent:#e2604e; --accent-ink:#1b120f;
     --amber:#e0a83f; --ok:#5cb37c; --ok-bg:#203025; --ng:#e2604e; --ng-bg:#352220;
     --shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 24px -14px rgba(0,0,0,.6);
+    --wall:#c88a55; --c-shop:#6b4a22; --c-office:#2c4a66;
     --card:#2a2622; --card-line:#4d463d; --opt-bg:#2f2a26; --tint-warn:#3a2523; --tint-tip:#383220; --tint-ok:#1f3024;
   }
   *{box-sizing:border-box;}
@@ -185,6 +188,27 @@
     background:linear-gradient(var(--accent), var(--accent)) left bottom / 34px 3px no-repeat, linear-gradient(var(--border), var(--border)) left bottom / 100% 1px no-repeat;
   }
   .def-body{ font-size:15px; line-height:1.9; }
+  /* building drawings (section 4) */
+  .zk{ margin:8px 0 2px; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:10px 6px 8px; }
+  .zk svg{ display:block; width:100%; height:auto; max-width:420px; margin-inline:auto; }
+  .zk figcaption{ margin-top:4px; padding-inline:6px; font-size:14.5px; font-weight:700; text-align:center; line-height:1.6; }
+  .zk-pair{ display:grid; gap:10px; margin:8px 0 2px; }
+  .zk-pair .zk{ margin:0; }
+  .zk-v{ display:inline-block; font-size:13px; font-weight:700; border-radius:999px; padding:0 12px; margin:0 0 4px 8px; line-height:1.7; }
+  .zk-v.ok{ background:var(--tint-ok); color:var(--ok); border:1.5px solid var(--ok); }
+  .zk-v.ng{ background:var(--tint-warn); color:var(--accent); border:1.5px solid var(--accent); }
+  .zk text{ fill:var(--ink); font-size:13px; font-family:inherit; }
+  .zk .b{ font-weight:700; } .zk .m{ fill:var(--muted); } .zk .red{ fill:var(--accent); } .zk .grn{ fill:var(--ok); }
+  .zk .big{ font-size:24px; font-weight:900; }
+  .zk .bld{ fill:var(--card); stroke:var(--ink); stroke-width:2; stroke-linejoin:round; }
+  .zk .flr{ stroke:var(--ink); stroke-width:1; stroke-dasharray:3 3; opacity:.45; fill:none; }
+  .zk .gnd{ stroke:var(--ink); stroke-width:3; stroke-linecap:round; }
+  .zk .wall{ fill:var(--wall); }
+  .zk .arr, .zk .brk{ stroke:var(--ink); fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .zk .arr{ stroke-width:1.6; } .zk .brk{ stroke-width:2; }
+  .zk .shop{ fill:var(--c-shop); stroke:var(--ink); stroke-width:2; }
+  .zk .office{ fill:var(--c-office); stroke:var(--ink); stroke-width:2; }
+  @media (min-width:560px){ .zk-pair{ grid-template-columns:1fr 1fr; } }
   /* A、B及びC comparison */
   .lw-i{ background:var(--tint-tip); border:1px solid var(--card-line); border-radius:6px; padding:0 5px; }
   .lw-key{ background:var(--tint-warn); border-color:var(--accent); font-weight:700; }
@@ -433,11 +457,77 @@
       </div>
       <div class="section-sub">📌 まず覚えること(原則と例外3つ)</div>
       <div class="defs">
-        <div class="def"><div class="def-name">原則</div><div class="def-body">消防用設備等の設置単位は<b>棟(建物)ごと</b>。</div></div>
-        <div class="def"><div class="def-name">例外1(令第8条)</div><div class="def-body"><span class='hl'>開口部のない耐火構造</span>の床又は壁で区画されていれば、<b>別の防火対象物とみなす</b>。<br><span class='hl-warn'>区切っている壁・床に、防火戸や階段などの開口部が少しでもあると</span>、この例外は使えず、<b>原則どおり1つのまま</b>。</div></div>
-        <div class="def"><div class="def-name">例外2(令第9条)</div><div class="def-body">複合用途防火対象物の(1)〜(15)の用途部分は、<b>同一用途ごとに一の防火対象物とみなす</b>((16)〜(20)は対象外)。<br>ただし、次の<span class='hl-warn'>4つの設備はこの例外を受けず</span>、建物全体で設置義務があります。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t">スプリンクラー設備</span></li><li><span class="li-n">2</span><span class="li-t">自動火災報知設備</span></li><li><span class="li-n">3</span><span class="li-t">ガス漏れ火災警報設備</span></li><li><span class="li-n">4</span><span class="li-t">漏電火災警報器</span></li></ol></div></div>
-        <div class="def"><div class="def-name">例外3(令第19条2項)</div><div class="def-body">近接する2以上の建築物は、<span class='hl'>屋外消火栓設備の設置に関してだけ</span>、<b>1棟とみなす</b>(他の設備には適用されない)。<br>対象は、1階が3m以下、2階以上が5m以下の距離にあるもの。</div></div>
-        <div class="def"><div class="def-name">分かれないケース</div><div class="def-body"><span class='hl-warn'>同一敷地内にあるだけ、管理者がちがうだけ</span>では、防火対象物は分かれません。</div></div>
+        <div class="def"><div class="def-name">原則</div><div class="def-body">消防用設備等の設置単位は<b>棟(建物)ごと</b>。</div><figure class="zk"><svg viewBox="0 0 340 156" role="img" aria-label="3階建ての建物1棟。1棟で1つの防火対象物">
+        <line class="gnd" x1="20" y1="130" x2="320" y2="130"/>
+        <rect class="bld" x="110" y="26" width="120" height="104"/>
+        <line class="flr" x1="110" y1="61" x2="230" y2="61"/>
+        <line class="flr" x1="110" y1="96" x2="230" y2="96"/>
+        <text class="big" x="170" y="88" text-anchor="middle">1棟</text>
+        <text class="b" x="170" y="150" text-anchor="middle" style="font-size:14px">この1棟 = 1つの防火対象物</text>
+      </svg></figure></div>
+        <div class="def"><div class="def-name">例外1(令第8条)</div><div class="def-body"><span class='hl'>開口部のない耐火構造</span>の床又は壁で区画されていれば、<b>別の防火対象物とみなす</b>。<br><span class='hl-warn'>区切っている壁・床に、防火戸や階段などの開口部が少しでもあると</span>、この例外は使えず、<b>原則どおり1つのまま</b>。</div><div class="zk-pair"><figure class="zk"><span class="zk-v ok">○ 別の建物とみなす</span><svg viewBox="0 0 340 170" role="img" aria-label="開口部のない耐火構造の壁で区切られた建物。AとBの2つになる">
+          <line class="gnd" x1="14" y1="140" x2="326" y2="140"/>
+          <rect class="bld" x="30" y="44" width="280" height="96"/>
+          <rect class="wall" x="165" y="44" width="10" height="96"/>
+          <line x1="170" y1="30" x2="170" y2="42" class="arr"/>
+          <text x="170" y="22" text-anchor="middle" class="b">開口部のない耐火構造の壁</text>
+          <circle cx="98" cy="96" r="18" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <text x="98" y="103" text-anchor="middle" class="b" style="font-size:20px">A</text>
+          <circle cx="242" cy="96" r="18" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <text x="242" y="103" text-anchor="middle" class="b" style="font-size:20px">B</text>
+          <text x="170" y="162" text-anchor="middle" class="b grn" style="font-size:14px">AとBは別の防火対象物</text>
+        </svg></figure><figure class="zk"><span class="zk-v ng">× 1つのまま</span><svg viewBox="0 0 340 170" role="img" aria-label="壁に防火戸などの開口部がある建物。区切ったことにならず1つのまま">
+          <line class="gnd" x1="14" y1="140" x2="326" y2="140"/>
+          <rect class="bld" x="30" y="44" width="280" height="96"/>
+          <rect class="wall" x="165" y="44" width="10" height="46"/>
+          <rect class="wall" x="165" y="120" width="10" height="20"/>
+          <rect x="164" y="90" width="12" height="30" fill="none" stroke="var(--red)" stroke-width="2.2" stroke-dasharray="4 3"/>
+          <line x1="170" y1="30" x2="170" y2="42" class="arr"/>
+          <text x="170" y="22" text-anchor="middle" class="b">壁に開口部が1か所でもあると…</text>
+          <line x1="190" y1="106" x2="222" y2="106" stroke="var(--red)" stroke-width="2" stroke-linecap="round"/>
+          <text x="228" y="111" class="b red">防火戸・階段など</text>
+          <text x="170" y="162" text-anchor="middle" class="b red" style="font-size:14px">区切ったことにならない(1つのまま)</text>
+        </svg></figure></div></div>
+        <div class="def"><div class="def-name">例外2(令第9条)</div><div class="def-body">複合用途防火対象物の(1)〜(15)の用途部分は、<b>同一用途ごとに一の防火対象物とみなす</b>((16)〜(20)は対象外)。</div><figure class="zk"><svg viewBox="0 0 340 196" role="img" aria-label="1階が飲食店、2階と3階が事務所の建物。事務所の部分で1つ、飲食店の部分で1つとみなす">
+        <text x="20" y="22" class="b m">たとえば、こんなビル</text>
+        <line class="gnd" x1="14" y1="172" x2="326" y2="172"/>
+        <rect class="office" x="20" y="38" width="164" height="44"/>
+        <rect class="office" x="20" y="82" width="164" height="44"/>
+        <rect class="shop" x="20" y="126" width="164" height="46"/>
+        <text x="102" y="65" text-anchor="middle" class="b">3階 事務所</text>
+        <text x="102" y="109" text-anchor="middle" class="b">2階 事務所</text>
+        <text x="102" y="153" text-anchor="middle" class="b">1階 飲食店</text>
+        <path class="brk" d="M192 40 H198 V124 H192"/>
+        <text x="206" y="74" class="b">事務所の部分</text>
+        <text x="206" y="94" class="b">で、1つ</text>
+        <path class="brk" d="M192 128 H198 V170 H192"/>
+        <text x="206" y="146" class="b">飲食店の部分</text>
+        <text x="206" y="166" class="b">で、1つ</text>
+      </svg><figcaption>このビルは「事務所」と「飲食店」の2つの防火対象物とみなす</figcaption></figure><div class="def-body">ただし、次の<span class='hl-warn'>4つの設備はこの例外を受けず</span>、建物全体で設置義務があります。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t">スプリンクラー設備</span></li><li><span class="li-n">2</span><span class="li-t">自動火災報知設備</span></li><li><span class="li-n">3</span><span class="li-t">ガス漏れ火災警報設備</span></li><li><span class="li-n">4</span><span class="li-t">漏電火災警報器</span></li></ol></div></div>
+        <div class="def"><div class="def-name">例外3(令第19条2項)</div><div class="def-body">近接する2以上の建築物は、<span class='hl'>屋外消火栓設備の設置に関してだけ</span>、<b>1棟とみなす</b>(他の設備には適用されない)。<br>対象は、1階が3m以下、2階以上が5m以下の距離にあるもの。</div><figure class="zk"><svg viewBox="0 0 340 172" role="img" aria-label="近接する2棟。1階どうしは3m以下、2階以上どうしは5m以下">
+        <line class="gnd" x1="10" y1="140" x2="330" y2="140"/>
+        <rect class="bld" x="20" y="100" width="120" height="40"/>
+        <rect class="bld" x="20" y="60" width="100" height="40"/>
+        <rect class="bld" x="200" y="100" width="120" height="40"/>
+        <rect class="bld" x="220" y="60" width="100" height="40"/>
+        <text x="62" y="125" text-anchor="middle" class="b">A棟</text>
+        <text x="262" y="125" text-anchor="middle" class="b">B棟</text>
+        <text x="170" y="70" text-anchor="middle" class="b" style="font-size:12.5px">2階以上</text>
+        <text x="170" y="84" text-anchor="middle" class="b red" style="font-size:12.5px">5m以下</text>
+        <path class="arr" d="M122 93 H218 M122 93 l6 -3.5 M122 93 l6 3.5 M218 93 l-6 -3.5 M218 93 l-6 3.5"/>
+        <text x="170" y="114" text-anchor="middle" class="b" style="font-size:12.5px">1階</text>
+        <text x="170" y="129" text-anchor="middle" class="b red" style="font-size:12.5px">3m以下</text>
+        <path class="arr" d="M142 135 H198 M142 135 l6 -3.5 M142 135 l6 3.5 M198 135 l-6 -3.5 M198 135 l-6 3.5"/>
+        <text x="170" y="162" text-anchor="middle" class="b" style="font-size:14px">屋外消火栓設備だけ、1棟とみなす</text>
+      </svg><figcaption>1階どうしが3m以下、2階以上どうしが5m以下の距離</figcaption></figure></div>
+        <div class="def"><div class="def-name">分かれないケース</div><div class="def-body"><span class='hl-warn'>同一敷地内にあるだけ、管理者がちがうだけ</span>では、防火対象物は分かれません。</div><figure class="zk"><svg viewBox="0 0 340 160" role="img" aria-label="1階と2階で管理する会社がちがう建物。それでも1つの防火対象物">
+        <line class="gnd" x1="14" y1="130" x2="326" y2="130"/>
+        <rect class="bld" x="80" y="30" width="180" height="100"/>
+        <line class="flr" x1="80" y1="80" x2="260" y2="80"/>
+        <text x="170" y="60" text-anchor="middle" class="b">2階 B社が管理</text>
+        <text x="170" y="110" text-anchor="middle" class="b">1階 A社が管理</text>
+        <text x="170" y="152" text-anchor="middle" class="b grn" style="font-size:14px">管理者がちがっても、1つのまま</text>
+      </svg></figure></div>
       </div>
       <div class="section-sub">📝 過去問 4節【1】〜【6】</div>
       <div id="quizArea-ch1-4" class="quiz-list"></div>

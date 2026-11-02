@@ -341,6 +341,7 @@
   .freq-banner .t{ font-size:15px; font-weight:900; }
   .freq-banner .s{ font-size:12.5px; font-weight:500; opacity:.9; }
   .freq-banner .chev{ font-size:20px; opacity:.8; }
+  .freq-banner.all{ background:var(--ink); color:var(--surface); }
 
   .freq-toggle{
     align-self:stretch; font-size:14.5px; font-weight:700; color:var(--accent);
@@ -387,6 +388,14 @@
         </span>
         <span class="chev">›</span>
       </button>
+      <button type="button" class="freq-banner all" id="allBanner-1" hidden>
+        <span class="star">📚</span>
+        <span class="copy">
+          <span class="t">全問題を通して解く</span>
+          <span class="s" id="allBannerSub-1"></span>
+        </span>
+        <span class="chev">›</span>
+      </button>
     </div>
 
     <div class="sec-content" id="freqContent-1" hidden>
@@ -400,6 +409,19 @@
       </div>
       <div class="section-sub" id="freqSectionSub-1">📝 頻出問題</div>
       <div id="quizArea-freq-1" class="quiz-list"></div>
+    </div>
+
+    <div class="sec-content" id="allContent-1" hidden>
+      <button type="button" class="back-to-list" data-chapter="1">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 1 ・ 全問題</div>
+        <h1>📚 全問題を通して解く</h1>
+      </div>
+      <div class="mini-note">
+        1章の全問題を、節の順に通しで並べたものです。★マークが付いた「頻出問題」と、ふつうの問題がまじっています。カードの番号は「何節の何問目か」を表しています。
+      </div>
+      <div class="section-sub" id="allSectionSub-1">📝 全問題</div>
+      <div id="quizArea-all-1" class="quiz-list"></div>
     </div>
 
     <div class="sec-content polish" id="secContent-1-1" hidden>
@@ -2973,6 +2995,28 @@
     freqBanner.addEventListener('click', function(){
       document.getElementById('secList-1').hidden = true;
       document.getElementById('freqContent-1').hidden = false;
+    });
+  }
+
+  // 全問題(頻出+ふつう)を節の順に通して解く画面
+  var ALL_PROBLEMS_CH1 = [].concat(
+    PROBLEMS_CH1_1, PROBLEMS_CH1_2, PROBLEMS_CH1_3, PROBLEMS_CH1_4, PROBLEMS_CH1_5, PROBLEMS_CH1_6,
+    PROBLEMS_CH1_7, PROBLEMS_CH1_8, PROBLEMS_CH1_9, PROBLEMS_CH1_10,
+    PROBLEMS_CH1_11, PROBLEMS_CH1_12, PROBLEMS_CH1_13,
+    PROBLEMS_CH1_14, PROBLEMS_CH1_15, PROBLEMS_CH1_16,
+    PROBLEMS_CH1_17, PROBLEMS_CH1_18, PROBLEMS_CH1_19,
+    PROBLEMS_CH1_20, PROBLEMS_CH1_21
+  );
+  renderQuiz(ALL_PROBLEMS_CH1, 'quizArea-all-1');
+  document.getElementById('allSectionSub-1').textContent = '📝 全' + ALL_PROBLEMS_CH1.length + '問(うち頻出★' + FREQ_PROBLEMS_CH1.length + '問)';
+  var allBanner = document.getElementById('allBanner-1');
+  if(ALL_PROBLEMS_CH1.length > 0){
+    document.getElementById('allBannerSub-1').textContent = '1章の全' + ALL_PROBLEMS_CH1.length + '問(頻出★とふつうの問題)を通して解く';
+    allBanner.hidden = false;
+    allBanner.addEventListener('click', function(){
+      document.getElementById('secList-1').hidden = true;
+      document.getElementById('allContent-1').hidden = false;
+      window.scrollTo(0, 0);
     });
   }
 

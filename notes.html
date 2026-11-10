@@ -220,6 +220,12 @@
   .hy-free{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
   .hy-free li{ display:flex; gap:10px; align-items:baseline; background:var(--card); border:1.5px solid var(--card-line); border-radius:10px; padding:7px 12px; font-size:15px; }
   .hy-free small{ display:block; color:var(--muted); font-size:13px; line-height:1.5; }
+  .q-fig{ margin:2px 0 10px; }
+  .q-fig table{ border-collapse:collapse; background:var(--card); font-size:14px; }
+  .q-fig td{ border:1.5px solid var(--card-line); padding:3px 10px; }
+  .q-fig td:first-child{ text-align:center; font-weight:700; background:var(--surface-2); }
+  .q-fig td:last-child{ text-align:right; }
+  .q-fig tr.gnd td{ border-top:3px solid var(--ink); }
   /* building drawings (section 4) */
   .zk{ margin:8px 0 2px; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:10px 6px 8px; }
   .zk svg{ display:block; width:100%; height:auto; max-width:420px; margin-inline:auto; }
@@ -1049,7 +1055,78 @@
     </div>
   </div>
   <div class="chapter-panel" data-chapter="2" hidden>
-    <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
+    <div class="sec-list" id="secList-2"></div>
+
+    <div class="sec-content polish" id="secContent-2-1" hidden>
+      <button type="button" class="back-to-list" data-chapter="2">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 2 ・ 1節</div>
+        <h1>自動火災報知設備とは</h1>
+      </div>
+      <div class="overview">
+        <div class="ov-label">💬 まずはざっくり</div>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><p>2章のスタート。<b>自動火災報知設備</b>って、そもそもどんな設備で、何でできているの?という話だよ。火事の煙や熱を<b>感知器</b>が見つけて、<b>ベル</b>などで建物の中の人に知らせる設備のこと。</p></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><p>この節に<span class="hl">過去問はありません</span>。でも、2節以降の問題を解くときの土台になる言葉(受信機・感知器・発信機・中継器など)がここで出てくるよ。</p></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><p>火災信号の<b>流れ</b>で覚えよう。<span class="hl">感知器か発信機 → 受信機 → ベルなど</span>。</p></div>
+      </div>
+      <div class="section-sub">📌 まず覚えること</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">自動火災報知設備とは</div><div class="def-body">火災による<b>煙や熱</b>を感知器が早期に<span class="hl">自動的に感知</span>して、警報ベルなどで、建物内の人達に火災を知らせる設備です。</div><figure class="zk"><svg viewBox="0 0 340 196" role="img" aria-label="自動火災報知設備の流れ。感知器と発信機が火災信号を受信機に送り、受信機が地区音響装置と地区表示灯で知らせる"><rect class="shop" x="8" y="14" width="96" height="50" rx="6"/><text x="56" y="36" text-anchor="middle" class="b" style="font-size:13.5px">感知器</text><text x="56" y="53" text-anchor="middle" class="m" style="font-size:10.5px">熱・煙・炎で感知</text><rect class="shop" x="8" y="112" width="96" height="50" rx="6"/><text x="56" y="134" text-anchor="middle" class="b" style="font-size:13.5px">発信機</text><text x="56" y="151" text-anchor="middle" class="m" style="font-size:10.5px">人がボタンを押す</text><rect class="office" x="140" y="50" width="84" height="76" rx="6"/><text x="182" y="84" text-anchor="middle" class="b" style="font-size:15px">受信機</text><text x="182" y="104" text-anchor="middle" class="m" style="font-size:10.5px">火災信号を受信</text><rect class="bld" x="250" y="14" width="82" height="50" rx="6"/><text x="291" y="36" text-anchor="middle" class="b" style="font-size:12px">地区音響装置</text><text x="291" y="53" text-anchor="middle" class="m" style="font-size:11px">(ベル)</text><rect class="bld" x="250" y="112" width="82" height="50" rx="6"/><text x="291" y="134" text-anchor="middle" class="b" style="font-size:12.5px">地区表示灯</text><text x="291" y="151" text-anchor="middle" class="m" style="font-size:10.5px">発生地区を表示</text><path class="arr" d="M104 39 H122 V68 H138 M138 68 l-6 -3.5 M138 68 l-6 3.5"/><path class="arr" d="M104 137 H122 V108 H138 M138 108 l-6 -3.5 M138 108 l-6 3.5"/><path class="arr" d="M224 68 H238 V39 H248 M248 39 l-6 -3.5 M248 39 l-6 3.5"/><path class="arr" d="M224 108 H238 V137 H248 M248 137 l-6 -3.5 M248 137 l-6 3.5"/><text x="170" y="184" text-anchor="middle" class="m" style="font-size:11px">※中継器は、信号を中継して受信機に送る機器</text></svg><figcaption>感知器(自動)か発信機(人)が<b>火災信号を受信機に送る</b>。受信機がベルなどで<b>周りの人に知らせる</b></figcaption></figure></div>
+        <div class="def"><div class="def-name">構成する機器</div><div class="def-body">次の機器などから構成されています。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>受信機</b></span></li><li><span class="li-n">2</span><span class="li-t"><b>感知器</b></span></li><li><span class="li-n">3</span><span class="li-t"><b>発信機</b></span></li><li><span class="li-n">4</span><span class="li-t"><b>表示灯</b></span></li><li><span class="li-n">5</span><span class="li-t"><b>地区音響装置</b>(ベル)</span></li><li><span class="li-n">6</span><span class="li-t"><b>中継器</b>など</span></li></ol></div></div>
+        <div class="def"><div class="def-name">各機器のはたらき</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>感知器</b><small>火災の発生を、熱や煙、炎で感知して、火災信号を受信機に送る。</small></span></li><li><span class="li-n">2</span><span class="li-t"><b>発信機</b><small>人が火災を発見した場合、ボタンを押して火災信号を受信機に送る。</small></span></li><li><span class="li-n">3</span><span class="li-t"><b>中継器</b><small>感知器や発信機からの信号を中継して、受信機に送る。</small></span></li></ol></div></div>
+        <div class="def"><div class="def-name">受信機のはたらき</div><div class="def-body">感知器や発信機から火災信号を受信すると、次の4つを行います。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><span class="hl">赤色の火災灯</span>を点灯させる。</span></li><li><span class="li-n">2</span><span class="li-t"><span class="hl">主音響装置</span>を鳴らす。</span></li><li><span class="li-n">3</span><span class="li-t"><span class="hl">地区表示灯</span>を点灯させて、火災の発生地区を表示する。</span></li><li><span class="li-n">4</span><span class="li-t"><span class="hl">地区音響装置(ベル)</span>を鳴らして、周囲の人に火災の発生を知らせる。</span></li></ol></div></div>
+        <div class="def"><div class="def-name">P型とR型</div><div class="def-body">本の図では、<b>例1がP型受信機</b>、<b>例2がR型受信機</b>です。R型の例には、階ごとに<b>中継器</b>が入っていて、受信機との間を<b>伝送線</b>でつないでいます。この節では、名前と図の形だけ見ておけば大丈夫です。</div></div>
+      </div>
+    </div>
+    <div class="sec-content polish" id="secContent-2-2" hidden>
+      <button type="button" class="back-to-list" data-chapter="2">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 2 ・ 2節</div>
+        <h1>自動火災報知設備の設置基準</h1>
+      </div>
+      <div class="overview">
+        <div class="ov-label">💬 まずはざっくり</div>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><p>「<b>どんな建物に、自動火災報知設備をつけなきゃいけないの?</b>」を決めているルールの話だよ。建物の<b>用途</b>と<b>延べ面積</b>と<b>階数</b>で、細かく決まっているんだ(令第21条1項)。</p></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><p>この節は<b>15問</b>で、よく出る問題(★)は【10】。「<span class="hl">〇〇で延べ面積△m²のもの</span>に設置義務があるか?」を選ぶ問題が中心。ひっかけは、<span class="hl-warn">数字を少しずらした</span>選択肢(150↔200、10階↔11階、300↔500)と、<span class="hl-warn">防火対象物の「全体」か「一部分」か</span>。【11】〜【15】は、階ごとの用途と面積が書かれた<b>ビルの図</b>から、設置が必要な階を答える問題だよ。</p></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><p>下の3つを覚えよう。</p><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>面積の段階は5つ</b>(面積問わず / 200 / 300 / 500 / 1,000)</span></li><li><span class="li-n">2</span><span class="li-t"><b>基準1〜7は「全体」、基準9〜16は「階又は部分」</b></span></li><li><span class="li-n">3</span><span class="li-t"><b>「以上」はその数字を含む</b>(300m²ちょうども対象)</span></li></ol></div>
+      </div>
+      <div class="section-sub">📌 まず覚えること</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">設置基準のしくみ</div><div class="def-body">自動火災報知設備を設置しなければならない対象は、<span class="hl">用途・延べ面積・階数等</span>ごとに細かく決まっています(令第21条1項)。本では、これを<b>基準1〜16</b>の番号で整理しています。問題の解説にも「基準11に該当する」のように出てきます。</div></div>
+        <div class="def"><div class="def-name">「全体」と「一部分」</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>基準1〜7</b>は、<span class="hl">防火対象物(建物全体)</span>に設置する。</span></li><li><span class="li-n">2</span><span class="li-t"><b>基準9〜16</b>は、<span class="hl">階又は部分</span>に設置する。</span></li></ol><small style="color:var(--muted)">※本には、基準8が載っていません(7のあとが9になっています)。</small></div></div>
+        <div class="def"><div class="def-name">延べ面積の5段階</div><div class="def-body">防火対象物<b>全体</b>の基準(基準1〜6)を、先に図で見ておきましょう。</div><figure class="zk"><svg viewBox="0 0 340 262" role="img" aria-label="延べ面積の基準。面積にかかわらず、200平方メートル、300平方メートル、500平方メートル、1000平方メートルの5段階"><text x="4" y="21" text-anchor="start" class="b" style="font-size:12.5px">面積問わず</text><rect x="92" y="8" width="8" height="18" rx="2" style="fill:var(--accent);stroke:var(--ink);stroke-width:1.5"/><text x="92" y="44" text-anchor="start" class="m" style="font-size:11.5px">宿泊・病院・格納庫・重要文化財など</text><text x="4" y="71" text-anchor="start" class="b" style="font-size:12.5px">200m²以上</text><rect class="shop" x="92" y="58" width="40.0" height="18" rx="2"/><text x="92" y="94" text-anchor="start" class="m" style="font-size:11.5px">蒸気浴場・熱気浴場</text><text x="4" y="121" text-anchor="start" class="b" style="font-size:12.5px">300m²以上</text><rect class="shop" x="92" y="108" width="60.0" height="18" rx="2"/><text x="92" y="144" text-anchor="start" class="m" style="font-size:11.5px">劇場・飲食店・百貨店・遊技場など</text><text x="4" y="171" text-anchor="start" class="b" style="font-size:12.5px">500m²以上</text><rect class="office" x="92" y="158" width="100.0" height="18" rx="2"/><text x="92" y="194" text-anchor="start" class="m" style="font-size:11.5px">学校・共同住宅・工場・倉庫・駐車場など</text><text x="4" y="221" text-anchor="start" class="b" style="font-size:12.5px">1,000m²以上</text><rect class="office" x="92" y="208" width="200.0" height="18" rx="2"/><text x="92" y="244" text-anchor="start" class="m" style="font-size:11.5px">神社・寺院・教会・事務所</text></svg><figcaption>防火対象物<b>全体</b>の基準(本の表を私が図にしたもの)。<b>危険度が高い用途ほど、小さい面積から</b>対象になる</figcaption></figure></div>
+        <div class="def"><div class="def-name">基準1:面積にかかわらず設置</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">カラオケボックス・インターネットカフェ</span></li><li><span class="li-n">2</span><span class="li-t">旅館・ホテル・宿泊所</span></li><li><span class="li-n">3</span><span class="li-t">病院・養護老人ホーム・乳児院・障害者支援施設</span></li><li><span class="li-n">4</span><span class="li-t">老人デイサービスセンター(宿泊施設のあるもの)</span></li><li><span class="li-n">5</span><span class="li-t">飛行機又は回転翼航空機の格納庫</span></li><li><span class="li-n">6</span><span class="li-t">重要文化財として認定された建造物</span></li><li><span class="li-n">7</span><span class="li-t"><b>基準7</b>:特定1階段等防火対象物</span></li></ol></div></div>
+        <div class="def"><div class="def-name">基準2:延べ面積200m²以上</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">蒸気浴場・熱気浴場</span></li></ol></div></div>
+        <div class="def"><div class="def-name">基準3:延べ面積300m²以上</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">劇場・映画館・集会場</span></li><li><span class="li-n">2</span><span class="li-t">キャバレー・ナイトクラブ・遊技場・ダンスホール・風俗店</span></li><li><span class="li-n">3</span><span class="li-t">料理店・飲食店</span></li><li><span class="li-n">4</span><span class="li-t">百貨店・マーケット・物品販売店舗又は展示場</span></li><li><span class="li-n">5</span><span class="li-t">診療所(入院施設がないもの)</span></li><li><span class="li-n">6</span><span class="li-t">幼稚園又は特別支援学校</span></li><li><span class="li-n">7</span><span class="li-t"><span class="hl">特定防火対象物を含む複合用途防火対象物</span></span></li><li><span class="li-n">8</span><span class="li-t">地下街</span></li></ol></div></div>
+        <div class="def"><div class="def-name">基準4:延べ面積500m²以上</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">寄宿舎・共同住宅</span></li><li><span class="li-n">2</span><span class="li-t">小学校・中学校・高等学校・大学・各種学校</span></li><li><span class="li-n">3</span><span class="li-t">蒸気浴場・熱気浴場以外の公衆浴場</span></li><li><span class="li-n">4</span><span class="li-t">車両の停車場</span></li><li><span class="li-n">5</span><span class="li-t">工場又は作業場・映画スタジオ・テレビスタジオ</span></li><li><span class="li-n">6</span><span class="li-t">自動車車庫又は駐車場</span></li><li><span class="li-n">7</span><span class="li-t">倉庫</span></li></ol><small style="color:var(--muted)">基準5:準地下街は、延べ面積500m²以上で、かつ、特定用途部分の床面積の合計が300m²以上のもの。</small></div></div>
+        <div class="def"><div class="def-name">基準6:延べ面積1,000m²以上</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">神社・寺院・教会</span></li><li><span class="li-n">2</span><span class="li-t">事務所・事務所からなる高層ビル・官公庁等</span></li></ol></div></div>
+        <div class="def"><div class="def-name">基準9〜16:階又は部分に設置</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>基準9</b> 地下街の、カラオケボックス・旅館・ホテル・宿泊所・病院・養護老人ホーム・乳児院・老人福祉センター(入居又は宿泊させるもの)の<b>部分</b></span></li><li><span class="li-n">2</span><span class="li-t"><b>基準10</b> <span class="hl">地階又は無窓階</span>で、床面積<b>100m²以上</b>の階(キャバレー・遊技場・風俗店、料理店・飲食店、これらを含む複合用途)</span></li><li><span class="li-n">3</span><span class="li-t"><b>基準11</b> 建築物の<span class="hl">地階・無窓階・3階以上</span>の階で、床面積<b>300m²以上</b>の階</span></li><li><span class="li-n">4</span><span class="li-t"><b>基準12</b> 道路の用に供される部分で、床面積が<b>屋上は600m²以上</b>、それ以外は<b>400m²以上</b>の部分</span></li><li><span class="li-n">5</span><span class="li-t"><b>基準13</b> 地階又は2階以上の階で、駐車の用に供する部分のある階。その部分の床面積が<b>200m²以上</b>の部分</span></li><li><span class="li-n">6</span><span class="li-t"><b>基準14</b> <span class="hl">11階以上</span>の階は、床面積にかかわらず、その階</span></li><li><span class="li-n">7</span><span class="li-t"><b>基準15</b> 通信機器室で、床面積<b>500m²以上</b>の部分</span></li><li><span class="li-n">8</span><span class="li-t"><b>基準16</b> 特定用途防火対象物を<span class="hl-warn">含まない</span>複合用途防火対象物は、基準1〜15のうち、<b>用途ごとの床面積の合計</b>が基準面積以上になった場合、その用途部分に設置</span></li></ol></div></div>
+      </div>
+      <div class="section-sub">📝 過去問 2節【1】〜【15】</div>
+      <div id="quizArea-ch2-2" class="quiz-list"></div>
+    </div>
+    <div class="sec-content polish" id="secContent-2-3" hidden>
+      <button type="button" class="back-to-list" data-chapter="2">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 2 ・ 3節</div>
+        <h1>危険物の製造所等の警報設備</h1>
+      </div>
+      <div class="overview">
+        <div class="ov-label">💬 まずはざっくり</div>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><p>ガソリンスタンドや危険物の貯蔵所など、<b>危険物の製造所等</b>にも警報設備をつけるよ、という話。乙4で習った<b>危険物の第1類〜第6類</b>の表が、ここで出てくるよ。</p></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><p>この節は<b>1問</b>だけ(★なし)。「指定数量の倍数が<span class="hl">いくつ以上</span>の製造所等に警報設備が必要か」を聞く問題だよ。答えは<span class="hl">10</span>。</p></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><p><span class="hl">倍数10以上</span>の製造所等(移動タンク貯蔵所は除く)。選択肢の100は、さらに細かい条件に出てくる数字なので、まちがえやすいよ。</p></div>
+      </div>
+      <div class="section-sub">📌 まず覚えること</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">警報設備が必要な製造所等</div><div class="def-body"><span class="hl">指定数量の倍数が10以上</span>の製造所等で、総務省令で定めるものは、火災が発生した場合に自動的に作動する火災報知設備その他の警報設備を設置しなければなりません(危険物政令第21条)。<br>総務省令で定める製造所等は、<b>移動タンク貯蔵所以外</b>のものです(危険物規則第36条の2)。</div></div>
+        <div class="def"><div class="def-name">警報設備の種類(5つ)</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>自動火災報知設備</b></span></li><li><span class="li-n">2</span><span class="li-t"><b>消防機関に報知ができる電話</b></span></li><li><span class="li-n">3</span><span class="li-t"><b>非常ベル装置</b></span></li><li><span class="li-n">4</span><span class="li-t"><b>拡声装置</b></span></li><li><span class="li-n">5</span><span class="li-t"><b>警鐘</b></span></li></ol></div></div>
+        <div class="def"><div class="def-name">危険物とは</div><div class="def-body">消防法 別表第1の品名欄に掲げる物品で、同表に定める区分に応じて、同表の性質欄に掲げる性状のものをいいます(法第2条7項)。次の表は、<b>品名は代表的なものだけ、特徴は編集部のまとめ</b>です(本の記載)。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>第1類 酸化性固体</b><small>品名(代表):塩素酸塩類、過マンガン酸塩類、硝酸塩類</small><small>特徴:物質そのものは不燃性だが、他の物質を強く酸化させる。可燃物と混ぜて衝撃・熱・摩擦を加えると激しい燃焼が起こる。</small></span></li><li><span class="li-n">2</span><span class="li-t"><b>第2類 可燃性固体</b><small>品名(代表):硫化りん、赤りん、硫黄、金属粉、マグネシウム、引火性固体</small><small>特徴:火炎で着火しやすい、または比較的低温(40℃未満)で引火しやすい。</small></span></li><li><span class="li-n">3</span><span class="li-t"><b>第3類 自然発火性物質及び禁水性物質</b><small>品名(代表):カリウム、ナトリウム、アルキルリチウム、黄りん</small><small>特徴:空気にさらされると自然発火するおそれがある、または水と接触すると発火または可燃性ガスを発生する。</small></span></li><li><span class="li-n">4</span><span class="li-t"><b>第4類 引火性液体</b><small>品名(代表):特殊引火物、第1〜4石油類、アルコール類、動植物油類</small><small>特徴:引火性があり、蒸気を発生させ、引火や爆発のおそれがある。</small></span></li><li><span class="li-n">5</span><span class="li-t"><b>第5類 自己反応性物質</b><small>品名(代表):ニトロ化合物</small><small>特徴:比較的低温で加熱分解等の自己反応を起こし、爆発や多量の熱を発生させる。または爆発的に反応が進行する。</small></span></li><li><span class="li-n">6</span><span class="li-t"><b>第6類 酸化性液体</b><small>品名(代表):過酸化水素、硝酸</small><small>特徴:物質そのものは不燃性だが、他の物質を強く酸化させる。可燃物と混ぜると燃焼を促進させる。</small></span></li></ol></div></div>
+        <div class="def"><div class="def-name">指定数量とは</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">法令で各種の規制をするとき、その<b>危険性を算定する基準</b>となるもの。</span></li><li><span class="li-n">2</span><span class="li-t"><span class="hl">危険性が高いものほど、量が少なく</span>定められている。例:特殊引火物のジエチルエーテルは50ℓ、危険性が低い動植物油類は10,000ℓ。</span></li><li><span class="li-n">3</span><span class="li-t">例:ガソリンの指定数量は200ℓ。その倍数が「10」なら、数量は<b>2,000ℓ</b>。</span></li><li><span class="li-n">4</span><span class="li-t">指定数量以上の危険物は、法令で定められた<b>製造所・貯蔵所・取扱所以外</b>では、貯蔵も取り扱いもできない。</span></li></ol></div></div>
+      </div>
+      <div class="section-sub">📝 過去問 3節【1】</div>
+      <div id="quizArea-ch2-3" class="quiz-list"></div>
+    </div>
   </div>
   <div class="chapter-panel" data-chapter="3" hidden>
     <div class="mini-note" style="text-align:center; color:var(--muted);">準備中です。</div>
@@ -1163,6 +1240,12 @@
     qEl.className = 'q-text';
     qEl.textContent = p.q;
     card.appendChild(qEl);
+    if(p.fig){
+      var figEl = document.createElement('div');
+      figEl.className = 'q-fig';
+      figEl.innerHTML = p.fig;
+      card.appendChild(figEl);
+    }
 
     var fb = document.createElement('div');
     fb.className = 'q-feedback';
@@ -2976,6 +3059,156 @@
   ];
   renderQuiz(PROBLEMS_CH1_21, 'quizArea-ch1-21');
 
+  // ---- 2章 ----
+  var CH2_SECTIONS = [
+    "自動火災報知設備とは", "自動火災報知設備の設置基準", "危険物の製造所等の警報設備", "自動火災報知設備の警戒区域",
+    "自動火災報知設備の設置の緩和", "自動火災報知設備の感知器", "自動火災報知設備の受信機", "非常電源",
+    "地区音響装置", "自動火災報知設備の維持に関する基準", "ガス漏れ火災警報設備の設置基準",
+    "ガス漏れ火災警報設備の警戒区域", "消防機関へ通報する火災報知設備"
+  ];
+
+  var PROBLEMS_CH2_2 = [
+    {
+      no: "2節 【1】",
+      type: "multi",
+      q: "面積又は階数にかかわらず自動火災報知設備を設置しなければならない防火対象物として、消防法令上、誤っているものを次のうちから5つ選びなさい。ただし、当該防火対象物は、特定一階段等防火対象物ではないものとする。",
+      opts: ["ホテル", "回転翼航空機の格納庫", "カラオケボックス", "展示場", "ダンスホール", "障害者支援施設", "遊技場", "老人短期入所施設", "飛行機の格納庫", "特別支援学校", "患者を入院させるための施設を有しない診療所"],
+      answer: [3, 4, 6, 9, 10],
+      ex: "<b class='ans'>正解は④⑤⑦⑩⑪。</b>展示場・ダンスホール・遊技場・特別支援学校・入院施設がない診療所は、いずれも<span class='hl-warn'>「面積にかかわらず」ではなく</span>、<span class='hl'>延べ面積300m²以上</span>で設置義務が生じます(基準3)。<div class='note-box warn'><b>⚠ ①②③⑥⑧⑨はそのまま正しい記述です:</b> ホテル、回転翼航空機の格納庫、カラオケボックス、障害者支援施設、老人短期入所施設、飛行機の格納庫は、<span class='hl'>面積にかかわらず設置</span>(基準1)です。</div><div class='note-box'><b>覚え方のコツ:</b> 「面積にかかわらず」は、<span class='hl'>泊まる・入院する・入所する施設、カラオケボックス、航空機の格納庫、重要文化財</span>など。劇場・遊技場・ダンスホール・展示場のように、人が集まる用途は<b>300m²以上</b>です。</div><div class='ref'>令第21条1項(基準1・基準3)</div>"
+    },
+    {
+      no: "2節 【2】",
+      type: "single",
+      q: "地階を除く階数が2、延べ面積が300m²である次の防火対象物のうち、自動火災報知設備を設置しなければならないものとして、消防法令上、誤っているものは次のうちどれか。ただし、防火対象物の用途及び延べ面積以外の条件は、考慮しないものとする。",
+      opts: ["熱気浴場", "テレビスタジオ", "集会場", "展示場"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②テレビスタジオ(誤っているもの)。</b>テレビスタジオは<span class='hl'>延べ面積500m²以上</span>で設置義務が生じます(基準4)。延べ面積300m²では、設置義務はありません。<div class='note-box warn'><b>⚠ ①③④はそのまま正しい記述です:</b> 熱気浴場は<b>200m²以上</b>(基準2)、集会場と展示場は<b>300m²以上</b>(基準3)で、延べ面積300m²なら、どれも設置義務があります。</div><div class='note-box'><b>覚え方のコツ:</b> 延べ面積が決まっている問題は、用途がどの段階(200/300/500)に入るかで判断します。<span class='hl'>「以上」はその数字を含む</span>ので、300m²ちょうどでも300m²以上の基準に当てはまります。</div><div class='ref'>令第21条1項(基準2・3・4)</div>"
+    },
+    {
+      no: "2節 【3】",
+      type: "single",
+      q: "消防法施行令別表第1に掲げる防火対象物の部分のうち、自動火災報知設備を設置しなければならないものとして、正しいものは次のうちどれか。",
+      opts: ["地階、無窓階又は3階以上の階で、床面積が300m²以上のもの", "1階以外の階のうち、駐車の用に供する部分の存する階の床面積が150m²以上のもの", "10階以上の階", "通信機器室で、床面積が300m²以上のもの"],
+      answer: 0,
+      ex: "<b class='ans'>正解は①。</b>地階・無窓階・3階以上の階で、床面積300m²以上は、<span class='hl'>基準11</span>に当てはまります。<div class='note-box warn'><b>⚠ ②③④が誤りの理由(数字がずれています):</b> ②は150m² → <b>200m²以上</b>(基準13)。③は10階以上 → <b>11階以上</b>(基準14)。④は300m² → <b>500m²以上</b>(基準15)。</div><div class='note-box'><b>覚え方のコツ:</b> 部分に設置する基準の数字は、<b>11階以上(全部)/ 通信機器室500 / 駐車200 / 地階・無窓階・3階以上で300</b>。ずらした数字の選択肢が定番のひっかけです。</div><div class='ref'>令第21条1項(基準11・13・14・15)</div>"
+    },
+    {
+      no: "2節 【4】",
+      type: "multi",
+      q: "消防法令上、自動火災報知設備を設置しなければならない防火対象物を、次のうちから5つ選びなさい。",
+      opts: ["キャバレーで、延べ面積が150m²のもの", "物品販売店舗で、延べ面積が200m²のもの", "教会で、延べ面積が750m²のもの", "ナイトクラブで、延べ面積が200m²のもの", "遊技場で、延べ面積が250m²のもの", "作業場で、延べ面積が550m²のもの", "寄宿舎で、延べ面積が350m²のもの", "ダンスホールで、延べ面積が300m²のもの", "熱気浴場で、延べ面積が200m²のもの", "キャバレーで、延べ面積が250m²のもの", "蒸気浴場で、延べ面積が150m²のもの", "工場で、延べ面積が300m²のもの", "共同住宅で、延べ面積が400m²のもの", "飲食店で、延べ面積が250m²のもの", "映画館で、延べ面積が250m²のもの", "公衆浴場である蒸気浴場で、延べ面積が250m²のもの", "事務所で、延べ面積が550m²のもの", "工場で、延べ面積が400m²のもの", "共同住宅で、延べ面積が350m²のもの", "マーケットで、延べ面積が300m²のもの"],
+      answer: [5, 7, 8, 15, 19],
+      ex: "<b class='ans'>正解は⑥⑧⑨⑯⑳。</b>作業場550m²(500以上)、ダンスホール300m²(300以上)、熱気浴場200m²(200以上)、蒸気浴場250m²(200以上)、マーケット300m²(300以上)は、いずれも基準を満たします。<div class='note-box warn'><b>⚠ 設置義務がない選択肢(基準に届いていません):</b> <b>300m²以上が必要</b>:①キャバレー150 ②物品販売店舗200 ④ナイトクラブ200 ⑤遊技場250 ⑩キャバレー250 ⑭飲食店250 ⑮映画館250。<br><b>500m²以上が必要</b>:⑦寄宿舎350 ⑫工場300 ⑬共同住宅400 ⑱工場400 ⑲共同住宅350。<br><b>200m²以上が必要</b>:⑪蒸気浴場150。<br><b>1,000m²以上が必要</b>:③教会750 ⑰事務所550。</div><div class='note-box'><b>覚え方のコツ:</b> 20個の選択肢も、<b>「用途 → 基準面積」を先に思い出し、その数字と比べるだけ</b>です。<span class='hl'>300(人が集まる・飲食・販売) / 500(学校・住宅・工場・倉庫) / 1,000(神社・事務所) / 200(蒸気・熱気浴場)</span>の4つを頭に置きましょう。</div><div class='ref'>令第21条1項(基準2〜4・6)</div>"
+    },
+    {
+      no: "2節 【5】",
+      type: "single",
+      q: "自動火災報知設備の設置に関する次の記述のうち、文中の( )に当てはまる数値として、消防法令上、正しいものはどれか。「蒸気浴場で、延べ面積が( )m²以上のものは自動火災報知設備を設置しなければならない。」",
+      opts: ["100", "200", "300", "500"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②200。</b>蒸気浴場・熱気浴場は、<span class='hl'>延べ面積200m²以上</span>で設置義務が生じます(基準2)。<div class='note-box warn'><b>⚠ ③300・④500との混同に注意:</b> 300m²以上は劇場・飲食店・百貨店などの多くの用途(基準3)、500m²以上は学校・工場・倉庫・蒸気浴場以外の公衆浴場など(基準4)です。</div><div class='note-box'><b>覚え方のコツ:</b> <b>200m²以上は、蒸気浴場・熱気浴場の専用の基準</b>です。「浴場の中で蒸気・熱気だけ小さい面積から対象になる」と覚えましょう。</div><div class='ref'>令第21条1項(基準2)</div>"
+    },
+    {
+      no: "2節 【6】",
+      type: "single",
+      q: "自動火災報知設備を設置しなければならない防火対象物として、消防法令上、誤っているものは次のうちどれか。ただし、防火対象物の用途及び延べ面積以外の条件は、考慮しないものとする。",
+      opts: ["神社で延べ面積が1,500m²のもの", "共同住宅で延べ面積が500m²のもの", "ナイトクラブで延べ面積が200m²のもの", "重要文化財として認定された建造物で延べ面積が100m²のもの"],
+      answer: 2,
+      ex: "<b class='ans'>正解は③ナイトクラブ(誤っているもの)。</b>ナイトクラブは<span class='hl'>延べ面積300m²以上</span>で設置義務が生じます(基準3)。200m²では設置義務がありません。<div class='note-box warn'><b>⚠ ①②④はそのまま正しい記述です:</b> ①神社は<b>1,000m²以上</b>(基準6)なので1,500m²は対象。②共同住宅は<b>500m²以上</b>(基準4)なので500m²ちょうども対象。④重要文化財として認定された建造物は、<span class='hl'>延べ面積に関係なく設置</span>(基準1)。</div><div class='note-box'><b>覚え方のコツ:</b> 面積が小さい選択肢でも、<b>重要文化財・宿泊施設・病院などは「面積にかかわらず設置」</b>なので、正しい記述になります。</div><div class='ref'>令第21条1項(基準1・3・4・6)</div>"
+    },
+    {
+      no: "2節 【7】",
+      type: "single",
+      q: "消防法令上、防火対象物の全体に自動火災報知設備を設置する必要はないが、防火対象物の一部分に当該設備を設置する必要がある防火対象物は、次のうちどれか。ただし、地上階はいずれも無窓階ではないものとする。",
+      opts: ["2階の通信機器室で、床面積が400m²のもの", "屋上の道路の用に供する部分で、床面積が400m²のもの", "地階の倉庫で、床面積が200m²のもの", "11階の事務所で、床面積が200m²のもの"],
+      answer: 3,
+      ex: "<b class='ans'>正解は④。</b>11階以上の階は、<span class='hl'>床面積にかかわらず</span>、その階の部分に設置が必要です(基準14)。<div class='note-box warn'><b>⚠ ①②③が誤りの理由(基準に届いていません):</b> ①通信機器室は<b>500m²以上</b>(基準15)。②屋上の道路の用に供する部分は<b>600m²以上</b>(基準12、屋上以外は400m²以上)。③地階は<b>300m²以上</b>(基準11)。</div><div class='note-box'><b>覚え方のコツ:</b> 部分に設置する基準は、<b>数字を少しずつ下げた選択肢</b>(500→400、600→400、300→200)が定番です。11階以上だけは、面積に関係なく設置です。</div><div class='ref'>令第21条1項(基準11・12・14・15)</div>"
+    },
+    {
+      no: "2節 【8】",
+      type: "single",
+      q: "消防法令上、防火対象物の用途及び床面積により、防火対象物の全体に自動火災報知設備を設置する必要はないが、防火対象物の一部分に当該設備を設置する必要があるものは、次のうちどれか。",
+      opts: ["地下1階にある劇場で床面積が100m²のもの", "無窓階に該当する1階にある飲食店で床面積が100m²のもの", "3階にある物品販売店舗で床面積が100m²のもの", "事務所ビルにある通信機器室で床面積が100m²のもの"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②。</b>地階又は無窓階にある飲食店(料理店・飲食店)は、<span class='hl'>床面積100m²以上</span>の階に設置が必要です(基準10)。<div class='note-box warn'><b>⚠ ①③④が誤りの理由:</b> ①地階の劇場は、基準10の用途(キャバレー・遊技場・風俗店、料理店・飲食店)に入らないので、<b>300m²以上</b>(基準11)。③3階以上の階は<b>300m²以上</b>(基準11)。④通信機器室は<b>500m²以上</b>(基準15)。</div><div class='note-box'><b>覚え方のコツ:</b> <b>100m²と小さい基準は、基準10(地階・無窓階のキャバレー・遊技場・風俗店と飲食店)だけ</b>。「地階・無窓階の水商売と飲食店」とセットで覚えましょう。</div><div class='ref'>令第21条1項(基準10・11・15)</div>"
+    },
+    {
+      no: "2節 【9】",
+      type: "single",
+      q: "消防法令上、防火対象物の全体に自動火災報知設備を設置する必要はないが、防火対象物の一部分に当該設備を設置する必要がある防火対象物として、誤っているものは次のうちどれか。ただし、地上階はいずれも無窓階ではないものとする。",
+      opts: ["2階の通信機器室で、床面積が500m²のもの", "屋上の道路の用に供する部分で、床面積が400m²のもの", "地階の倉庫で、床面積が300m²のもの", "11階の事務所で、床面積が200m²のもの"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②(誤っているもの)。</b>屋上の道路の用に供する部分は、<span class='hl'>床面積600m²以上</span>で設置が必要です(基準12)。400m²では、設置義務はありません(屋上以外の部分なら400m²以上)。<div class='note-box warn'><b>⚠ ①③④はそのまま正しい記述です:</b> ①通信機器室500m²(基準15)。③地階300m²(基準11)。④11階以上(基準14)。</div><div class='note-box'><b>覚え方のコツ:</b> 基準12は「<b>屋上600、それ以外400</b>」の2段階。屋上のほうが、基準面積が大きいのがポイントです。</div><div class='ref'>令第21条1項(基準11・12・14・15)</div>"
+    },
+    {
+      no: "2節 【10】",
+      type: "single",
+      freq: true,
+      q: "自動火災報知設備の設置に関する次の記述のうち、文中の( )に当てはまる数値として、消防法令上、正しいものはどれか。「消防法施行令別表第1に掲げる建築物の地階、無窓階又は3階以上の階で床面積が( )m²以上のものには、自動火災報知設備を設置すること。」",
+      opts: ["50", "100", "200", "300"],
+      answer: 3,
+      ex: "<b class='ans'>正解は④300。</b>地階・無窓階・3階以上の階は、<span class='hl'>床面積300m²以上</span>の階に設置が必要です(基準11)。<div class='note-box warn'><b>⚠ ①②③が誤りの理由:</b> ①50は、この基準に出てくる数字ではありません。②100は、地階・無窓階で<b>キャバレー・遊技場・風俗店や飲食店</b>だけに適用される基準10の数字です。③200は、駐車の用に供する部分の基準13(地階又は2階以上)の数字です。</div><div class='note-box'><b>覚え方のコツ:</b> <b>地階・無窓階・3階以上は300</b>。100(基準10)と200(基準13)は、同じ「地階・無窓階」が出てくるのでまぎらわしいですが、用途が限られた別の基準です。</div><div class='ref'>令第21条1項(基準11)</div>"
+    },
+    {
+      no: "2節 【11】",
+      type: "single",
+      q: "下図の複合用途防火対象物に対する自動火災報知設備の設置義務について、消防法令上、正しいものは次のうちどれか。ただし、地上階は、すべて無窓階に該当しない階である。",
+      fig: "<table><tr><td>5階</td><td>事務所</td><td>200 m²</td></tr><tr><td>4階</td><td>事務所</td><td>200 m²</td></tr><tr><td>3階</td><td>事務所</td><td>200 m²</td></tr><tr><td>2階</td><td>物品販売店舗</td><td>200 m²</td></tr><tr><td>1階</td><td>飲食店</td><td>200 m²</td></tr><tr class=\"gnd\"><td>地階</td><td>駐車場</td><td>200 m²</td></tr></table>",
+      opts: ["地階の駐車場と1階の飲食店に設置義務がある。", "すべての階に設置義務がある。", "地階の駐車場と1階の飲食店及び2階の物品販売店舗に設置義務がある。", "この防火対象物には設置義務がない。"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②。</b>飲食店・物品販売店舗(特定防火対象物)を含む複合用途防火対象物は、<span class='hl'>延べ面積300m²以上</span>で設置義務が生じます(基準3)。この建物は延べ面積が200m²×6=<b>1,200m²</b>なので、<b>全ての階</b>に設置義務があります。<div class='note-box warn'><b>⚠ ①③が誤りの理由:</b> 基準3の複合用途防火対象物は、<b>建物全体</b>に設置義務が生じるので、飲食店・物品販売店舗・駐車場の階だけに限られません。事務所の階にも必要です。</div><div class='note-box'><b>覚え方のコツ:</b> 複合用途の図の問題は、まず<b>特定用途(飲食店・物品販売店舗など)が入っているか</b>を確認します。入っていれば<b>延べ面積300m²以上で全体に設置</b>です。</div><div class='ref'>令第21条1項(基準3)</div>"
+    },
+    {
+      no: "2節 【12】",
+      type: "single",
+      q: "下図の複合用途防火対象物に対する自動火災報知設備の設置について、消防法令上、正しいものは次のうちどれか。なお、地上階は、すべて無窓階には該当しない階である。",
+      fig: "<table><tr><td>5階</td><td>事務所</td><td>300 m²</td></tr><tr><td>4階</td><td>事務所</td><td>300 m²</td></tr><tr><td>3階</td><td>事務所</td><td>300 m²</td></tr><tr><td>2階</td><td>各種学校</td><td>300 m²</td></tr><tr><td>1階</td><td>飲食店</td><td>300 m²</td></tr><tr class=\"gnd\"><td>地階</td><td>駐車場</td><td>300 m²</td></tr></table>",
+      opts: ["すべての階に設置しなければならない。", "地階及び1階に設置しなければならない。", "地階のみに設置しなければならない。", "この防火対象物は、設置しなくてもよい。"],
+      answer: 0,
+      ex: "<b class='ans'>正解は①。</b>飲食店(特定防火対象物)を含む複合用途防火対象物は、延べ面積300m²以上で設置義務が生じます(基準3)。この建物は延べ面積が300m²×6=<b>1,800m²</b>なので、<span class='hl'>全ての階</span>に設置義務があります。<div class='note-box warn'><b>⚠ ②③④が誤りの理由:</b> 特定用途(飲食店)が入っていて延べ面積が300m²以上なので、建物全体が対象です。「地階だけ」「地階と1階だけ」「設置しなくてよい」にはなりません。</div><div class='note-box'><b>覚え方のコツ:</b> 【11】と同じ型です。<b>特定用途が入っている → 延べ300m²以上 → 全体に設置</b>。各階の面積×階数で、延べ面積を出しましょう。</div><div class='ref'>令第21条1項(基準3)</div>"
+    },
+    {
+      no: "2節 【13】",
+      type: "single",
+      q: "下図の複合用途防火対象物に対する自動火災報知設備の設置義務について、消防法令上、正しいものは次のうちどれか。ただし、いずれも無窓階に該当しない階とする。",
+      fig: "<table><tr><td>6階</td><td>事務所</td><td>200 m²</td></tr><tr><td>5階</td><td>事務所</td><td>200 m²</td></tr><tr><td>4階</td><td>事務所</td><td>200 m²</td></tr><tr><td>3階</td><td>事務所</td><td>200 m²</td></tr><tr><td>2階</td><td>事務所</td><td>200 m²</td></tr><tr><td>1階</td><td>テレビスタジオ</td><td>200 m²</td></tr></table>",
+      opts: ["いずれの階も設置義務がある。", "事務所部分のみ設置義務がある。", "テレビスタジオのみ設置義務がある。", "この防火対象物には、設置義務がない。"],
+      answer: 1,
+      ex: "<b class='ans'>正解は②。</b>この建物は、特定用途を<span class='hl-warn'>含まない</span>複合用途防火対象物(事務所とテレビスタジオ)なので、<span class='hl'>基準16</span>に当てはまります。用途ごとの床面積の合計を、その用途の基準面積と比べます。事務所は200m²×5=<b>1,000m²</b>で基準(1,000m²以上)に達するので、<b>事務所部分に設置</b>です。テレビスタジオは200m²で、基準(500m²以上)に達しません。<div class='note-box warn'><b>⚠ ①③④が誤りの理由:</b> テレビスタジオは基準面積に達していないので、設置義務がありません。そのため、「いずれの階も」「テレビスタジオのみ」は誤りです。事務所は基準に達しているので、「設置義務がない」も誤りです。</div><div class='note-box'><b>覚え方のコツ:</b> 特定用途が<b>ない</b>複合用途は、<b>用途ごと</b>に面積を足して判断します(基準16)。<b>事務所の面積は階をまたいで合計</b>する点が、ポイントです。</div><div class='ref'>令第21条1項(基準16)</div>"
+    },
+    {
+      no: "2節 【14】",
+      type: "single",
+      q: "下図の複合用途防火対象物に対する自動火災報知設備の設置義務について、消防法令上、正しいものは次のうちどれか。ただし、いずれも無窓階に該当しない階とする。",
+      fig: "<table><tr><td>5階</td><td>事務所</td><td>200 m²</td></tr><tr><td>4階</td><td>事務所</td><td>200 m²</td></tr><tr><td>3階</td><td>事務所</td><td>200 m²</td></tr><tr><td>2階</td><td>事務所</td><td>200 m²</td></tr><tr><td>1階</td><td>テレビスタジオ</td><td>200 m²</td></tr><tr class=\"gnd\"><td>地階</td><td>貸し駐車場</td><td>100 m²</td></tr></table>",
+      opts: ["すべての階に設置義務がある。", "事務所部分のみ設置義務がある。", "貸し駐車場及びテレビスタジオに設置義務がある。", "この防火対象物には、設置義務がない。"],
+      answer: 3,
+      ex: "<b class='ans'>正解は④。</b>この建物も、特定用途を含まない複合用途防火対象物なので、<span class='hl'>基準16</span>に当てはまります。事務所の床面積の合計は200m²×4=<b>800m²</b>で、基準の1,000m²に達しません。テレビスタジオ(200m²)と駐車場(100m²)も、それぞれ基準に達しないので、<b>設置義務はありません</b>。<div class='note-box warn'><b>⚠ 注意:</b> 地階は、基準11(地階・無窓階・3階以上で300m²以上)にも当てはまるかを確認する必要があります。ここでは地階が<b>100m²</b>なので、基準11にも達しません。</div><div class='note-box'><b>覚え方のコツ:</b> 【13】との違いは、<b>事務所が1階分少ない(800m²)</b>こと。基準面積に<b>あと少し届かない</b>設定で、ひっかけています。</div><div class='ref'>令第21条1項(基準16)</div>"
+    },
+    {
+      no: "2節 【15】",
+      type: "single",
+      q: "下図の複合用途防火対象物に対する自動火災報知設備の設置義務について、消防法令上、正しいものは次のうちどれか。ただし、地上階はすべて無窓階に該当しない階とし、階段は屋内階段1であり、総務省令で定める避難上有効な構造を有していないものとする。",
+      fig: "<table><tr><td>3階</td><td>飲食店</td><td>50 m²</td></tr><tr><td>2階</td><td>事務所</td><td>50 m²</td></tr><tr><td>1階</td><td>事務所</td><td>50 m²</td></tr><tr class=\"gnd\"><td>地階</td><td>事務所</td><td>50 m²</td></tr></table>",
+      opts: ["すべての階に設置義務がある。", "3階部分のみ設置義務がある。", "地階、1階、2階部分のみ設置義務がある。", "この防火対象物には、設置義務がない。"],
+      answer: 0,
+      ex: "<b class='ans'>正解は①。</b>3階に飲食店(特定用途)があり、階段が屋内階段1つだけ(避難上有効な構造でない)なので、この建物は<span class='hl'>特定1階段等防火対象物</span>に当たります。特定1階段等防火対象物は、<b>面積にかかわらず</b>設置義務があります(基準7)。延べ面積は50m²×4=200m²と小さくても、<b>全ての階</b>が対象です。<div class='note-box warn'><b>⚠ ②③④が誤りの理由:</b> 基準7は<b>防火対象物全体</b>に設置するので、「3階だけ」「3階以外だけ」にはなりません。面積が小さくても、「設置義務がない」にもなりません。</div><div class='note-box'><b>覚え方のコツ:</b> 小さい建物でも、<b>3階以上又は地階に特定用途があって、階段が1つだけ</b>なら基準7。面積の基準より先に、この条件を確認しましょう。(特定1階段等防火対象物は、第1章10節で出てきました。)</div><div class='ref'>令第21条1項(基準7)、第1章10節</div>"
+    }
+  ];
+  renderQuiz(PROBLEMS_CH2_2, 'quizArea-ch2-2');
+
+  var PROBLEMS_CH2_3 = [
+    {
+      no: "3節 【1】",
+      type: "single",
+      q: "警報設備の設置に関する次の記述のうち、文中の( )に当てはまる数値として、消防法令上、正しいものはどれか。「危険物の指定数量の倍数が( )以上の製造所等で総務省令で定めるものは、総務省令で定めるところにより、火災が発生した場合、自動的に作動する火災報知設備その他の警報設備を設置しなければならない。」",
+      opts: ["1", "3", "5", "10", "50", "100", "200"],
+      answer: 3,
+      ex: "<b class='ans'>正解は④10。</b>危険物政令第21条は、警報設備の設置基準として、<span class='hl'>指定数量の倍数が10以上</span>の製造所等(移動タンク貯蔵所を除く)で、総務省令(危険物規則第38条1項)で定めるものを対象にしています。<div class='note-box warn'><b>⚠ ⑥100との混同に注意:</b> 危険物規則第38条1項には、さらに細かい条件があり、そこに「指定数量の倍数が<b>100以上</b>」が出てきます(屋内にある製造所・一般取扱所、屋内貯蔵所など)。文中の「…以上の製造所等」の基準は、<b>10</b>です。</div><div class='note-box'><b>覚え方のコツ:</b> <b>政令で「倍数10以上」→ 省令でさらに絞る</b>、の二段構えです。政令の数字(10)を問われているので、省令の数字(100)に引っ張られないようにしましょう。</div><div class='ref'>危険物政令第21条、危険物規則第36条の2・第37条・第38条</div>"
+    }
+  ];
+  renderQuiz(PROBLEMS_CH2_3, 'quizArea-ch2-3');
+
   // 案A: 全節の頻出問題をまとめた画面
   var FREQ_PROBLEMS_CH1 = [].concat(
     PROBLEMS_CH1_1, PROBLEMS_CH1_2, PROBLEMS_CH1_3, PROBLEMS_CH1_4, PROBLEMS_CH1_5, PROBLEMS_CH1_6,
@@ -3040,6 +3273,7 @@
   });
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
+  renderSecList(CH2_SECTIONS, 2, 'secList-2');
 
   // 全問の正解と解説をまとめて表示するスイッチ(各節・頻出まとめ)
   document.querySelectorAll('.quiz-list').forEach(function(list){

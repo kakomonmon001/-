@@ -1439,6 +1439,50 @@
       <div class="section-sub">📝 過去問 3節【1】〜【12】</div>
       <div id="quizArea-ch3-3" class="quiz-list"></div>
     </div>
+
+    <div class="sec-content polish" id="secContent-3-4" hidden>
+      <button type="button" class="back-to-list" data-chapter="3">← 節一覧に戻る</button>
+      <div class="chapter-head">
+        <div class="eyebrow">CHAPTER 3 ・ 4〜5節</div>
+        <h1>電圧計と電流計・電池の内部抵抗とキルヒホッフの法則</h1>
+      </div>
+      <h2 class="part-head"><span class="part-no">4節</span>電圧計と電流計</h2>
+      <div class="overview">
+        <div class="ov-label">💬 まずはざっくり</div>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><span>回路に流れる電圧や電流をはかる<b>電圧計</b>と<b>電流計</b>を、回路にどうつなぐか(<b>直列か並列か</b>)の話です。</span></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><span>過去問は4問、★(頻出)は【1】です。つなぎ方を選ぶ問題が中心で、アナログ計器とデジタル計器の違いも出ます。</span></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><span><b>電圧計は並列、電流計は直列</b>。電圧計は内部抵抗が「非常に大きい」、電流計は「非常に小さい」ことを理由にして覚えます。</span></div>
+      </div>
+      <div class="ref">参考書の注意書き:電圧計や電流計の接続方法は、「構造・機能及び工事・整備」として出題されることが多いが、内容が「電気」に関するものであるため、ここに収録した。</div>
+      <div class="section-sub">📌 まず覚えること</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">電圧計の接続</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">電圧計を負荷回路に接続するには、負荷に対して<b>並列</b>にする。</span></li><li><span class="li-n">2</span><span class="li-t">電圧計は一般に内部抵抗が<b>非常に大きく</b>設定されており、並列に接続した電圧計側には<b>ほとんど電流が流れない</b>。</span></li><li><span class="li-n">3</span><span class="li-t">電圧計には、直流の場合、マイナス側の接続端子とプラス側の接続端子間の電位差(電圧)が表示される。</span></li><li><span class="li-n">4</span><span class="li-t">電圧計を負荷回路に対し<b>直列</b>に接続すると、電圧計部分で大きく電圧が低下し、<b>電源電圧に近い電圧値</b>を表示する。</span></li></ol></div><div class="zk-pair"><figure class="zk"><svg viewBox="0 0 184 176" style="max-width:239px" role="img" aria-label="回路図"><polyline class="cw" points="28,76 92,76"/><rect class="cr" x="45" y="70" width="30" height="12" rx="1.5"/><text x="60" y="66" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="92,76 156,76"/><rect class="cr" x="109" y="70" width="30" height="12" rx="1.5"/><text x="124" y="66" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="28,76 28,142 89,142"/><polyline class="cw" points="95,142 156,142 156,76"/><line class="cb" x1="89" y1="133" x2="89" y2="151"/><line class="cb" x1="95" y1="137" x2="95" y2="147"/><text x="92" y="166" text-anchor="middle" class="b" style="font-size:12px">電源</text><polyline class="cw" points="28,76 28,36 49,36"/><polyline class="cw" points="71,36 92,36 92,76"/><circle class="cn" cx="28" cy="76" r="3"/><circle class="cn" cx="92" cy="76" r="3"/><circle class="cr" cx="60" cy="36" r="11"/><text x="60" y="40.5" text-anchor="middle" class="b" style="font-size:12px">V</text></svg><figcaption>【電圧計を負荷に対して並列に接続】<br><small style="color:var(--muted)">(正しいつなぎ方。参考書の図を描き直した図です)</small></figcaption></figure><figure class="zk"><svg viewBox="0 0 248 142" style="max-width:322px" role="img" aria-label="回路図"><polyline class="cw" points="28,42 49,42"/><polyline class="cw" points="71,42 92,42"/><circle class="cr" cx="60" cy="42" r="11"/><text x="60" y="46.5" text-anchor="middle" class="b" style="font-size:12px">V</text><polyline class="cw" points="92,42 156,42"/><rect class="cr" x="109" y="36" width="30" height="12" rx="1.5"/><text x="124" y="32" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="156,42 220,42"/><rect class="cr" x="173" y="36" width="30" height="12" rx="1.5"/><text x="188" y="32" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="28,42 28,108 121,108"/><polyline class="cw" points="127,108 220,108 220,42"/><line class="cb" x1="121" y1="99" x2="121" y2="117"/><line class="cb" x1="127" y1="103" x2="127" y2="113"/><text x="124" y="132" text-anchor="middle" class="b" style="font-size:12px">電源</text></svg><figcaption>【電圧計を負荷に対して直列に接続】 ×<br><small style="color:var(--muted)">(誤り。参考書の図を描き直した図です)</small></figcaption></figure></div></div>
+        <div class="def"><div class="def-name">電流計の接続</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">電流計を負荷回路に接続するには、負荷に対して<b>直列</b>にする。</span></li><li><span class="li-n">2</span><span class="li-t">電流計は一般に内部抵抗が<b>非常に小さく</b>設定されており、直列に接続した電流計部分で電流の流れはほとんど妨げられない。</span></li><li><span class="li-n">3</span><span class="li-t">電流計には、直流の場合、プラス側の接続端子からマイナス側の接続端子に流れる電流値が表示される。</span></li><li><span class="li-n">4</span><span class="li-t">電流計を負荷回路に対し<b>並列</b>に接続すると、電流計側に大きな電流が流れるため、負荷回路に流れる電流値より<b>大きな数値</b>を表示する。</span></li></ol></div><div class="zk-pair"><figure class="zk"><svg viewBox="0 0 248 142" style="max-width:322px" role="img" aria-label="回路図"><polyline class="cw" points="28,42 49,42"/><polyline class="cw" points="71,42 92,42"/><circle class="cr" cx="60" cy="42" r="11"/><text x="60" y="46.5" text-anchor="middle" class="b" style="font-size:12px">A</text><polyline class="cw" points="92,42 156,42"/><rect class="cr" x="109" y="36" width="30" height="12" rx="1.5"/><text x="124" y="32" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="156,42 220,42"/><rect class="cr" x="173" y="36" width="30" height="12" rx="1.5"/><text x="188" y="32" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="28,42 28,108 121,108"/><polyline class="cw" points="127,108 220,108 220,42"/><line class="cb" x1="121" y1="99" x2="121" y2="117"/><line class="cb" x1="127" y1="103" x2="127" y2="113"/><text x="124" y="132" text-anchor="middle" class="b" style="font-size:12px">電源</text></svg><figcaption>【電流計を負荷に対して直列に接続】<br><small style="color:var(--muted)">(正しいつなぎ方。参考書の図を描き直した図です)</small></figcaption></figure><figure class="zk"><svg viewBox="0 0 184 176" style="max-width:239px" role="img" aria-label="回路図"><polyline class="cw" points="28,76 92,76"/><rect class="cr" x="45" y="70" width="30" height="12" rx="1.5"/><text x="60" y="66" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="92,76 156,76"/><rect class="cr" x="109" y="70" width="30" height="12" rx="1.5"/><text x="124" y="66" text-anchor="middle" class="b" style="font-size:12px">負荷</text><polyline class="cw" points="28,76 28,142 89,142"/><polyline class="cw" points="95,142 156,142 156,76"/><line class="cb" x1="89" y1="133" x2="89" y2="151"/><line class="cb" x1="95" y1="137" x2="95" y2="147"/><text x="92" y="166" text-anchor="middle" class="b" style="font-size:12px">電源</text><polyline class="cw" points="28,76 28,36 49,36"/><polyline class="cw" points="71,36 92,36 92,76"/><circle class="cn" cx="28" cy="76" r="3"/><circle class="cn" cx="92" cy="76" r="3"/><circle class="cr" cx="60" cy="36" r="11"/><text x="60" y="40.5" text-anchor="middle" class="b" style="font-size:12px">A</text></svg><figcaption>【電流計を負荷に対して並列に接続】 ×<br><small style="color:var(--muted)">(誤り。参考書の図を描き直した図です)</small></figcaption></figure></div></div>
+        <div class="def"><div class="def-name">アナログ計器とデジタル計器</div><div class="def-body">電圧計や電流計には、<b>指針</b>で測定値を表示する<b>アナログ計器</b>と、<b>数値</b>で表示する<b>デジタル計器</b>があります。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>アナログ計器</b>は、変化の度合いを読み取りやすく、測定量を直感的に判断できる利点を持つが、<b>読取り誤差</b>を生じやすい。</span></li><li><span class="li-n">2</span><span class="li-t"><b>デジタル計器</b>は、アナログ計器に比べて次のような特徴がある。<ol class="def-list"><li><span class="li-n">1</span><span class="li-t">有効ケタ数が多く取れ、精度がよい。</span></li><li><span class="li-n">2</span><span class="li-t">測定値が数字で表示されるため、読み取りやすく、読み取りの個人差がない。</span></li><li><span class="li-n">3</span><span class="li-t">電圧測定では、内部抵抗が大きいため、測定回路にほとんど影響を与えない。</span></li><li><span class="li-n">4</span><span class="li-t">測定レンジの切り換えが不要で、極性による指針の逆振れがない。</span></li></ol></span></li></ol></div></div>
+        <div class="def"><div class="def-name">電圧計と電流計の比べ</div><div class="def-body"><div class='note-box'><b>参考書にはない補足(自作):</b> 上の内容(参考書の記述)を、並べて見やすくしたまとめです。<br><b>電圧計</b> … 負荷に<b>並列</b>/内部抵抗は<b>非常に大きい</b>/直列につなぐと電源電圧に近い値を表示する<br><b>電流計</b> … 負荷に<b>直列</b>/内部抵抗は<b>非常に小さい</b>/並列につなぐと実際より大きな値を表示する</div></div></div>
+      </div>
+      <div class="section-sub">📝 過去問 4節【1】〜【4】</div>
+      <div id="quizArea-ch3-4" class="quiz-list"></div>
+      <h2 class="part-head"><span class="part-no">5節</span>電池の内部抵抗とキルヒホッフの法則</h2>
+      <div class="overview">
+        <div class="ov-label">💬 まずはざっくり</div>
+        <div class="ov-row"><span class="ov-k">どんな話?</span><span>前半は、電池の中にもある小さな抵抗(<b>内部抵抗</b>)の話。後半は、複雑な回路で電流や電圧を求めるための<b>キルヒホッフの法則</b>の話です。</span></div>
+        <div class="ov-row"><span class="ov-k">試験では?</span><span>過去問は6問です(★の問題はありません)。電池を直列・並列につないだときの電流の計算が中心で、法則の名前を選ぶ問題も出ます。</span></div>
+        <div class="ov-row"><span class="ov-k">コツは?</span><span>電池は「起電力 E の電池 + 内部抵抗 r の抵抗」が<b>直列になったもの</b>と考えます。あとは、これまでのオームの法則と合成抵抗で計算できます。</span></div>
+      </div>
+      <div class="section-sub">📌 まず覚えること</div>
+      <div class="defs">
+        <div class="def"><div class="def-name">電池の内部抵抗</div><div class="def-body">電池の起電力は、電池がつくり出す電圧です。ところが、電池に負荷をつないだ状態では、電池の両端の電圧は、起電力の大きさとはなりません。これは、電池の内部に抵抗があるとすると、次のように説明できます。<br>起電力を<span class='hl'>E〔V〕</span>、内部抵抗を<span class='hl'>r〔Ω〕</span>、流れる電流を<span class='hl'>I〔A〕</span>とすると、内部抵抗により<b>電圧降下 rI〔V〕</b>が生じるため、<b>端子電圧 V〔V〕</b>は次のように表されます。<div class="calc"><span class='hl'>V = E − rI</span></div></div><figure class="zk"><svg viewBox="0 0 300 134" style="max-width:390px" role="img" aria-label="回路図"><polyline class="cw" points="60,52 80,52"/><polyline class="cw" points="220,52 240,52"/><rect x="80" y="22" width="140" height="62" rx="3" style="fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:5 4"/><polyline class="cw" points="80,52 97,52"/><line class="cb" x1="97" y1="43" x2="97" y2="61"/><line class="cb" x1="103" y1="47" x2="103" y2="57"/><polyline class="cw" points="103,52 145,52"/><rect class="cr" x="145" y="46" width="30" height="12" rx="1.5"/><polyline class="cw" points="175,52 220,52"/><text x="100" y="38" text-anchor="middle" class="b" style="font-size:12px">E</text><text x="160" y="38" text-anchor="middle" class="b" style="font-size:12px">r</text><text x="100" y="76" text-anchor="middle" class="m" style="font-size:10px">(起電力)</text><text x="166" y="76" text-anchor="middle" class="m" style="font-size:10px">(内部抵抗)</text><circle class="ct" cx="60" cy="52" r="3"/><circle class="ct" cx="240" cy="52" r="3"/><path class="arr" d="M246 52 L284 52 M277 47 L284 52 L277 57"/><text x="266" y="40" text-anchor="middle" class="b" style="font-size:11px">電流 I</text><path class="arr" d="M60 56 L60 112 M240 56 L240 112" style="stroke-dasharray:3 3"/><path class="arr" d="M64 106 L236 106 M71 102 L64 106 L71 110 M229 102 L236 106 L229 110"/><text x="150" y="124" text-anchor="middle" class="b" style="font-size:12px">V(端子電圧)</text></svg><figcaption>電池のモデル(参考書の図を描き直した図です)</figcaption></figure></div>
+        <div class="def"><div class="def-name">端子電圧の変化</div><div class="def-body"><ol class="def-list"><li><span class="li-n">1</span><span class="li-t">電池に負荷を接続していない状態では、<b>端子電圧は電池の起電力と等しい</b>。</span></li><li><span class="li-n">2</span><span class="li-t">流れる電流が多くなるほど、電池の<b>端子電圧は小さくなる</b>。</span></li><li><span class="li-n">3</span><span class="li-t">電池は古くなるほど、<b>内部抵抗が大きくなる</b>。</span></li></ol></div></div>
+        <div class="def"><div class="def-name">例題:内部抵抗の測定(参考書より)</div><div class="def-body">電池の起電力と内部抵抗を測定する実験をしたところ、下のグラフの結果を得ました。横軸は出力電流、縦軸は端子電圧です。R は可変抵抗です。<br>①起電力は何Vか。②内部抵抗は何Ωか。③電流計が0.1Aを示したときの可変抵抗は何Ωか。<figure class="zk"><svg viewBox="0 0 270 188" style="max-width:351px" role="img" aria-label="回路図"><polyline class="cw" points="52,16 52,150 252,150"/><text x="45" y="154" text-anchor="end" class="m" style="font-size:11px">0</text><text x="45" y="89" text-anchor="end" class="m" style="font-size:11px">1.0</text><text x="45" y="24" text-anchor="end" class="m" style="font-size:11px">2.0</text><text x="128" y="167" text-anchor="middle" class="m" style="font-size:11px">0.1</text><text x="204" y="167" text-anchor="middle" class="m" style="font-size:11px">0.2</text><text x="56" y="11" text-anchor="start" class="m" style="font-size:11px">電圧〔V〕</text><text x="250" y="183" text-anchor="end" class="m" style="font-size:11px">電流〔A〕</text><path d="M52 85 L128 85 L128 150" style="stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3;fill:none"/><path d="M52 52.5 L82 52.5" style="stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3;fill:none"/><line x1="52" y1="52.5" x2="234.4" y2="130.5" style="stroke:var(--accent);stroke-width:2.4"/><circle cx="52" cy="52.5" r="3.2" style="fill:var(--accent)"/><text x="62" y="45.5" text-anchor="start" class="red" style="font-size:11px">1.5V</text></svg><figcaption>端子電圧と電流のグラフ(参考書のグラフを描き直した図です)<br><small style="color:var(--muted)">1.5Vの目盛りの印は、説明のために加えました</small></figcaption></figure><ol class="def-list"><li><span class="li-n">1</span><span class="li-t"><b>起電力</b> … V = E − rI で、I = 0 のとき V = E。グラフから、<span class='hl'>E = 1.5V</span>。</span></li><li><span class="li-n">2</span><span class="li-t"><b>内部抵抗</b> … V = 1.0V、I = 0.1A、E = 1.5V を代入します。<div class="calc">1.0V = 1.5V − 0.1A × r<br>⇒ 0.1A × r = 0.5V<br>⇒ <span class='hl'>r = 5Ω</span></div></span></li><li><span class="li-n">3</span><span class="li-t"><b>可変抵抗</b> … 電流計が0.1Aのときの回路は、下の図のとおりです。電圧 = 電流 × 抵抗より、<div class="calc">1.5V = 0.1A × (5Ω + R)<br>⇒ 5Ω + R = 15Ω<br>⇒ <span class='hl'>R = 10Ω</span></div><figure class="zk"><svg viewBox="0 0 184 142" style="max-width:239px" role="img" aria-label="回路図"><polyline class="cw" points="28,42 92,42"/><rect class="cr" x="45" y="36" width="30" height="12" rx="1.5"/><text x="60" y="32" text-anchor="middle" class="b" style="font-size:12px">r 5Ω</text><polyline class="cw" points="92,42 156,42"/><rect class="cr" x="109" y="36" width="30" height="12" rx="1.5"/><text x="124" y="32" text-anchor="middle" class="b" style="font-size:12px">R</text><polyline class="cw" points="28,42 28,108 89,108"/><polyline class="cw" points="95,108 156,108 156,42"/><line class="cb" x1="89" y1="99" x2="89" y2="117"/><line class="cb" x1="95" y1="103" x2="95" y2="113"/><text x="92" y="132" text-anchor="middle" class="b" style="font-size:12px">E 1.5V</text><path class="arr" d="M42 96 L42 68 M37 76 L42 68 L47 76"/><text x="51" y="87" text-anchor="start" class="b" style="font-size:12px">0.1A</text></svg><figcaption>電流計が0.1Aのときの回路(内部抵抗 r と R の直列)</figcaption></figure></span></li></ol></div></div>
+        <div class="def"><div class="def-name">キルヒホッフの法則</div><div class="def-body">電源や抵抗の回路が複雑になると、オームの法則だけでは、流れる電流や任意の箇所の電圧が求められなくなります。その場合は、<b>キルヒホッフの法則</b>を使います。<div class="ref">〔参考〕キルヒホッフの法則の説明では、網目のような複雑な直流回路がよく使われます。網目のような回路であることから、<b>回路網</b>と呼ばれます。</div></div></div>
+        <div class="def"><div class="def-name">キルヒホッフの第1法則</div><div class="def-body">回路内の任意の分岐点に<b>流れ込む電流の和</b>は、<b>流れ出る電流の和</b>に等しい。<div class="calc"><span class='hl'>I₁ + I₂ = I₃ + I₄</span></div></div><figure class="zk"><svg viewBox="0 0 260 138" style="max-width:338px" role="img" aria-label="回路図"><path class="arr" d="M40 22 L130 64 M85 39.7 L89.5 45.1 L82.5 45.1"/><path class="arr" d="M40 106 L130 64 M82.5 82.9 L89.5 82.9 L85 88.3"/><path class="arr" d="M130 64 L220 22 M172.5 40.9 L179.5 40.9 L175 46.3"/><path class="arr" d="M130 64 L220 106 M175 81.7 L179.5 87.1 L172.5 87.1"/><circle class="cn" cx="130" cy="64" r="3"/><text x="34" y="16" text-anchor="middle" class="b" style="font-size:12px">I₁</text><text x="34" y="128" text-anchor="middle" class="b" style="font-size:12px">I₂</text><text x="228" y="16" text-anchor="middle" class="b" style="font-size:12px">I₃</text><text x="228" y="128" text-anchor="middle" class="b" style="font-size:12px">I₄</text></svg><figcaption>分岐点に出入りする電流(参考書の図を描き直した図です)</figcaption></figure></div>
+        <div class="def"><div class="def-name">キルヒホッフの第2法則</div><div class="def-body">回路内の任意の閉回路において、<b>起電力の和</b>と<b>電圧降下の和</b>は等しい。<br>起電力が2個ある下の回路で、第1法則と第2法則をまとめると、右の3つの式になります。E₁ については閉回路 ebafe を、E₂ については閉回路 dcbafed を対象にします。<div class="calc"><span class='hl'>I₁ + I₂ = I₃</span><br><span class='hl'>E₁ = R₁I₁ + R₃I₃</span><br><span class='hl'>E₂ = R₂I₂ + R₃I₃</span></div>この3つの式から、たとえば起電力と抵抗がわかっている場合は、電流を求めることができます。</div><figure class="zk"><svg viewBox="0 0 330 182" style="max-width:420px" role="img" aria-label="回路図"><polyline class="cw" points="52,34 276,34"/><polyline class="cw" points="52,34 52,162"/><polyline class="cw" points="276,34 276,162"/><polyline class="cw" points="52,102 212,102"/><polyline class="cw" points="218,102 276,102"/><polyline class="cw" points="52,162 212,162"/><polyline class="cw" points="218,162 276,162"/><rect class="cr" x="145" y="28" width="30" height="12" rx="1.5"/><text x="160" y="24" text-anchor="middle" class="b" style="font-size:12px">R₃</text><rect class="cr" x="95" y="96" width="30" height="12" rx="1.5"/><text x="110" y="92" text-anchor="middle" class="b" style="font-size:12px">R₁</text><rect class="cr" x="95" y="156" width="30" height="12" rx="1.5"/><text x="110" y="152" text-anchor="middle" class="b" style="font-size:12px">R₂</text><line class="cb" x1="212" y1="93" x2="212" y2="111"/><line class="cb" x1="218" y1="97" x2="218" y2="107"/><text x="215" y="88" text-anchor="middle" class="b" style="font-size:12px">E₁</text><line class="cb" x1="212" y1="153" x2="212" y2="171"/><line class="cb" x1="218" y1="157" x2="218" y2="167"/><text x="215" y="148" text-anchor="middle" class="b" style="font-size:12px">E₂</text><path class="arr" d="M82 21 L104 21 M97.7 18 L104 21 L97.7 24"/><text x="93" y="12" text-anchor="middle" class="b" style="font-size:11px">I₃</text><path class="arr" d="M176 88 L152 88 M158.3 91 L152 88 L158.3 85"/><text x="164" y="82" text-anchor="middle" class="b" style="font-size:11px">I₁</text><path class="arr" d="M176 148 L152 148 M158.3 151 L152 148 L158.3 145"/><text x="164" y="142" text-anchor="middle" class="b" style="font-size:11px">I₂</text><circle class="cn" cx="52" cy="102" r="3"/><circle class="cn" cx="276" cy="102" r="3"/><circle class="cn" cx="52" cy="162" r="3"/><circle class="cn" cx="276" cy="162" r="3"/><text x="44" y="38" text-anchor="end" class="b" style="font-size:12px">a</text><text x="284" y="38" text-anchor="start" class="b" style="font-size:12px">f</text><text x="44" y="106" text-anchor="end" class="b" style="font-size:12px">b</text><text x="284" y="106" text-anchor="start" class="b" style="font-size:12px">e</text><text x="44" y="166" text-anchor="end" class="b" style="font-size:12px">c</text><text x="284" y="166" text-anchor="start" class="b" style="font-size:12px">d</text></svg><figcaption>起電力が2個ある回路(参考書の図を描き直した図です)<br><small style="color:var(--muted)">矢印の向きは、はじめに仮定した電流の向き</small></figcaption></figure></div>
+        <div class="def"><div class="def-name">例題:キルヒホッフ(参考書より)</div><div class="def-body">この回路で、E₁ = 28V、E₂ = 14V、R₁ = 20Ω、R₂ = 10Ω、R₃ = 40Ω とするとき、電流 I₁・I₂・I₃ とその向きを求めなさい(電池の内部抵抗は無視できるものとする)。<figure class="zk"><svg viewBox="0 0 330 182" style="max-width:420px" role="img" aria-label="回路図"><polyline class="cw" points="52,34 276,34"/><polyline class="cw" points="52,34 52,162"/><polyline class="cw" points="276,34 276,162"/><polyline class="cw" points="52,102 212,102"/><polyline class="cw" points="218,102 276,102"/><polyline class="cw" points="52,162 212,162"/><polyline class="cw" points="218,162 276,162"/><rect class="cr" x="145" y="28" width="30" height="12" rx="1.5"/><text x="160" y="24" text-anchor="middle" class="b" style="font-size:12px">40Ω</text><rect class="cr" x="95" y="96" width="30" height="12" rx="1.5"/><text x="110" y="92" text-anchor="middle" class="b" style="font-size:12px">20Ω</text><rect class="cr" x="95" y="156" width="30" height="12" rx="1.5"/><text x="110" y="152" text-anchor="middle" class="b" style="font-size:12px">10Ω</text><line class="cb" x1="212" y1="93" x2="212" y2="111"/><line class="cb" x1="218" y1="97" x2="218" y2="107"/><text x="215" y="88" text-anchor="middle" class="b" style="font-size:12px">28V</text><line class="cb" x1="212" y1="153" x2="212" y2="171"/><line class="cb" x1="218" y1="157" x2="218" y2="167"/><text x="215" y="148" text-anchor="middle" class="b" style="font-size:12px">14V</text><path class="arr" d="M82 21 L104 21 M97.7 18 L104 21 L97.7 24"/><text x="93" y="12" text-anchor="middle" class="b" style="font-size:11px">I₃</text><path class="arr" d="M176 88 L152 88 M158.3 91 L152 88 L158.3 85"/><text x="164" y="82" text-anchor="middle" class="b" style="font-size:11px">I₁</text><path class="arr" d="M176 148 L152 148 M158.3 151 L152 148 L158.3 145"/><text x="164" y="142" text-anchor="middle" class="b" style="font-size:11px">I₂</text><circle class="cn" cx="52" cy="102" r="3"/><circle class="cn" cx="276" cy="102" r="3"/><circle class="cn" cx="52" cy="162" r="3"/><circle class="cn" cx="276" cy="162" r="3"/><text x="44" y="38" text-anchor="end" class="b" style="font-size:12px">a</text><text x="284" y="38" text-anchor="start" class="b" style="font-size:12px">f</text><text x="44" y="106" text-anchor="end" class="b" style="font-size:12px">b</text><text x="284" y="106" text-anchor="start" class="b" style="font-size:12px">e</text><text x="44" y="166" text-anchor="end" class="b" style="font-size:12px">c</text><text x="284" y="166" text-anchor="start" class="b" style="font-size:12px">d</text></svg><figcaption>例題の回路</figcaption></figure>第1法則・第2法則から、次の等式が得られます。<div class="calc">I₁ + I₂ = I₃ …①<br>28V = (20 × I₁) + (40 × I₃) …②<br>14V = (10 × I₂) + (40 × I₃) …③</div>式①の I₃ を式②と③に代入します。<div class="calc">28V = (20 × I₁) + (40 × I₁) + (40 × I₂) = (60 × I₁) + (40 × I₂)<br>両辺を4で割る ⇒ 7V = (15 × I₁) + (10 × I₂) …④<br>14V = (10 × I₂) + (40 × I₁) + (40 × I₂) = (40 × I₁) + (50 × I₂)<br>両辺を2で割る ⇒ 7V = (20 × I₁) + (25 × I₂) …⑤</div>式④と⑤から、I₁ または I₂ を消去します。ここでは、式④を2.5倍して I₂ を消去します。<div class="calc">17.5V = (37.5 × I₁) + (25 × I₂) …⑥</div>式⑥ − 式⑤で I₂ を消去できます。<div class="calc">17.5V − 7V = (37.5 × I₁) − (20 × I₁)<br>10.5V = 17.5 × I₁ ⇒ I₁ = 10.5 ÷ 17.5 = <span class='hl'>0.6A</span></div>式②に I₁ = 0.6 を代入します。<div class="calc">28 = 20 × 0.6 + 40 × I₃ ⇒ 28 − 12 = 40 × I₃ ⇒ I₃ = 16 ÷ 40 = <span class='hl'>0.4A</span></div>式①に I₁ = 0.6 と I₃ = 0.4 を代入します。<div class="calc">0.6A + I₂ = 0.4A ⇒ I₂ = 0.4A − 0.6A = <span class='hl'>−0.2A</span></div><span class='hl-warn'>電流がマイナスとなる場合は、あらかじめ仮定した向きとは逆である</span>ことを示します。<div class="calc">I₁ = 0.6A　左向き<br>I₂ = 0.2A　右向き<br>I₃ = 0.4A　右向き</div><div class='note-box'><b>参考書にはない補足(自作):</b> 検算:式③に I₂ = −0.2A、I₃ = 0.4A を入れると、10 × (−0.2) + 40 × 0.4 = −2 + 16 = 14 となり、14V と合います。</div></div></div>
+      </div>
+      <div class="section-sub">📝 過去問 5節【1】〜【6】</div>
+      <div id="quizArea-ch3-5" class="quiz-list"></div>
+    </div>
   </div>
 
   <footer>
@@ -4266,6 +4310,151 @@
 
   renderQuiz(PROBLEMS_CH3_3, 'quizArea-ch3-3');
 
+  var PROBLEMS_CH3_4 = [
+  {
+    "no": "4節 【1】",
+    "type": "single",
+    "q": "一般に電圧計や電流計を負荷回路に接続する方法として、正しいものは次のうちどれか。",
+    "opts": [
+      "電圧計は負荷に対して直列に、電流計は負荷に対して並列に接続する。",
+      "電圧計は負荷に対して並列に、電流計は負荷に対して直列に接続する。",
+      "電圧計、電流計はいずれも負荷に対して直列に接続する。",
+      "電圧計、電流計はいずれも負荷に対して並列に接続する。"
+    ],
+    "answer": 1,
+    "ex": "<b class='ans'>正解は選択肢2。</b>電圧計は負荷に対して<b>並列</b>、電流計は負荷に対して<b>直列</b>に接続します。<div class='note-box warn'><b>⚠ 選択肢1</b> 電圧計と電流計のつなぎ方が逆です。電圧計を直列につなぐと電源電圧に近い値を表示し、電流計を並列につなぐと負荷の電流より大きな値を表示してしまいます。</div>",
+    "freq": true
+  },
+  {
+    "no": "4節 【2】",
+    "type": "single",
+    "q": "一般に電圧計や電流計を負荷回路に接続する方法として、正しいものは次のうちどれか。",
+    "opts": [
+      "電圧計は、負荷に対して直列に接続する。",
+      "電圧計は、負荷に対して並列に接続する。",
+      "電流計は、負荷に対して並列に接続する。",
+      "電流計は、電圧計と直列にして、負荷に対して直列に接続する。"
+    ],
+    "answer": 1,
+    "ex": "<b class='ans'>正解は選択肢2。</b>電圧計は負荷に対して<b>並列</b>に接続します。<div class='note-box warn'><b>⚠ 選択肢4</b> 電流計は負荷に対して直列につなぎますが、「電圧計と直列にする」ことはしません。電圧計は内部抵抗が非常に大きいので、直列に入れると電圧計部分で大きく電圧が下がってしまいます。</div>"
+  },
+  {
+    "no": "4節 【3】",
+    "type": "single",
+    "q": "交流回路に接続する負荷設備に電圧計や電流計を設ける方法として、正しいものは次のうちどれか。",
+    "opts": [
+      "電圧計は内部抵抗が小さいので、負荷に対して並列に接続する。",
+      "電圧計は内部抵抗が大きいので、負荷に対して直列に接続する。",
+      "電流計は内部抵抗が小さいので、負荷に対して直列に接続する。",
+      "電流計は内部抵抗が大きいので、負荷に対して並列に接続する。"
+    ],
+    "answer": 2,
+    "ex": "<b class='ans'>正解は選択肢3。</b>電流計は内部抵抗が<b>小さい</b>ので、負荷に対して<b>直列</b>に接続します。<div class='note-box warn'><b>⚠ 選択肢1・2・4</b> 正しい組み合わせは、「電圧計は内部抵抗が大きい → 並列」「電流計は内部抵抗が小さい → 直列」です。この3つは、どこかが逆になっています。</div>"
+  },
+  {
+    "no": "4節 【4】",
+    "type": "single",
+    "q": "電圧や電流を測定するデジタル計器において、アナログ計器と比べたときの長所として、誤っているものは次のうちどれか。",
+    "opts": [
+      "電圧測定レンジは内部抵抗が大きいため、被測定回路に影響を与えにくい。",
+      "有効けた数が多く、精度が高い。",
+      "測定レンジの切り換えが不要で、極性による指針の逆振れがない。",
+      "時間の変化による度合いがわかりやすく、測定量を直感的に判断できる。"
+    ],
+    "answer": 3,
+    "ex": "<b class='ans'>正解は選択肢4(誤っているものを選ぶ問題)。</b>選択肢4の内容は、<b>アナログ計器</b>の長所です。デジタル計器の長所は、選択肢1〜3のとおりです。"
+  }
+];
+
+  renderQuiz(PROBLEMS_CH3_4, 'quizArea-ch3-4');
+
+  var PROBLEMS_CH3_5 = [
+  {
+    "no": "5節 【1】",
+    "type": "single",
+    "q": "起電力E〔V〕、内部抵抗r〔Ω〕の同一の電池4個を下図のように接続し、その両端A−B間に抵抗R〔Ω〕を接続したとき、回路に流れる電流I〔A〕として正しいものは次のうちどれか。",
+    "opts": [
+      "<span class=\"fr\"><span>2E</span><span>r + R</span></span>",
+      "<span class=\"fr\"><span>2E</span><span>2r + R</span></span>",
+      "<span class=\"fr\"><span>2E</span><span><span class=\"fr\"><span>r</span><span>2</span></span> + R</span></span>",
+      "<span class=\"fr\"><span>2E</span><span><span class=\"fr\"><span>r</span><span>4</span></span> + R</span></span>"
+    ],
+    "answer": 0,
+    "ex": "<b class='ans'>正解は選択肢1。</b>I₁ は上段の電池、I₂ は下段の電池を流れる電流とします。キルヒホッフの法則より、次の3つの等式が得られます。<div class=\"calc\">I₁ + I₂ = I …①<br>2E = 2r I₁ + R I …②<br>2E = 2r I₂ + R I …③</div>式②と③より、I₁ = I₂ となります。更に、式①より I₁ = I ÷ 2 となります。これを式②に代入します。<div class=\"calc\">2E = 2r × <span class=\"fr\"><span>I</span><span>2</span></span> + RI = rI + RI = (r + R)I<br>⇒ I = <span class='hl'><span class=\"fr\"><span>2E</span><span>r + R</span></span></span></div><div class='note-box'><b>参考書にはない補足(自作):</b> 式を使わない考え方もあります。電池2個を直列にした1本は「起電力 2E、内部抵抗 2r」になります。それが2本並列なので、内部抵抗は 2r ÷ 2 = r で、起電力は 2E のままです。あとは外部抵抗 R に対して I = 2E ÷ (r + R) です。</div>",
+    "fig": "<figure class=\"zk\"><svg viewBox=\"0 0 216 130\" style=\"max-width:280px\" role=\"img\" aria-label=\"回路図\"><polyline class=\"cw\" points=\"44,42 108,42\"/><rect class=\"cr\" x=\"61\" y=\"36\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"76\" y=\"32\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">R〔Ω〕</text><polyline class=\"cw\" points=\"108,42 172,42\"/><polyline class=\"cw\" points=\"44,76 50,76\"/><polyline class=\"cw\" points=\"80,76 87,76\"/><polyline class=\"cw\" points=\"93,76 108,76\"/><rect class=\"cr\" x=\"50\" y=\"70\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"65\" y=\"66\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"87\" y1=\"67\" x2=\"87\" y2=\"85\"/><line class=\"cb\" x1=\"93\" y1=\"71\" x2=\"93\" y2=\"81\"/><text x=\"90\" y=\"63\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><polyline class=\"cw\" points=\"108,76 114,76\"/><polyline class=\"cw\" points=\"144,76 151,76\"/><polyline class=\"cw\" points=\"157,76 172,76\"/><rect class=\"cr\" x=\"114\" y=\"70\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"129\" y=\"66\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"151\" y1=\"67\" x2=\"151\" y2=\"85\"/><line class=\"cb\" x1=\"157\" y1=\"71\" x2=\"157\" y2=\"81\"/><text x=\"154\" y=\"63\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><polyline class=\"cw\" points=\"44,110 50,110\"/><polyline class=\"cw\" points=\"80,110 87,110\"/><polyline class=\"cw\" points=\"93,110 108,110\"/><rect class=\"cr\" x=\"50\" y=\"104\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"65\" y=\"100\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"87\" y1=\"101\" x2=\"87\" y2=\"119\"/><line class=\"cb\" x1=\"93\" y1=\"105\" x2=\"93\" y2=\"115\"/><text x=\"90\" y=\"97\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><polyline class=\"cw\" points=\"108,110 114,110\"/><polyline class=\"cw\" points=\"144,110 151,110\"/><polyline class=\"cw\" points=\"157,110 172,110\"/><rect class=\"cr\" x=\"114\" y=\"104\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"129\" y=\"100\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"151\" y1=\"101\" x2=\"151\" y2=\"119\"/><line class=\"cb\" x1=\"157\" y1=\"105\" x2=\"157\" y2=\"115\"/><text x=\"154\" y=\"97\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><polyline class=\"cw\" points=\"44,42 44,110\"/><polyline class=\"cw\" points=\"172,42 172,110\"/><polyline class=\"cw\" points=\"24,76 44,76\"/><polyline class=\"cw\" points=\"172,76 192,76\"/><circle class=\"cn\" cx=\"44\" cy=\"76\" r=\"3\"/><circle class=\"cn\" cx=\"172\" cy=\"76\" r=\"3\"/><polyline class=\"cw\" points=\"16,76 24,76\"/><polyline class=\"cw\" points=\"192,76 200,76\"/><circle class=\"ct\" cx=\"15\" cy=\"76\" r=\"3\"/><text x=\"15\" y=\"67\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">A</text><circle class=\"ct\" cx=\"201\" cy=\"76\" r=\"3\"/><text x=\"201\" y=\"67\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">B</text></svg></figure>"
+  },
+  {
+    "no": "5節 【2】",
+    "type": "single",
+    "q": "下図のように、起電力E〔V〕、内部抵抗r〔Ω〕の同一の電池2個を直列に接続し、その両端a−c間にR〔Ω〕の外部抵抗を接続したとき、回路に流れる電流I〔A〕として、正しいものは次のうちどれか。",
+    "opts": [
+      "<span class=\"fr\"><span>E</span><span>2r + R</span></span>",
+      "<span class=\"fr\"><span>2E</span><span>2r + R</span></span>",
+      "<span class=\"fr\"><span>E</span><span><span class=\"fr\"><span>r</span><span>2</span></span> + R</span></span>",
+      "<span class=\"fr\"><span>2E</span><span><span class=\"fr\"><span>r</span><span>2</span></span> + R</span></span>"
+    ],
+    "answer": 1,
+    "ex": "<b class='ans'>正解は選択肢2。</b>回路に流れる電流は、回路に加わる電圧 V = I × R より、次のとおりです。電池2個の直列なので、起電力は 2E、内部抵抗は 2r です。<div class=\"calc\">2E = I × (2r + R)<br>⇒ I = <span class='hl'><span class=\"fr\"><span>2E</span><span>2r + R</span></span></span></div>",
+    "fig": "<figure class=\"zk\"><svg viewBox=\"0 0 184 142\" style=\"max-width:239px\" role=\"img\" aria-label=\"回路図\"><polyline class=\"cw\" points=\"28,42 34,42\"/><polyline class=\"cw\" points=\"64,42 71,42\"/><polyline class=\"cw\" points=\"77,42 92,42\"/><rect class=\"cr\" x=\"34\" y=\"36\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"49\" y=\"32\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"71\" y1=\"37\" x2=\"71\" y2=\"47\"/><line class=\"cb\" x1=\"77\" y1=\"33\" x2=\"77\" y2=\"51\"/><text x=\"74\" y=\"29\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><polyline class=\"cw\" points=\"92,42 98,42\"/><polyline class=\"cw\" points=\"128,42 135,42\"/><polyline class=\"cw\" points=\"141,42 156,42\"/><rect class=\"cr\" x=\"98\" y=\"36\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"113\" y=\"32\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">r</text><line class=\"cb\" x1=\"135\" y1=\"37\" x2=\"135\" y2=\"47\"/><line class=\"cb\" x1=\"141\" y1=\"33\" x2=\"141\" y2=\"51\"/><text x=\"138\" y=\"29\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">E</text><circle class=\"cn\" cx=\"92\" cy=\"42\" r=\"3\"/><text x=\"92\" y=\"33\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">b</text><polyline class=\"cw\" points=\"28,42 28,108 77,108\"/><polyline class=\"cw\" points=\"107,108 156,108 156,42\"/><rect class=\"cr\" x=\"77\" y=\"102\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"92\" y=\"132\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">R</text><text x=\"22\" y=\"36\" text-anchor=\"end\" class=\"b\" style=\"font-size:12px\">a</text><text x=\"162\" y=\"36\" text-anchor=\"start\" class=\"b\" style=\"font-size:12px\">c</text></svg></figure>"
+  },
+  {
+    "no": "5節 【3】",
+    "type": "single",
+    "q": "起電力100V、内部抵抗5Ωの電源に20Ωの外部抵抗器を接続した場合、抵抗器の両端における電圧の大きさとして、正しいものは次のうちどれか。",
+    "opts": [
+      "80V",
+      "90V",
+      "97V",
+      "100V"
+    ],
+    "answer": 0,
+    "ex": "<b class='ans'>正解は選択肢1(80V)。</b>分圧の考え方で解くことができます。内部抵抗5Ωと外部抵抗20Ωは直列で、求める電圧 V は20Ωにかかる電圧です。<figure class=\"zk\"><svg viewBox=\"0 0 184 136\" style=\"max-width:239px\" role=\"img\" aria-label=\"回路図\"><polyline class=\"cw\" points=\"28,76 34,76\"/><polyline class=\"cw\" points=\"64,76 71,76\"/><polyline class=\"cw\" points=\"77,76 92,76\"/><rect class=\"cr\" x=\"34\" y=\"70\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"49\" y=\"66\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">5Ω</text><line class=\"cb\" x1=\"71\" y1=\"71\" x2=\"71\" y2=\"81\"/><line class=\"cb\" x1=\"77\" y1=\"67\" x2=\"77\" y2=\"85\"/><text x=\"74\" y=\"63\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">100V</text><polyline class=\"cw\" points=\"92,76 156,76\"/><rect class=\"cr\" x=\"109\" y=\"70\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"124\" y=\"66\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">20Ω</text><polyline class=\"cw\" points=\"28,76 28,124 156,124 156,76\"/><polyline class=\"cw\" points=\"92,76 92,36 113,36\"/><polyline class=\"cw\" points=\"135,36 156,36 156,76\"/><circle class=\"cn\" cx=\"92\" cy=\"76\" r=\"3\"/><circle class=\"cn\" cx=\"156\" cy=\"76\" r=\"3\"/><circle class=\"cr\" cx=\"124\" cy=\"36\" r=\"11\"/><text x=\"124\" y=\"40.5\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">V</text></svg><figcaption>電圧計で外部抵抗器の両端の電圧をはかる(描き直した図)<br><small style=\"color:var(--muted)\">電池は「内部抵抗5Ω + 起電力100V」</small></figcaption></figure><div class=\"calc\">V = <span class=\"fr\"><span>20Ω</span><span>5Ω + 20Ω</span></span> × 100V<br>= <span class=\"fr\"><span>20</span><span>25</span></span> × 100V = 20 × 4V = <span class='hl'>80V</span></div><div class='note-box warn'><b>⚠ 選択肢4(100V)</b> 100Vは電池の起電力です。電流が流れている間は、内部抵抗の電圧降下(5Ωの分 = 20V)があるため、外部抵抗器の両端は100Vになりません(100V − 20V = 80V)。</div>"
+  },
+  {
+    "no": "5節 【4】",
+    "type": "single",
+    "q": "下図のように、起電力3V、内部抵抗2Ωの電池を2個並列に接続し、これに29Ωの抵抗を直列に接続した。各電池に流れる電流として、正しいものはどれか。",
+    "opts": [
+      "30mA",
+      "40mA",
+      "50mA",
+      "60mA"
+    ],
+    "answer": 2,
+    "ex": "<b class='ans'>正解は選択肢3(50mA)。</b>ひとつの電池に流れる電流を I₁、29Ωの抵抗に流れる電流を I とすると、次の2つの等式が得られます。<div class=\"calc\">2 I₁ = I …①<br>3V = 2Ω × I₁ + 29Ω × I …②</div>式①の I を式②に代入します。<div class=\"calc\">3V = 2Ω × I₁ + 29Ω × 2I₁ = 2Ω × I₁ + 58Ω × I₁ = 60Ω × I₁<br>I₁ = 3V ÷ 60Ω = 0.05A = <span class='hl'>50mA</span></div><div class='note-box'><b>参考書にはない補足(自作):</b> 並列の電池2個は「起電力3V、内部抵抗 2Ω ÷ 2 = 1Ω」とまとめられます。全体の電流は 3V ÷ (1Ω + 29Ω) = 0.1A で、これを2個の電池が分け合うので、1個あたり 0.05A = 50mA です。</div>",
+    "fig": "<figure class=\"zk\"><svg viewBox=\"0 0 224 146\" style=\"max-width:291px\" role=\"img\" aria-label=\"回路図\"><polyline class=\"cw\" points=\"28,59 92,59\"/><rect class=\"cr\" x=\"45\" y=\"53\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"60\" y=\"49\" text-anchor=\"middle\" class=\"b\" style=\"font-size:12px\">29Ω</text><polyline class=\"cw\" points=\"112,42 118,42\"/><polyline class=\"cw\" points=\"148,42 155,42\"/><polyline class=\"cw\" points=\"161,42 176,42\"/><rect class=\"cr\" x=\"118\" y=\"36\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"133\" y=\"32\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">2Ω</text><line class=\"cb\" x1=\"155\" y1=\"37\" x2=\"155\" y2=\"47\"/><line class=\"cb\" x1=\"161\" y1=\"33\" x2=\"161\" y2=\"51\"/><text x=\"158\" y=\"29\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">3V</text><polyline class=\"cw\" points=\"112,76 118,76\"/><polyline class=\"cw\" points=\"148,76 155,76\"/><polyline class=\"cw\" points=\"161,76 176,76\"/><rect class=\"cr\" x=\"118\" y=\"70\" width=\"30\" height=\"12\" rx=\"1.5\"/><text x=\"133\" y=\"66\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">2Ω</text><line class=\"cb\" x1=\"155\" y1=\"71\" x2=\"155\" y2=\"81\"/><line class=\"cb\" x1=\"161\" y1=\"67\" x2=\"161\" y2=\"85\"/><text x=\"158\" y=\"63\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">3V</text><polyline class=\"cw\" points=\"112,42 112,76\"/><polyline class=\"cw\" points=\"176,42 176,76\"/><polyline class=\"cw\" points=\"92,59 112,59\"/><polyline class=\"cw\" points=\"176,59 196,59\"/><circle class=\"cn\" cx=\"112\" cy=\"59\" r=\"3\"/><circle class=\"cn\" cx=\"176\" cy=\"59\" r=\"3\"/><polyline class=\"cw\" points=\"28,59 28,134 196,134 196,59\"/></svg></figure>"
+  },
+  {
+    "no": "5節 【5】",
+    "type": "single",
+    "q": "「回路網中の任意の接続点では、流れ込む電流の和と、流れ出る電流の和は等しい」。この法則の名称は、次のうちどれか。",
+    "opts": [
+      "クーロンの法則",
+      "レンツの法則",
+      "キルヒホッフの第1法則",
+      "オームの法則"
+    ],
+    "answer": 2,
+    "ex": "<b class='ans'>正解は選択肢3(キルヒホッフの第1法則)。</b>分岐点に流れ込む電流の和と、流れ出る電流の和が等しい、という法則です。ほかの選択肢は、次のような法則です。<ol class=\"def-list\"><li><span class=\"li-n\">1</span><span class=\"li-t\"><b>クーロンの法則</b>(静電気) … 2つの点電荷に働く静電力は、両電荷の積に比例し、両電荷の距離の2乗に反比例する。</span></li><li><span class=\"li-n\">2</span><span class=\"li-t\"><b>レンツの法則</b> … 誘導起電力は、コイルを貫く磁束の変化を妨げる向きに生じる。</span></li><li><span class=\"li-n\">3</span><span class=\"li-t\"><b>オームの法則</b> … 導体に流れる電流は、その両端に加えた電圧に比例する。</span></li></ol>"
+  },
+  {
+    "no": "5節 【6】",
+    "type": "single",
+    "q": "下の図と式の説明として、正しいものは次のうちどれか。",
+    "opts": [
+      "式1は、オームの法則に基づいている。",
+      "式1は、キルヒホッフの第1法則に基づいている。",
+      "式2は、クーロンの法則に基づいている。",
+      "式2は、アンペアの周回路の法則に基づいている。"
+    ],
+    "answer": 1,
+    "ex": "<b class='ans'>正解は選択肢2。</b>式1は、分岐点に流れ込む電流(I₁ と I₂)の和が、流れ出る電流(I₃)に等しいことを表しているので、<b>キルヒホッフの第1法則</b>に基づいています。<div class='note-box warn'><b>⚠ 選択肢3・4</b> 式2は、キルヒホッフの<b>第2法則</b>に基づいています(閉回路で、起電力の和 = 電圧降下の和)。キルヒホッフの第2法則に基づくもう1つの式は、次のとおりです。<div class=\"calc\">E₂ = R₃I₂ + R₂I₃</div></div>",
+    "fig": "<figure class=\"zk\"><svg viewBox=\"0 0 340 176\" style=\"max-width:420px\" role=\"img\" aria-label=\"回路図\"><polyline class=\"cw\" points=\"56,36 284,36\"/><polyline class=\"cw\" points=\"56,160 284,160\"/><polyline class=\"cw\" points=\"56,36 56,116\"/><polyline class=\"cw\" points=\"56,122 56,160\"/><polyline class=\"cw\" points=\"170,36 170,160\"/><polyline class=\"cw\" points=\"284,36 284,116\"/><polyline class=\"cw\" points=\"284,122 284,160\"/><rect class=\"cr\" x=\"50\" y=\"62\" width=\"12\" height=\"30\" rx=\"1.5\"/><text x=\"45\" y=\"81\" text-anchor=\"end\" class=\"b\" style=\"font-size:12px\">R₁</text><rect class=\"cr\" x=\"164\" y=\"72\" width=\"12\" height=\"30\" rx=\"1.5\"/><text x=\"181\" y=\"91\" text-anchor=\"start\" class=\"b\" style=\"font-size:12px\">R₂</text><rect class=\"cr\" x=\"278\" y=\"62\" width=\"12\" height=\"30\" rx=\"1.5\"/><text x=\"295\" y=\"81\" text-anchor=\"start\" class=\"b\" style=\"font-size:12px\">R₃</text><line class=\"cb\" x1=\"47\" y1=\"116\" x2=\"65\" y2=\"116\"/><line class=\"cb\" x1=\"51\" y1=\"122\" x2=\"61\" y2=\"122\"/><text x=\"43\" y=\"123\" text-anchor=\"end\" class=\"b\" style=\"font-size:12px\">E₁</text><line class=\"cb\" x1=\"275\" y1=\"116\" x2=\"293\" y2=\"116\"/><line class=\"cb\" x1=\"279\" y1=\"122\" x2=\"289\" y2=\"122\"/><text x=\"297\" y=\"123\" text-anchor=\"start\" class=\"b\" style=\"font-size:12px\">E₂</text><circle class=\"cn\" cx=\"170\" cy=\"36\" r=\"3\"/><circle class=\"cn\" cx=\"170\" cy=\"160\" r=\"3\"/><path class=\"arr\" d=\"M90 24 L118 24 M111.7 21 L118 24 L111.7 27\"/><text x=\"104\" y=\"16\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">I₁〔A〕</text><path class=\"arr\" d=\"M244 24 L216 24 M222.3 27 L216 24 L222.3 21\"/><text x=\"230\" y=\"16\" text-anchor=\"middle\" class=\"b\" style=\"font-size:11px\">I₂〔A〕</text><path class=\"arr\" d=\"M184 52 L184 76 M187 69.7 L184 76 L181 69.7\"/><text x=\"190\" y=\"50\" text-anchor=\"start\" class=\"b\" style=\"font-size:11px\">I₃〔A〕</text></svg></figure><div class=\"calc\">式1　I₁ + I₂ = I₃<br>式2　E₁ = R₁I₁ + R₂I₃</div>"
+  }
+];
+
+  renderQuiz(PROBLEMS_CH3_5, 'quizArea-ch3-5');
+
   // 案A: 全節の頻出問題をまとめた画面
   var FREQ_PROBLEMS_CH1 = [].concat(
     PROBLEMS_CH1_1, PROBLEMS_CH1_2, PROBLEMS_CH1_3, PROBLEMS_CH1_4, PROBLEMS_CH1_5, PROBLEMS_CH1_6,
@@ -4331,7 +4520,7 @@
 
   renderSecList(CH1_SECTIONS, 1, 'secList-1');
   renderSecList(CH2_SECTIONS, 2, 'secList-2');
-  renderSecList(CH3_SECTIONS, 3, 'secList-3', {2: 1, 3: 1});
+  renderSecList(CH3_SECTIONS, 3, 'secList-3', {2: 1, 3: 1, 5: 4});
 
   // 全問の正解と解説をまとめて表示するスイッチ(各節・頻出まとめ)
   document.querySelectorAll('.quiz-list').forEach(function(list){

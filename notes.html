@@ -336,6 +336,36 @@
   .sec-row.ready .state{color:var(--ok); font-weight:700;}
   .sec-row.disabled{opacity:.55; cursor:default;}
   .sec-row:not(.disabled):active{transform:translateY(1px);}
+  .sec-group{ display:flex; flex-direction:column; border:1px solid var(--border); border-radius:12px; background:var(--surface); overflow:hidden; }
+  .sec-group > .sec-row{ border:none; border-radius:0; background:transparent; padding-bottom:9px; }
+  .sec-row .num.range{ width:auto; min-width:24px; padding:0 9px; border-radius:999px; white-space:nowrap; }
+  .sec-chips{ display:flex; flex-wrap:wrap; gap:6px; padding:0 13px 12px; }
+  .sec-chip, .pn-chip{
+    font-family:inherit; font-size:12.5px; line-height:1.35; color:var(--ink); background:var(--surface-2);
+    border:1px solid var(--border); border-radius:999px; padding:5px 11px; cursor:pointer; text-align:left;
+  }
+  .sec-chip b, .pn-chip b{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); margin-right:5px; }
+  .sec-chip:active, .pn-chip:active{ transform:translateY(1px); }
+  .part-nav{
+    position:sticky; top:var(--pn-top,66px); z-index:4; display:flex; align-items:center; gap:8px;
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); padding:6px 8px;
+  }
+  .part-nav-chips{ flex:1; min-width:0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; }
+  .part-nav-chips::-webkit-scrollbar{ display:none; }
+  .pn-chip{ flex:none; white-space:nowrap; }
+  .pn-chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .pn-chip.on b{ color:inherit; }
+  .pn-fold{
+    flex:none; font-family:inherit; font-size:12px; font-weight:700; color:var(--accent); background:transparent;
+    border:1px solid var(--border); border-radius:999px; padding:5px 10px; cursor:pointer; white-space:nowrap;
+  }
+  .part, .part-body{ display:flex; flex-direction:column; gap:14px; }
+  .part-head[role="button"]{ cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
+  .part-head[role="button"]:focus-visible, .pn-chip:focus-visible, .sec-chip:focus-visible, .pn-fold:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .part-head .part-chev{ margin-left:auto; flex:none; font-size:15px; color:var(--muted); transition:transform .15s; }
+  .part.folded .part-chev{ transform:rotate(-90deg); }
+  .part.folded .part-body{ display:none; }
+  @media (prefers-reduced-motion: reduce){ .part-head .part-chev{ transition:none; } }
 
   .sec-content{display:flex; flex-direction:column; gap:14px;}
   .sec-content[hidden]{display:none;}
@@ -1939,11 +1969,22 @@
     alias = alias || {};
     var area = document.getElementById(containerId);
     var listWrap = document.getElementById('secList-' + chapterNo);
+
+    function openContent(contentId, partIdx){
+      listWrap.hidden = true;
+      document.getElementById(contentId).hidden = false;
+      jumpToPart(contentId, partIdx, true);
+    }
+
     sections.forEach(function(title, i){
       var secNo = i + 1;
-      var target = alias[secNo] || secNo;
-      var contentId = 'secContent-' + chapterNo + '-' + target;
-      var exists = !!document.getElementById(contentId);
+      if(alias[secNo]) return; // まとまりの2番目以降は、先頭の枠の中にまとめて出す
+      var contentId = 'secContent-' + chapterNo + '-' + secNo;
+      var content = document.getElementById(contentId);
+      var exists = !!content;
+      var members = [secNo];
+      Object.keys(alias).forEach(function(k){ if(alias[k] === secNo) members.push(+k); });
+      members.sort(function(a, b){ return a - b; });
 
       var row = document.createElement('button');
       row.type = 'button';
@@ -1951,48 +1992,60 @@
 
       var num = document.createElement('span');
       num.className = 'num';
-      num.textContent = secNo;
-      row.appendChild(num);
-
       var label = document.createElement('span');
       label.className = 'label';
-      label.textContent = title;
+      var grouped = exists && members.length > 1;
+      if(grouped){
+        num.classList.add('range');
+        num.textContent = members[0] + '〜' + members[members.length - 1];
+        var h1 = content.querySelector('.chapter-head h1');
+        label.textContent = h1 ? h1.textContent.replace(/^★\s*/, '') : title;
+      }else{
+        num.textContent = secNo;
+        label.textContent = title;
+      }
+      row.appendChild(num);
       row.appendChild(label);
 
       if(exists){
-        var members = [target];
-        Object.keys(alias).forEach(function(k){ if(alias[k] === target) members.push(+k); });
-        if(members.length > 1){
-          members.sort(function(a, b){ return a - b; });
-          var gn = document.createElement('span');
-          gn.className = 'group-note';
-          gn.textContent = members[0] + '〜' + members[members.length - 1] + '節まとめ';
-          row.appendChild(gn);
-        }
-        var freqCount = (target === secNo) ? document.getElementById(contentId).querySelectorAll('.freq-badge').length : 0;
+        var freqCount = content.querySelectorAll('.freq-badge').length;
         if(freqCount > 0){
           var star = document.createElement('span');
           star.className = 'freq-badge';
           star.textContent = '★ 頻出問題 ' + freqCount + '問';
           row.appendChild(star);
         }
+        row.addEventListener('click', function(){ openContent(contentId, 0); });
       }else{
         var state = document.createElement('span');
         state.className = 'state';
         state.textContent = '準備中';
         row.appendChild(state);
-      }
-
-      if(exists){
-        row.addEventListener('click', function(){
-          listWrap.hidden = true;
-          document.getElementById(contentId).hidden = false;
-        });
-      }else{
         row.disabled = true;
       }
 
-      area.appendChild(row);
+      if(grouped){
+        var box = document.createElement('div');
+        box.className = 'sec-group';
+        box.appendChild(row);
+        var chips = document.createElement('div');
+        chips.className = 'sec-chips';
+        members.forEach(function(n, idx){
+          var chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'sec-chip';
+          var b = document.createElement('b');
+          b.textContent = n;
+          chip.appendChild(b);
+          chip.appendChild(document.createTextNode(sections[n - 1]));
+          chip.addEventListener('click', function(){ openContent(contentId, idx); });
+          chips.appendChild(chip);
+        });
+        box.appendChild(chips);
+        area.appendChild(box);
+      }else{
+        area.appendChild(row);
+      }
     });
   }
 
@@ -6350,9 +6403,143 @@
   document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
     var hint = document.createElement('div');
     hint.className = 'swipe-hint';
-    hint.textContent = '👈 画面を右から左へスワイプで次の節、左から右へスワイプで前の節へ(画面のいちばん端から始めたスワイプは反応しません)';
+    hint.textContent = '👈 画面を右から左へスワイプで次の画面、左から右へスワイプで前の画面へ(画面のいちばん端から始めたスワイプは反応しません)';
     sec.insertBefore(hint, sec.children[1] || null);
   });
+
+  // 長い画面の対策: 上に固定の節ナビ + 節ごとの折りたたみ
+  var navHeader = document.querySelector('header.panel');
+  function navTopPx(){
+    var h = navHeader ? navHeader.offsetHeight : 48;
+    return h + 12 + 6;
+  }
+  function setNavTop(){ document.documentElement.style.setProperty('--pn-top', navTopPx() + 'px'); }
+  setNavTop();
+  window.addEventListener('resize', setNavTop);
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  document.querySelectorAll('.sec-content[id^="secContent-"]').forEach(function(sec){
+    var heads = Array.prototype.slice.call(sec.querySelectorAll(':scope > .part-head'));
+    if(heads.length < 2) return;
+    var parts = [];
+    var chipEls = [];
+    var chead = sec.querySelector(':scope > .chapter-head');
+    var nav = document.createElement('div');
+    nav.className = 'part-nav';
+    var chipBox = document.createElement('div');
+    chipBox.className = 'part-nav-chips';
+    var foldAll = document.createElement('button');
+    foldAll.type = 'button';
+    foldAll.className = 'pn-fold';
+    foldAll.textContent = 'すべて畳む';
+
+    function syncFoldAll(){
+      var anyOpen = parts.some(function(p){ return !p.classList.contains('folded'); });
+      foldAll.textContent = anyOpen ? 'すべて畳む' : 'すべてひらく';
+    }
+    function setFolded(part, folded){
+      part.classList.toggle('folded', folded);
+      part.firstElementChild.setAttribute('aria-expanded', folded ? 'false' : 'true');
+      syncFoldAll();
+    }
+
+    heads.forEach(function(ph, idx){
+      var items = [];
+      var n = ph.nextElementSibling;
+      while(n && !n.classList.contains('part-head')){ items.push(n); n = n.nextElementSibling; }
+      var part = document.createElement('div');
+      part.className = 'part';
+      var body = document.createElement('div');
+      body.className = 'part-body';
+      ph.parentNode.insertBefore(part, ph);
+      part.appendChild(ph);
+      part.appendChild(body);
+      items.forEach(function(it){ body.appendChild(it); });
+      parts.push(part);
+
+      var noEl = ph.querySelector('.part-no');
+      var noText = noEl ? noEl.textContent : '';
+      var name = ph.textContent.slice(noText.length);
+      var chev = document.createElement('span');
+      chev.className = 'part-chev';
+      chev.setAttribute('aria-hidden', 'true');
+      chev.textContent = '▾';
+      ph.appendChild(chev);
+      ph.setAttribute('role', 'button');
+      ph.setAttribute('tabindex', '0');
+      ph.setAttribute('aria-expanded', 'true');
+      function toggle(){ setFolded(part, !part.classList.contains('folded')); }
+      ph.addEventListener('click', toggle);
+      ph.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+      });
+
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'pn-chip' + (idx === 0 ? ' on' : '');
+      var b = document.createElement('b');
+      b.textContent = parseInt(noText, 10) || noText;
+      chip.appendChild(b);
+      chip.appendChild(document.createTextNode(name));
+      chip.addEventListener('click', function(){ jumpToPart(sec.id, idx, false); });
+      chipBox.appendChild(chip);
+      chipEls.push(chip);
+    });
+
+    foldAll.addEventListener('click', function(){
+      var anyOpen = parts.some(function(p){ return !p.classList.contains('folded'); });
+      parts.forEach(function(p){ setFolded(p, anyOpen); });
+      scrollToPart(sec, 0, false);
+    });
+    nav.appendChild(chipBox);
+    nav.appendChild(foldAll);
+    if(chead){ chead.parentNode.insertBefore(nav, chead.nextSibling); }
+    else{ sec.insertBefore(nav, sec.children[1] || null); }
+
+    // ★だけ表示のスイッチは、節を畳んでも見えるように、ナビの下へ移す
+    var ft = sec.querySelector('.freq-toggle');
+    if(ft){ nav.parentNode.insertBefore(ft, nav.nextSibling); }
+
+    sec._pn = { parts: parts, chips: chipEls, box: chipBox, nav: nav, setFolded: setFolded, active: 0 };
+  });
+
+  function jumpToPart(contentId, idx, instant){
+    var sec = document.getElementById(contentId);
+    var info = sec && sec._pn;
+    if(!info || !info.parts[idx] || (idx === 0 && instant)){
+      window.scrollTo(0, 0);
+      return;
+    }
+    info.setFolded(info.parts[idx], false);
+    scrollToPart(sec, idx, instant);
+  }
+  function scrollToPart(sec, idx, instant){
+    var info = sec._pn;
+    var offset = navTopPx() + info.nav.offsetHeight + 10;
+    var top = info.parts[idx].getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: (instant || reduceMotion) ? 'auto' : 'smooth' });
+  }
+
+  var navTick = false;
+  function updateActiveChip(){
+    navTick = false;
+    var sec = findOpenSection();
+    var info = sec && sec._pn;
+    if(!info) return;
+    var line = navTopPx() + info.nav.offsetHeight + 24;
+    var idx = 0;
+    info.parts.forEach(function(p, i){
+      if(p.getBoundingClientRect().top <= line) idx = i;
+    });
+    if(idx === info.active) return;
+    info.active = idx;
+    info.chips.forEach(function(c, i){ c.classList.toggle('on', i === idx); });
+    var c = info.chips[idx];
+    info.box.scrollLeft = c.offsetLeft - (info.box.clientWidth - c.offsetWidth) / 2;
+  }
+  window.addEventListener('scroll', function(){
+    if(!navTick){ navTick = true; requestAnimationFrame(updateActiveChip); }
+  }, { passive: true });
 
   function moveSection(step){
     var cur = document.querySelector('.sec-content[id^="secContent-"]:not([hidden])');
@@ -6423,7 +6610,10 @@
       var chapterNo = cur.closest('.chapter-panel').getAttribute('data-chapter');
       var m = cur.id.match(/^secContent-\d+-(\d+)$/);
       var h1 = cur.querySelector('.chapter-head h1');
-      line1 = chapterNo + '章' + (m ? ' ' + m[1] + '節' : '');
+      var pns = cur.querySelectorAll('.part-no');
+      var rng = m ? m[1] + '節' : '';
+      if(m && pns.length > 1){ rng = parseInt(pns[0].textContent, 10) + '〜' + parseInt(pns[pns.length - 1].textContent, 10) + '節'; }
+      line1 = chapterNo + '章' + (m ? ' ' + rng : '');
       line2 = h1 ? h1.textContent.replace(/^★\s*/, '') : '';
     }else{
       var tab = document.querySelector('.chapter-tab.active');
